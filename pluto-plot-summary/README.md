@@ -30,12 +30,11 @@
 | C | `PERTURBATION` 摄动 | 意外 / 转折 / 外部事件 |
 | D | `ESCAPE VELOCITY` 逃逸速度 | 搞事情 / 乐子人 |
 
-**点击载入**：点任意一条（或键盘 Tab 聚焦后按 Enter / 空格），该条正文会写进
-`#send_textarea` 并派发 `input` 事件（触发输入框自动撑高），同时那一条标记为「已载入」。
-默认是**覆盖**输入框内容；想改成追加，把 `src/opt_build.py` 里 `CLICK` 的
-`t.value=q.innerText.trim();` 换成 `t.value=(t.value.trim()?t.value.trim()+'\n':'')+q.innerText.trim();` 再重新构建。
+**点击载入（未生效，待定方案）**：内联 `onclick` 会被酒馆的 DOMPurify 整个剥掉，
+所以卡片内直接点击填输入框在原生酒馆里行不通。处理器代码仍保留在 `src/opt_build.py` 的
+`CLICK` / `KEYS` 里，等确定机制后接上。悬停高亮与 `is-picked` 样式已就位。
 
-**宇宙注脚**用 `<Pluto_note>` 承载，渲染成手写体（行楷 → 楷体 → 回退），略微倾斜 0.35°，
+**宇宙注脚**用 `<Pluto_note>` 承载，渲染成手写体（行楷 → 楷体 → 回退），13.5px 居中，
 两端配 `⟡` 与 `⋆ ˚ ｡`。文案规则写在 `预设-剧情选项-Theme.txt` 里。
 
 ## 自定义
@@ -50,7 +49,8 @@
 | `--plu-ink` | `#e6eaf3` | 正文冷白 |
 | `--plu-serif` | 宋体系 | 正文字体，回退到苹方而非 SimSun |
 
-**默认收起**：把 `src/markup.html` 里的 `<details class="plu-log" open>` 去掉 ` open`，重新 `python3 src/build.py`。
+**默认展开**：两张卡默认都是折叠的。想让某张默认展开，给它的 `<details>` 加回 ` open`
+（`src/markup.html` / `src/opt_build.py` 的 `MARKUP`），重新构建。
 
 **收起态那行字**在 `.plu-tease` 里（`PLUTO` / `摘要` / `⋆ ˚ ｡` 三段各自可改）。
 展开后底部星屑那行是 `.plu-star`，换成别的颜文字直接替换字符即可。
@@ -63,6 +63,7 @@
 - `<time>` 里的 `｜` 会被拆成 `DATE` / `TIME` 两个字段，等宽数字对齐；半角 `|` 同样识别
 - `<serial>` 中的 `Scene` / `场景` / `第` / `#` / `№` 前缀会被剥掉，只留编号
 - 标签之间允许空白与 `<br>`
+- 卡片 `max-width:620px`，宽屏下不会拉满整行
 - 移动端 430px 以下自动收窄留白、隐藏英文副标
 - 折叠用原生 `<details>/<summary>`，`summary` 是 `details` 的首个子元素；星点、弦月、胶片颗粒
   全部走 `.plu-log` 的背景层，四角取景刻线由 `::after` 内嵌边框 + 四角 mask 切出 —— 装饰不占 DOM

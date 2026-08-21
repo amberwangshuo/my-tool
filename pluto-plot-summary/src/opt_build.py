@@ -25,20 +25,17 @@ KEYS = "if(event.key==='Enter'||event.key===' '){event.preventDefault();this.cli
 def opt(i, key, en, zh):
     return ('<div class="plo-opt" role="button" tabindex="0" onclick="%s" onkeydown="%s">'
             '<span class="plo-key">%s</span>'
-            '<span class="plo-cap"><span>%s</span><i>%s</i>'
-            '<b>&#8629; 载入</b><em>&#8629; 已载入</em></span>'
+            '<span class="plo-cap"><span>%s</span><i>%s</i></span>'
             '<span class="plo-text">$%d</span></div>' % (CLICK, KEYS, key, en, zh, i))
 
 MARKUP = (
-    '<details class="plo-log" open><summary class="plo-sum">'
+    '<details class="plo-log"><summary class="plo-sum">'
     '<span class="plo-tease"><span class="plo-mark">&#10209;</span>'
     '<span class="plo-tz"><b>PLUTO</b>航向</span>'
     '<span class="plo-dust">&#8902; &#730; &#65377;</span></span>'
     '<div class="plo-head"><span class="plo-mark">&#10209;</span>'
     '<span class="plo-brand">冥王星<b>PLUTO</b></span><span class="plo-rule"></span>'
-    '<span class="plo-no">TRAJECTORY A&#8211;D</span></div>'
-    '<div class="plo-hint"><span class="plo-k">SELECT</span>'
-    '<span class="plo-hv">点击任意一条载入输入框</span><span class="plo-chev"></span></div>'
+    '<span class="plo-no">TRAJECTORY A&#8211;D</span><span class="plo-chev"></span></div>'
     '</summary><div class="plo-body"><div class="plo-list">'
     + ''.join(opt(n + 1, *t) for n, t in enumerate(TRAJ)) +
     '</div><div class="plo-sep"></div>'

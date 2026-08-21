@@ -2,7 +2,9 @@
 import os
 BASE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(BASE)
 css = open(os.path.join(BASE,'style.css'),encoding='utf-8').read()
-card = open(os.path.join(BASE,'card.preview.html'),encoding='utf-8').read().split('</style>\n',1)[1].strip()
+card_closed = open(os.path.join(BASE,'card.preview.html'),encoding='utf-8').read().split('</style>\n',1)[1].strip()
+assert '<details class="plu-log">' in card_closed, '摘要卡应默认折叠'
+card = card_closed.replace('<details class="plu-log">', '<details class="plu-log" open>')
 
 card2 = card.replace('class="plu-log"', 'class="plu-log" style="--plu-a:1"') \
             .replace('SCENE 02','SCENE 03') \
@@ -11,8 +13,7 @@ card2 = card.replace('class="plu-log"', 'class="plu-log" style="--plu-a:1"') \
             .replace('商陆葵上了赵泽川的车，途中询问斯坦福暑期经济学课程事宜，赵泽川简短回应并推荐了 Sahni 的课。两人驱车前往商陆葵预约的葡萄牙餐厅。入座后，商陆葵主导点菜和话题节奏，两人围绕暑假安排、各自成长背景展开初步交流。赵泽川提及北京时一笔带过，商陆葵注意到这一细节但未追问。席间聊到学业压力，赵泽川称自己十二点前睡觉，商陆葵借此试探提出日后请教作业的可能，赵泽川回应：「你可以先发过来，我看看再说。」',
                      '把 --plu-a 调回 1，那层偏蓝近黑的底片就回来了。星点、弦月、四角刻线不变，只是卡片从背景里浮出来一层。浅色界面或者背景图太花的时候用这一版。')
 
-card3 = card.replace('<details class="plu-log" open>', '<details class="plu-log">') \
-            .replace('SCENE 02','SCENE 01') \
+card3 = card_closed.replace('SCENE 02','SCENE 01') \
             .replace('2026-08-26','2026-08-24').replace('18:40-19:30','14:05-14:40')
 
 # ---- 剧情选项卡 ----
@@ -23,7 +24,9 @@ optcss = optcss[len('<style>'):]
 optcard = optcard.strip()
 # 预览页里改用事件委托绑定，保证演示一定能跑；酒馆里用的是内联 onclick
 optcard = _re.sub(r'\son(?:click|keydown)="[^"]*"', '', optcard)
-optcard_closed = optcard.replace('<details class="plo-log" open>', '<details class="plo-log">')
+assert '<details class="plo-log">' in optcard, '选项卡应默认折叠'
+optcard_closed = optcard
+optcard = optcard.replace('<details class="plo-log">', '<details class="plo-log" open>')
 
 DEMO_JS = """
 document.addEventListener('click', function (e) {
@@ -88,11 +91,11 @@ footer{{margin-top:64px;padding-top:16px;border-top:1px solid rgba(255,255,255,.
 <p class="lede">把每轮剧情总结渲染成一张深空观测记录：编号、曝光时段、观测视场、正文注记。四角是取景刻线，右上角那道弦月是被远日照亮的冥王星。底色透明，直接浮在你的黑背景上；整条标题栏是折叠开关，收起后只剩一行字。</p>
 
 <h2>01 &nbsp;展开态</h2>
-<p>透明底，只有星点、弦月与发丝线浮在你自己的聊天背景上。整条标题栏可点击折叠。</p>
+<p>默认折叠，这里展开给你看。透明底，只有星点、星体弧线与发丝线浮在你自己的聊天背景上。</p>
 {card}
 
 <h2>02 &nbsp;收起态</h2>
-<p>框、底、刻线、漏光全部卸掉，只剩一行字。长对话里往回翻，它安静地待在那儿不抢戏。</p>
+<p>这才是默认状态。框、底、刻线、漏光全部卸掉，只剩一行字。</p>
 {card3}
 
 <h2>03 &nbsp;加回底片（可选）</h2>
@@ -100,7 +103,7 @@ footer{{margin-top:64px;padding-top:16px;border-top:1px solid rgba(255,255,255,.
 {card2}
 
 <h2>04 &nbsp;剧情选项</h2>
-<p>同一套语言，换一个隐喻：摘要卡记录已发生的观测，选项卡是四条待定轨道。A&#8211;D 的分类不是装饰，它标的就是每条选项的性质 —— 稳定轨道、近点接近、摄动、逃逸速度。点任意一条试试。</p>
+<p>同一套语言，换一个隐喻：摘要卡记录已发生的观测，选项卡是四条待定轨道。A&#8211;D 的分类不是装饰，它标的就是每条选项的性质 —— 稳定轨道、近点接近、摄动、逃逸速度。</p>
 {optcard}
 <div class="demo">
   <div class="demo-k">模拟酒馆输入框 &nbsp;#send_textarea</div>
@@ -109,7 +112,7 @@ footer{{margin-top:64px;padding-top:16px;border-top:1px solid rgba(255,255,255,.
 </div>
 
 <h2>05 &nbsp;选项卡收起态</h2>
-<p>和摘要卡一样，收起后只剩一行字。</p>
+<p>同样是默认状态。</p>
 {optcard_closed}
 
 <h2>06 &nbsp;色板</h2>
