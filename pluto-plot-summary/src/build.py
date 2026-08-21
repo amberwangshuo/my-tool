@@ -40,7 +40,8 @@ def script(name, find, repl, sid):
 
 main = script("冥王星 · 剧情摘要 PLUTO", FIND, replace_card,
               "2f1c6a80-5e3b-4c7d-9a11-7d0b5e9c4a01")
-clean = script("冥王星 · 残留标签清理", r'</?(?:abstract|serial|time|scene|plot)>', "",
+clean = script("冥王星 · 残留标签清理",
+               r'</?(?:abstract|serial|time|scene|plot|Episode|Pluto_plot_options|Pluto_opt[A-D]|Pluto_note)>', "",
                "2f1c6a80-5e3b-4c7d-9a11-7d0b5e9c4a02")
 
 for fn, obj in (('冥王星-剧情摘要.json', main), ('冥王星-残留标签清理.json', clean)):

@@ -15,6 +15,34 @@ card3 = card.replace('<details class="plu-log" open>', '<details class="plu-log"
             .replace('SCENE 02','SCENE 01') \
             .replace('2026-08-26','2026-08-24').replace('18:40-19:30','14:05-14:40')
 
+# ---- 剧情选项卡 ----
+import re as _re
+_opt = open(os.path.join(BASE,'opt.preview.html'),encoding='utf-8').read()
+optcss, optcard = _opt.split('</style>\n',1)
+optcss = optcss[len('<style>'):]
+optcard = optcard.strip()
+# 预览页里改用事件委托绑定，保证演示一定能跑；酒馆里用的是内联 onclick
+optcard = _re.sub(r'\son(?:click|keydown)="[^"]*"', '', optcard)
+optcard_closed = optcard.replace('<details class="plo-log" open>', '<details class="plo-log">')
+
+DEMO_JS = """
+document.addEventListener('click', function (e) {
+  var opt = e.target.closest('.plo-opt');
+  if (!opt) return;
+  var box = document.getElementById('send_textarea');
+  var q = opt.querySelector('.plo-text');
+  if (box && q) {
+    box.value = q.innerText.trim();
+    box.scrollTop = 0;
+  }
+  opt.parentNode.querySelectorAll('.plo-opt').forEach(function (n) {
+    n.classList.remove('is-picked');
+  });
+  opt.classList.add('is-picked');
+  document.getElementById('demo-hint').textContent = '已载入 · 酒馆里这一步会直接写进真实输入框';
+});
+"""
+
 SWATCH = [('#080a10','近黑底','偏蓝，不是纯黑'),('#e6eaf3','冷白正文','夜视下不刺眼'),
           ('#79839b','蓝灰弱字','字段名与注记'),('#8fcadb','冰川青','唯一强调色'),
           ('#7fa8cf','冰蓝','只做发丝线与微光')]
@@ -24,6 +52,7 @@ sw = ''.join(
 html = f'''<title>冥王星剧情摘要卡</title>
 <style>
 {css}
+{optcss}
 :root{{--pg:#050609;--pg2:#0a0c12;--ink:#e6eaf3;--dim:#79839b;--tan:#8fcadb;--ice:#7fa8cf;
 --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
 --sans:"PingFang SC","HarmonyOS Sans SC","Source Han Sans SC","Noto Sans SC","Microsoft YaHei",-apple-system,sans-serif;}}
@@ -46,6 +75,11 @@ h2+p{{margin:8px 0 18px;font-size:12.5px;line-height:1.9;color:var(--dim)}}
 .swatches span{{font-size:12.5px;color:#ccd4e3}}
 .swatches em{{font-style:normal;font-size:11.5px;color:var(--dim)}}
 @media(max-width:520px){{.swatches li{{grid-template-columns:22px 1fr;gap:10px}}.swatches i{{width:22px;height:22px}}.swatches em{{grid-column:2}}}}
+.demo{{margin-top:18px;border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:14px}}
+.demo-k{{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;color:rgba(154,192,226,.75);margin-bottom:9px}}
+.demo textarea{{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:2px;color:var(--ink);font-family:var(--sans);font-size:13px;line-height:1.85;padding:10px 12px;resize:vertical}}
+.demo textarea:focus{{outline:1px solid rgba(143,202,219,.6);outline-offset:-1px}}
+.demo-hint{{margin-top:9px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:rgba(154,192,226,.55)}}
 footer{{margin-top:64px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;color:rgba(127,168,207,.38)}}
 </style>
 <div class="wrap">
@@ -65,7 +99,20 @@ footer{{margin-top:64px;padding-top:16px;border-top:1px solid rgba(255,255,255,.
 <p>默认是透明的。如果你的界面不是纯黑，一行变量就能把底片加回来。</p>
 {card2}
 
-<h2>04 &nbsp;色板</h2>
+<h2>04 &nbsp;剧情选项</h2>
+<p>同一套语言，换一个隐喻：摘要卡记录已发生的观测，选项卡是四条待定轨道。A&#8211;D 的分类不是装饰，它标的就是每条选项的性质 —— 稳定轨道、近点接近、摄动、逃逸速度。点任意一条试试。</p>
+{optcard}
+<div class="demo">
+  <div class="demo-k">模拟酒馆输入框 &nbsp;#send_textarea</div>
+  <textarea id="send_textarea" rows="3" placeholder="点上面任意一条选项，文本会落到这里"></textarea>
+  <div class="demo-hint" id="demo-hint">等待选择</div>
+</div>
+
+<h2>05 &nbsp;选项卡收起态</h2>
+<p>和摘要卡一样，收起后只剩一行字。</p>
+{optcard_closed}
+
+<h2>06 &nbsp;色板</h2>
 <p>整套只有冷白、蓝灰、冰川青三层。强调色只出现在编号、四角刻线、星体弧线和顶部那道亮边。</p>
 <ul class="swatches">{sw}</ul>
 

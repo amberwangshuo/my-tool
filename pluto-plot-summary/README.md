@@ -1,18 +1,42 @@
-# 冥王星 · 剧情摘要美化正则
+# 冥王星 · 酒馆美化正则
 
-把预设 `PLOT_SUMMARY_GUIDANCE` 输出的 `<abstract>` 块渲染成一张**深空观测记录卡**。
+两张卡，同一套冷调夜间语言：
+
+- **剧情摘要** —— 把 `PLOT_SUMMARY_GUIDANCE` 的 `<abstract>` 块渲染成一张**深空观测记录卡**（已发生的观测）
+- **剧情选项** —— 把 `<Episode>` 的四条选项渲染成**四条待定轨道**（未发生的解算），每条可点击载入输入框
+
 冷调夜间配色，**底色透明**（直接浮在你自己的聊天背景上），无 emoji，强调色只有一种冰川青。
 整条标题栏是折叠开关（原生 `<details>`，不依赖 JS）—— 收起后框、底、刻线全部卸掉，只剩 `⟡ PLUTO 摘要 ⋆ ˚ ｡` 一行字。
 右上角那道细弧是冥王星的星体边缘，用的是和四角刻线同一套线条语言。
 
 ## 安装
 
-1. 酒馆 → **扩展 → 正则 (Regex)** → 导入 `冥王星-剧情摘要.json`
+1. 酒馆 → **扩展 → 正则 (Regex)** → 导入 `冥王星-剧情摘要.json`、`冥王星-剧情选项.json`
 2. 可选：再导入 `冥王星-残留标签清理.json`，用于流式输出未闭合时兜底隐藏裸标签
+2b. 剧情选项还需要把 `预设-剧情选项-Theme.txt` 的内容替换掉预设里原来的 `<Theme type="剧情选项">` 块
 3. 两个脚本都作用于 **AI 输出**，且勾选了 **仅格式显示 (markdownOnly)** —— 不改动发给模型的上下文，
    模型仍能读到完整的 `<abstract>` 结构，不影响后续总结的连贯性
 
-> 若同时启用，把"残留标签清理"拖到"剧情摘要"**下方**，保证主脚本先匹配。
+> 「残留标签清理」必须排在两个主脚本**下方**，保证主脚本先匹配。
+
+## 剧情选项
+
+四条航向对应四种轨道解算，分类标的就是选项性质本身：
+
+| | 分类 | 对应走向 |
+| --- | --- | --- |
+| A | `STABLE ORBIT` 稳定轨道 | 顺应当前气氛推进 |
+| B | `CLOSE APPROACH` 近点接近 | 情感升温 / 浪漫 |
+| C | `PERTURBATION` 摄动 | 意外 / 转折 / 外部事件 |
+| D | `ESCAPE VELOCITY` 逃逸速度 | 搞事情 / 乐子人 |
+
+**点击载入**：点任意一条（或键盘 Tab 聚焦后按 Enter / 空格），该条正文会写进
+`#send_textarea` 并派发 `input` 事件（触发输入框自动撑高），同时那一条标记为「已载入」。
+默认是**覆盖**输入框内容；想改成追加，把 `src/opt_build.py` 里 `CLICK` 的
+`t.value=q.innerText.trim();` 换成 `t.value=(t.value.trim()?t.value.trim()+'\n':'')+q.innerText.trim();` 再重新构建。
+
+**宇宙注脚**用 `<Pluto_note>` 承载，渲染成手写体（行楷 → 楷体 → 回退），略微倾斜 0.35°，
+两端配 `⟡` 与 `⋆ ˚ ｡`。文案规则写在 `预设-剧情选项-Theme.txt` 里。
 
 ## 自定义
 
@@ -47,8 +71,9 @@
 ## 开发
 
 ```
-python3 src/build.py          # 由 src/style.css + src/markup.html 生成两个 JSON（含正则自检）
-python3 src/build_preview.py  # 生成 preview.html
+python3 src/build.py          # 摘要卡 + 清理脚本（含正则自检）
+python3 src/opt_build.py      # 选项卡（含正则自检、调色板一致性断言）
+python3 src/build_preview.py  # 生成 preview.html（依赖前两步的产物）
 ```
 
-改样式请改 `src/style.css`，不要直接编辑 JSON。
+改样式请改 `src/style.css` / `src/opt.style.css`，不要直接编辑 JSON。
