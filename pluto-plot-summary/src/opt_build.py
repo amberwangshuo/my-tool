@@ -12,21 +12,12 @@ TRAJ = [
     ('D', 'ESCAPE VELOCITY', '逃逸速度'),   # 搞事情
 ]
 
-# 内联事件里不出现 '<' 与 '&'，避免过任何 HTML 解析器时被截断
-CLICK = ("var t=document.getElementById('send_textarea');"
-         "if(t){var q=this.querySelector('.plo-text');"
-         "if(q){t.value=q.innerText.trim();"
-         "t.dispatchEvent(new Event('input',{bubbles:true}));t.focus();}}"
-         "var p=this.parentNode.querySelectorAll('.plo-opt');"
-         "for(var i=p.length;i--;){p[i].classList.remove('is-picked');}"
-         "this.classList.add('is-picked');")
-KEYS = "if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
-
 def opt(i, key, en, zh):
-    return ('<div class="plo-opt" role="button" tabindex="0" onclick="%s" onkeydown="%s">'
-            '<span class="plo-key">%s</span>'
+    # 酒馆的 DOMPurify 会剥掉 on* 属性，所以载入靠 CSS 的 user-select:all：
+    # 点正文即整段选中，Ctrl+C / Ctrl+V。见 opt.style.css 的 .plo-text。
+    return ('<div class="plo-opt"><span class="plo-key">%s</span>'
             '<span class="plo-cap"><span>%s</span><i>%s</i></span>'
-            '<span class="plo-text">$%d</span></div>' % (CLICK, KEYS, key, en, zh, i))
+            '<span class="plo-text">$%d</span></div>' % (key, en, zh, i))
 
 MARKUP = (
     '<details class="plo-log"><summary class="plo-sum">'
@@ -95,8 +86,7 @@ assert list(m.groups()) == SAMPLE, m.groups()
 raw2 = raw.replace("<details>\n", "").replace("<summary> 📋 CHOIR的行动建议 </summary>\n", "").replace("</details>\n", "")
 assert re.search(FIND, raw2, re.I), "精简模板匹配失败"
 
-# 内联事件不能含 '<' 或 '&'
-assert '<' not in CLICK and '&' not in CLICK and '<' not in KEYS and '&' not in KEYS
+assert 'onclick' not in MARKUP and 'tabindex' not in MARKUP
 print("options regex OK, 两种模板都匹配；replaceString", len(script["replaceString"]))
 
 card = MARKUP
