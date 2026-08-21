@@ -16,6 +16,12 @@ card2 = card.replace('class="plu-log"', 'class="plu-log" style="--plu-a:1"') \
 card3 = card_closed.replace('SCENE 02','SCENE 01') \
             .replace('2026-08-26','2026-08-24').replace('18:40-19:30','14:05-14:40')
 
+# ---- 开头状态栏 ----
+_hud = open(os.path.join(BASE,'hud.preview.html'),encoding='utf-8').read()
+hudcss, hudcard = _hud.split('</style>\n',1)
+hudcss = hudcss[len('<style>'):]
+hudcard = hudcard.strip()
+
 # ---- 剧情选项卡 ----
 _opt = open(os.path.join(BASE,'opt.preview.html'),encoding='utf-8').read()
 optcss, optcard = _opt.split('</style>\n',1)
@@ -35,6 +41,7 @@ html = f'''<title>冥王星剧情摘要卡</title>
 <style>
 {css}
 {optcss}
+{hudcss}
 :root{{--pg:#050609;--pg2:#0a0c12;--ink:#e6eaf3;--dim:#79839b;--tan:#8fcadb;--ice:#7fa8cf;
 --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
 --sans:"PingFang SC","HarmonyOS Sans SC","Source Han Sans SC","Noto Sans SC","Microsoft YaHei",-apple-system,sans-serif;}}
@@ -64,26 +71,30 @@ footer{{margin-top:64px;padding-top:16px;border-top:1px solid rgba(255,255,255,.
 <h1>冥王星 · 剧情摘要<b>PLUTO / PLOT SUMMARY</b></h1>
 <p class="lede">把每轮剧情总结渲染成一张深空观测记录：编号、曝光时段、观测视场、正文注记。四角是取景刻线，右上角那道弦月是被远日照亮的冥王星。底色透明，直接浮在你的黑背景上；整条标题栏是折叠开关，收起后只剩一行字。</p>
 
-<h2>01 &nbsp;展开态</h2>
+<h2>01 &nbsp;开头状态栏</h2>
+<p>主题是《历史上的今天》，但真正的题目是<b>距离</b>：光年数就是年份差本身，一颗 143 光年外的星今晚送到的光，正是 1883 年离开的。三行由远及近排列，<b>越远的光越暗</b> —— 年份的亮度与微光随距离递减，这是真实关系，不是效果。只用白色，无框无底，只有横向发丝线。</p>
+{hudcard}
+
+<h2>02 &nbsp;摘要卡展开态</h2>
 <p>默认折叠，这里展开给你看。透明底，只有星点、星体弧线与发丝线浮在你自己的聊天背景上。</p>
 {card}
 
-<h2>02 &nbsp;收起态</h2>
+<h2>03 &nbsp;摘要卡收起态</h2>
 <p>这才是默认状态。框、底、刻线、漏光全部卸掉，只剩一行字。</p>
 {card3}
 
-<h2>03 &nbsp;加回底片（可选）</h2>
+<h2>04 &nbsp;加回底片（可选）</h2>
 <p>默认是透明的。如果你的界面不是纯黑，一行变量就能把底片加回来。</p>
 {card2}
 
-<h2>04 &nbsp;剧情选项</h2>
+<h2>05 &nbsp;剧情选项</h2>
 <p>同一套语言，换一个隐喻：摘要卡记录已发生的观测，选项卡是四条待定轨道。A&#8211;D 的分类不是装饰，它标的就是每条选项的性质 —— 稳定轨道、近点接近、摄动、逃逸速度。<br>点任意一条的正文试试 —— 整段会被一次选中，Ctrl+C 复制即可粘进输入框。</p>
 {optcard}
-<h2>05 &nbsp;选项卡收起态</h2>
+<h2>06 &nbsp;选项卡收起态</h2>
 <p>同样是默认状态。</p>
 {optcard_closed}
 
-<h2>06 &nbsp;色板</h2>
+<h2>07 &nbsp;色板</h2>
 <p>整套只有冷白、蓝灰、冰川青三层。强调色只出现在编号、四角刻线、星体弧线和顶部那道亮边。</p>
 <ul class="swatches">{sw}</ul>
 

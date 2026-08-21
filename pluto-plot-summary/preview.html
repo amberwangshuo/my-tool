@@ -106,6 +106,28 @@
 .plo-sum:hover .plo-dust{color:rgba(180,212,240,.85)}
 @media(prefers-reduced-motion:reduce){.plo-mark{animation:none;opacity:.85}.plo-log[open] .plo-body{animation:none}.plo-opt::before,.plo-key,.plo-text,.plo-chev,.plo-rule,.plo-tz,.plo-tz b,.plo-dust{transition:none}}
 @media(max-width:430px){.plo-sum{padding:14px 12px 10px}.plo-body{padding:0 12px 11px}.plo-opt{padding-left:10px;column-gap:9px;grid-template-columns:15px 1fr}.plo-text{font-size:12px;line-height:1.82}.plo-note{font-size:12.5px}.plo-brand b{display:none}.plo-cap i{display:none}}
+.phd{--phd-mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;--phd-sans:"PingFang SC","HarmonyOS Sans SC","Source Han Sans SC","Noto Sans SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,sans-serif;max-width:620px;margin:14px 0 20px;background:none;border:0;color:#fff;font-family:var(--phd-sans);text-align:left}
+.phd *{box-sizing:border-box}
+.phd-top{display:flex;align-items:center;gap:12px}
+.phd-ch{font-family:var(--phd-mono);font-size:9px;letter-spacing:.32em;color:rgba(255,255,255,.5);white-space:nowrap;font-variant-numeric:tabular-nums}
+.phd-line{flex:1 1 auto;min-width:12px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.28),rgba(255,255,255,.03))}
+.phd-title{margin-top:10px;font-size:17px;font-weight:300;letter-spacing:.2em;line-height:1.45;color:rgba(255,255,255,.96);text-wrap:balance}
+.phd-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 9px;margin-top:11px;font-size:11.5px;letter-spacing:.04em;color:rgba(255,255,255,.6)}
+.phd-d,.phd-t{font-family:var(--phd-mono);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.phd-d{color:rgba(255,255,255,.84)}
+.phd-w{color:rgba(255,255,255,.7)}
+.phd-dot{flex:none;width:1px;height:9px;background:rgba(255,255,255,.2)}
+.phd-rule{height:1px;margin-top:15px;background:linear-gradient(90deg,rgba(255,255,255,.2),rgba(255,255,255,.02))}
+.phd-cap{display:flex;align-items:baseline;gap:11px;margin-top:12px;font-size:9px;letter-spacing:.28em;color:rgba(255,255,255,.44)}
+.phd-cap i{font-style:normal;color:rgba(255,255,255,.24)}
+.phd-echo{display:grid;grid-template-columns:max-content max-content 1fr;gap:8px 14px;align-items:baseline;margin-top:11px}
+.phd-y{font-family:var(--phd-mono);font-size:12.5px;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.phd-ly{justify-self:end;font-family:var(--phd-mono);font-size:9.5px;letter-spacing:.12em;font-variant-numeric:tabular-nums;white-space:nowrap;color:rgba(255,255,255,.38)}
+.phd-e{font-size:11.5px;line-height:1.72;color:rgba(255,255,255,.72)}
+.phd-y.d1{color:rgba(255,255,255,.68);text-shadow:0 0 13px rgba(255,255,255,.16)}
+.phd-y.d2{color:rgba(255,255,255,.82);text-shadow:0 0 13px rgba(255,255,255,.24)}
+.phd-y.d3{color:rgba(255,255,255,.96);text-shadow:0 0 13px rgba(255,255,255,.34)}
+@media(max-width:430px){.phd-title{font-size:15px;letter-spacing:.16em}.phd-meta{font-size:11px;gap:5px 8px}.phd-echo{grid-template-columns:max-content max-content 1fr;gap:7px 10px}.phd-e{font-size:11px}.phd-cap i{display:none}}
 :root{--pg:#050609;--pg2:#0a0c12;--ink:#e6eaf3;--dim:#79839b;--tan:#8fcadb;--ice:#7fa8cf;
 --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
 --sans:"PingFang SC","HarmonyOS Sans SC","Source Han Sans SC","Noto Sans SC","Microsoft YaHei",-apple-system,sans-serif;}
@@ -135,26 +157,30 @@ footer{margin-top:64px;padding-top:16px;border-top:1px solid rgba(255,255,255,.0
 <h1>冥王星 · 剧情摘要<b>PLUTO / PLOT SUMMARY</b></h1>
 <p class="lede">把每轮剧情总结渲染成一张深空观测记录：编号、曝光时段、观测视场、正文注记。四角是取景刻线，右上角那道弦月是被远日照亮的冥王星。底色透明，直接浮在你的黑背景上；整条标题栏是折叠开关，收起后只剩一行字。</p>
 
-<h2>01 &nbsp;展开态</h2>
+<h2>01 &nbsp;开头状态栏</h2>
+<p>主题是《历史上的今天》，但真正的题目是<b>距离</b>：光年数就是年份差本身，一颗 143 光年外的星今晚送到的光，正是 1883 年离开的。三行由远及近排列，<b>越远的光越暗</b> —— 年份的亮度与微光随距离递减，这是真实关系，不是效果。只用白色，无框无底，只有横向发丝线。</p>
+<div class="phd"><div class="phd-top"><span class="phd-ch">CHAPTER 03</span><span class="phd-line"></span></div><div class="phd-title">近点接近</div><div class="phd-meta"><span class="phd-d">2026-08-26</span><span class="phd-w">周三</span><span class="phd-dot"></span><span class="phd-t">18:40</span><span class="phd-dot"></span><span class="phd-p">旧金山湾区 · Mission District</span></div><div class="phd-rule"></div><div class="phd-cap">今夜抵达的光<i>离开的那年</i></div><div class="phd-echo"><span class="phd-y d1">1883</span><span class="phd-ly">143</span><span class="phd-e">喀拉喀托火山喷发，声浪三次绕行地球</span><span class="phd-y d2">030</span><span class="phd-ly">031</span><span class="phd-e">032</span><span class="phd-y d3">033</span><span class="phd-ly">034</span><span class="phd-e">035</span></div></div>
+
+<h2>02 &nbsp;摘要卡展开态</h2>
 <p>默认折叠，这里展开给你看。透明底，只有星点、星体弧线与发丝线浮在你自己的聊天背景上。</p>
 <details class="plu-log" open><summary class="plu-sum"><span class="plu-tease"><span class="plu-mark">&#10209;</span><span class="plu-tz"><b>PLUTO</b>摘要</span><span class="plu-dust">&#8902; &#730; &#65377;</span></span><div class="plu-head"><span class="plu-mark">&#10209;</span><span class="plu-brand">冥王星<b>PLUTO</b></span><span class="plu-rule"></span><span class="plu-no">SCENE 02</span></div><div class="plu-idx"><span class="plu-k">DATE</span><span class="plu-v">2026-08-26</span><span class="plu-vr"></span><span class="plu-k">TIME</span><span class="plu-v">18:40-19:30</span><span class="plu-chev"></span></div></summary><div class="plu-body"><div class="plu-meta"><span class="plu-k">FIELD</span><span class="plu-v">旧金山湾区·赵泽川车内 → Mission District 葡萄牙餐厅</span></div><div class="plu-sep"></div><p class="plu-plot">商陆葵上了赵泽川的车，途中询问斯坦福暑期经济学课程事宜，赵泽川简短回应并推荐了 Sahni 的课。两人驱车前往商陆葵预约的葡萄牙餐厅。入座后，商陆葵主导点菜和话题节奏，两人围绕暑假安排、各自成长背景展开初步交流。赵泽川提及北京时一笔带过，商陆葵注意到这一细节但未追问。席间聊到学业压力，赵泽川称自己十二点前睡觉，商陆葵借此试探提出日后请教作业的可能，赵泽川回应：「你可以先发过来，我看看再说。」</p><div class="plu-foot"><span class="plu-star">&#8902; &#730; &#65377; &#8902; &#176; &#65381; &#10209; &#65381; &#176; &#8902; &#65377; &#730; &#8902;</span><span class="plu-tag">PLOT LOG</span></div></div></details>
 
-<h2>02 &nbsp;收起态</h2>
+<h2>03 &nbsp;摘要卡收起态</h2>
 <p>这才是默认状态。框、底、刻线、漏光全部卸掉，只剩一行字。</p>
 <details class="plu-log"><summary class="plu-sum"><span class="plu-tease"><span class="plu-mark">&#10209;</span><span class="plu-tz"><b>PLUTO</b>摘要</span><span class="plu-dust">&#8902; &#730; &#65377;</span></span><div class="plu-head"><span class="plu-mark">&#10209;</span><span class="plu-brand">冥王星<b>PLUTO</b></span><span class="plu-rule"></span><span class="plu-no">SCENE 01</span></div><div class="plu-idx"><span class="plu-k">DATE</span><span class="plu-v">2026-08-24</span><span class="plu-vr"></span><span class="plu-k">TIME</span><span class="plu-v">14:05-14:40</span><span class="plu-chev"></span></div></summary><div class="plu-body"><div class="plu-meta"><span class="plu-k">FIELD</span><span class="plu-v">旧金山湾区·赵泽川车内 → Mission District 葡萄牙餐厅</span></div><div class="plu-sep"></div><p class="plu-plot">商陆葵上了赵泽川的车，途中询问斯坦福暑期经济学课程事宜，赵泽川简短回应并推荐了 Sahni 的课。两人驱车前往商陆葵预约的葡萄牙餐厅。入座后，商陆葵主导点菜和话题节奏，两人围绕暑假安排、各自成长背景展开初步交流。赵泽川提及北京时一笔带过，商陆葵注意到这一细节但未追问。席间聊到学业压力，赵泽川称自己十二点前睡觉，商陆葵借此试探提出日后请教作业的可能，赵泽川回应：「你可以先发过来，我看看再说。」</p><div class="plu-foot"><span class="plu-star">&#8902; &#730; &#65377; &#8902; &#176; &#65381; &#10209; &#65381; &#176; &#8902; &#65377; &#730; &#8902;</span><span class="plu-tag">PLOT LOG</span></div></div></details>
 
-<h2>03 &nbsp;加回底片（可选）</h2>
+<h2>04 &nbsp;加回底片（可选）</h2>
 <p>默认是透明的。如果你的界面不是纯黑，一行变量就能把底片加回来。</p>
 <details class="plu-log" style="--plu-a:1" open><summary class="plu-sum"><span class="plu-tease"><span class="plu-mark">&#10209;</span><span class="plu-tz"><b>PLUTO</b>摘要</span><span class="plu-dust">&#8902; &#730; &#65377;</span></span><div class="plu-head"><span class="plu-mark">&#10209;</span><span class="plu-brand">冥王星<b>PLUTO</b></span><span class="plu-rule"></span><span class="plu-no">SCENE 03</span></div><div class="plu-idx"><span class="plu-k">DATE</span><span class="plu-v">2026-08-29</span><span class="plu-vr"></span><span class="plu-k">TIME</span><span class="plu-v">23:10-23:52</span><span class="plu-chev"></span></div></summary><div class="plu-body"><div class="plu-meta"><span class="plu-k">FIELD</span><span class="plu-v">Palo Alto·商陆葵公寓楼下 → 车内</span></div><div class="plu-sep"></div><p class="plu-plot">把 --plu-a 调回 1，那层偏蓝近黑的底片就回来了。星点、弦月、四角刻线不变，只是卡片从背景里浮出来一层。浅色界面或者背景图太花的时候用这一版。</p><div class="plu-foot"><span class="plu-star">&#8902; &#730; &#65377; &#8902; &#176; &#65381; &#10209; &#65381; &#176; &#8902; &#65377; &#730; &#8902;</span><span class="plu-tag">PLOT LOG</span></div></div></details>
 
-<h2>04 &nbsp;剧情选项</h2>
+<h2>05 &nbsp;剧情选项</h2>
 <p>同一套语言，换一个隐喻：摘要卡记录已发生的观测，选项卡是四条待定轨道。A&#8211;D 的分类不是装饰，它标的就是每条选项的性质 —— 稳定轨道、近点接近、摄动、逃逸速度。<br>点任意一条的正文试试 —— 整段会被一次选中，Ctrl+C 复制即可粘进输入框。</p>
 <details class="plo-log" open><summary class="plo-sum"><span class="plo-tease"><span class="plo-mark">&#10209;</span><span class="plo-tz"><b>PLUTO</b>航向</span><span class="plo-dust">&#8902; &#730; &#65377;</span></span><div class="plo-head"><span class="plo-mark">&#10209;</span><span class="plo-brand">冥王星<b>PLUTO</b></span><span class="plo-rule"></span><span class="plo-no">TRAJECTORY A&#8211;D</span><span class="plo-chev"></span></div></summary><div class="plo-body"><div class="plo-list"><div class="plo-opt"><span class="plo-key">A</span><span class="plo-cap"><span>STABLE ORBIT</span><i>稳定轨道</i></span><span class="plo-text">商陆葵把话题接了下去，顺着赵泽川推荐的那门课往下问，问他当年选课时是怎么权衡的，语气轻，像是随口一提。</span></div><div class="plo-opt"><span class="plo-key">B</span><span class="plo-cap"><span>CLOSE APPROACH</span><i>近点接近</i></span><span class="plo-text">商陆葵在结账时抢先把卡递了出去，抬眼笑说：「下次你请。」把「下次」两个字轻轻放在了桌上。</span></div><div class="plo-opt"><span class="plo-key">C</span><span class="plo-cap"><span>PERTURBATION</span><i>摄动</i></span><span class="plo-text">餐厅门口撞见赵泽川的旧识，对方叫出一个商陆葵没听过的称呼，赵泽川的神色第一次出现了停顿。</span></div><div class="plo-opt"><span class="plo-key">D</span><span class="plo-cap"><span>ESCAPE VELOCITY</span><i>逃逸速度</i></span><span class="plo-text">商陆葵一本正经地掏出手机，说要给这顿饭打个分，当场编了一套满分十分的评价体系，从餐前面包开始逐项打分。</span></div></div><div class="plo-sep"></div><p class="plo-note"><span class="plo-nm">&#10209;</span>每一个 Pluto 都有它的 Charon。<span class="plo-nd">&#8902; &#730; &#65377;</span></p></div></details>
-<h2>05 &nbsp;选项卡收起态</h2>
+<h2>06 &nbsp;选项卡收起态</h2>
 <p>同样是默认状态。</p>
 <details class="plo-log"><summary class="plo-sum"><span class="plo-tease"><span class="plo-mark">&#10209;</span><span class="plo-tz"><b>PLUTO</b>航向</span><span class="plo-dust">&#8902; &#730; &#65377;</span></span><div class="plo-head"><span class="plo-mark">&#10209;</span><span class="plo-brand">冥王星<b>PLUTO</b></span><span class="plo-rule"></span><span class="plo-no">TRAJECTORY A&#8211;D</span><span class="plo-chev"></span></div></summary><div class="plo-body"><div class="plo-list"><div class="plo-opt"><span class="plo-key">A</span><span class="plo-cap"><span>STABLE ORBIT</span><i>稳定轨道</i></span><span class="plo-text">商陆葵把话题接了下去，顺着赵泽川推荐的那门课往下问，问他当年选课时是怎么权衡的，语气轻，像是随口一提。</span></div><div class="plo-opt"><span class="plo-key">B</span><span class="plo-cap"><span>CLOSE APPROACH</span><i>近点接近</i></span><span class="plo-text">商陆葵在结账时抢先把卡递了出去，抬眼笑说：「下次你请。」把「下次」两个字轻轻放在了桌上。</span></div><div class="plo-opt"><span class="plo-key">C</span><span class="plo-cap"><span>PERTURBATION</span><i>摄动</i></span><span class="plo-text">餐厅门口撞见赵泽川的旧识，对方叫出一个商陆葵没听过的称呼，赵泽川的神色第一次出现了停顿。</span></div><div class="plo-opt"><span class="plo-key">D</span><span class="plo-cap"><span>ESCAPE VELOCITY</span><i>逃逸速度</i></span><span class="plo-text">商陆葵一本正经地掏出手机，说要给这顿饭打个分，当场编了一套满分十分的评价体系，从餐前面包开始逐项打分。</span></div></div><div class="plo-sep"></div><p class="plo-note"><span class="plo-nm">&#10209;</span>每一个 Pluto 都有它的 Charon。<span class="plo-nd">&#8902; &#730; &#65377;</span></p></div></details>
 
-<h2>06 &nbsp;色板</h2>
+<h2>07 &nbsp;色板</h2>
 <p>整套只有冷白、蓝灰、冰川青三层。强调色只出现在编号、四角刻线、星体弧线和顶部那道亮边。</p>
 <ul class="swatches"><li><i style="background:#080a10"></i><b>#080a10</b><span>近黑底</span><em>偏蓝，不是纯黑</em></li><li><i style="background:#e6eaf3"></i><b>#e6eaf3</b><span>冷白正文</span><em>夜视下不刺眼</em></li><li><i style="background:#79839b"></i><b>#79839b</b><span>蓝灰弱字</span><em>字段名与注记</em></li><li><i style="background:#8fcadb"></i><b>#8fcadb</b><span>冰川青</span><em>唯一强调色</em></li><li><i style="background:#7fa8cf"></i><b>#7fa8cf</b><span>冰蓝</span><em>只做发丝线与微光</em></li></ul>
 
