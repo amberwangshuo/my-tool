@@ -1,0 +1,17 @@
+{
+  "id": "2f1c6a80-5e3b-4c7d-9a11-7d0b5e9c4a02",
+  "scriptName": "冥王星 · 残留标签清理",
+  "findRegex": "/</?(?:abstract|serial|time|scene|plot)>/gi",
+  "replaceString": "",
+  "trimStrings": [],
+  "placement": [
+    2
+  ],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+}
