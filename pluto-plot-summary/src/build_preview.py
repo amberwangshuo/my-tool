@@ -16,7 +16,7 @@ card3 = card.replace('<details class="plu-log" open>', '<details class="plu-log"
             .replace('2026-08-26','2026-08-24').replace('18:40-19:30','14:05-14:40')
 
 SWATCH = [('#080a10','近黑底','偏蓝，不是纯黑'),('#e6eaf3','冷白正文','夜视下不刺眼'),
-          ('#79839b','蓝灰弱字','字段名与注记'),('#c9a882','冥王星褐金','唯一强调色'),
+          ('#79839b','蓝灰弱字','字段名与注记'),('#8fcadb','冰川青','唯一强调色'),
           ('#7fa8cf','冰蓝','只做发丝线与微光')]
 sw = ''.join(
  f'<li><i style="background:{h}"></i><b>{h}</b><span>{n}</span><em>{d}</em></li>' for h,n,d in SWATCH)
@@ -24,7 +24,7 @@ sw = ''.join(
 html = f'''<title>冥王星剧情摘要卡</title>
 <style>
 {css}
-:root{{--pg:#050609;--pg2:#0a0c12;--ink:#e6eaf3;--dim:#79839b;--tan:#c9a882;--ice:#7fa8cf;
+:root{{--pg:#050609;--pg2:#0a0c12;--ink:#e6eaf3;--dim:#79839b;--tan:#8fcadb;--ice:#7fa8cf;
 --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
 --sans:"PingFang SC","HarmonyOS Sans SC","Source Han Sans SC","Noto Sans SC","Microsoft YaHei",-apple-system,sans-serif;}}
 *{{box-sizing:border-box}}
@@ -37,7 +37,7 @@ background-attachment:fixed}}
 h1{{margin:16px 0 0;font-size:clamp(26px,6.4vw,38px);font-weight:500;letter-spacing:.14em;text-wrap:balance}}
 h1 b{{display:block;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.42em;color:var(--tan);margin-top:12px}}
 .lede{{margin:18px 0 0;max-width:34em;font-size:14px;line-height:2;color:#aab3c6;letter-spacing:.02em}}
-h2{{margin:56px 0 0;font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.3em;color:rgba(201,168,130,.62)}}
+h2{{margin:56px 0 0;font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.3em;color:rgba(143,202,219,.66)}}
 h2+p{{margin:8px 0 18px;font-size:12.5px;line-height:1.9;color:var(--dim)}}
 .swatches{{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06)}}
 .swatches li{{display:grid;grid-template-columns:26px max-content 1fr;align-items:center;gap:14px;padding:11px 14px;background:var(--pg2)}}
@@ -66,7 +66,7 @@ footer{{margin-top:64px;padding-top:16px;border-top:1px solid rgba(255,255,255,.
 {card2}
 
 <h2>04 &nbsp;色板</h2>
-<p>强调色只出现在编号、四角刻线和顶部漏光三处，其余全部交给冷白与蓝灰。</p>
+<p>整套只有冷白、蓝灰、冰川青三层。强调色只出现在编号、四角刻线、星体弧线和顶部那道亮边。</p>
 <ul class="swatches">{sw}</ul>
 
 <footer>⋆ ˚ ｡ ⋆ ° ･ ⟡ ･ ° ⋆ ｡ ˚ ⋆</footer>
