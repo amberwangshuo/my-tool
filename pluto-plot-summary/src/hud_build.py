@@ -29,10 +29,18 @@ MARKUP = (
     '<div class="phd-meta"><span class="phd-d">$3</span><span class="phd-w">$4</span>'
     '<span class="phd-dot"></span><span class="phd-t">$5</span>'
     '<span class="phd-dot"></span><span class="phd-p">$6</span></div>'
-    '<div class="phd-rule"></div>'
+    # 光的旅程：左端恒星（衍射芒+扩散光晕），一束光沿线走向右端的「此刻」，
+    # 三个年份是路上的节点 —— 位置由远及近，越远的越暗
+    '<div class="phd-sky">'
+    '<i class="phd-halo"></i><i class="phd-halo"></i><i class="phd-star"></i>'
+    '<span class="phd-beam"><i class="phd-pulse"></i></span>'
+    '<span class="phd-node phd-n1"><i></i><b>$7</b></span>'
+    '<span class="phd-node phd-n2"><i></i><b>$10</b></span>'
+    '<span class="phd-node phd-n3"><i></i><b>$13</b></span>'
+    '<span class="phd-earth"><i></i><b>此刻</b></span>'
+    '</div>'
     '<div class="phd-cap">今夜抵达的光<i>离开的那年</i></div>'
     '<div class="phd-echo">'
-    # 由远及近；越远的光越暗，d1 最暗
     + ''.join(ROW % (d, 7 + (d - 1) * 3, 8 + (d - 1) * 3, 9 + (d - 1) * 3) for d in (1, 2, 3))
     + '</div></div>'
 )
@@ -73,6 +81,8 @@ assert list(m.groups()) == SAMPLE, m.groups()
 raw2 = raw.replace('1920｜106｜', '1920｜')
 m2 = re.search(FIND, raw2, re.I)
 assert m2 and m2.group(10) == '1920' and m2.group(11) is None and '第十九修正案' in m2.group(12)
+for ph in ('$7', '$10', '$13'):
+    assert MARKUP.count(ph) == 2, ph  # 节点标注与表格第一列同源
 print('状态栏正则 OK（缺列容错通过）| replaceString', len(script["replaceString"]))
 
 card = MARKUP
