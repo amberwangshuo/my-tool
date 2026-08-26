@@ -1,0 +1,499 @@
+<title>《楚河》</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500&display=swap">
+<style>
+  /* 单主题设计：这是一个夜间主题的验收预览，整页承诺夜色 */
+  :root {
+    --night: #0B0F16;
+    --panel: #10141C;
+    --ink: #ECE9E4;
+    --ice: #9FBDCF;
+    --cinnabar: #B0554C;
+    --hairline: rgba(159, 189, 207, 0.18);
+    --serif: "Noto Serif SC", "WenYuan Serif SC VF", "文源宋体", serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.8;
+  }
+
+  .wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  /* ── 题头：隔河的对话 ─────────────────────── */
+  header.masthead {
+    text-align: center;
+    margin-bottom: 46px;
+  }
+  .masthead h1 {
+    font-size: 42px;
+    font-weight: 500;
+    letter-spacing: 12px;
+    margin: 0 0 4px;
+    text-wrap: balance;
+  }
+  .masthead .sub {
+    font-size: 12px;
+    color: var(--ice);
+    letter-spacing: 3px;
+    opacity: 0.7;
+  }
+  .dialogue {
+    max-width: 520px;
+    margin: 28px auto 0;
+    font-size: 13.5px;
+    letter-spacing: 1px;
+  }
+  .dialogue .far {
+    text-align: left;
+    color: var(--ice);
+  }
+  .dialogue .near {
+    text-align: right;
+    color: var(--cinnabar);
+  }
+  .dialogue .who {
+    font-size: 10px;
+    opacity: 0.55;
+    letter-spacing: 2px;
+    display: block;
+  }
+  /* 两句之间：一条缓缓东流的碎冰线 */
+  .river {
+    height: 3px;
+    margin: 16px 0;
+    background: repeating-linear-gradient(90deg,
+        rgba(159, 189, 207, 0.6) 0 7px, transparent 7px 16px) 0 50% / 200% 1px repeat-x;
+    -webkit-mask: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+    mask: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+    animation: eastflow 40s linear infinite;
+  }
+  @keyframes eastflow { to { background-position: 320px 50%; } }
+  @media (prefers-reduced-motion: reduce) {
+    .river, .type-line::after, .breath { animation: none !important; }
+  }
+
+  .cols {
+    display: flex;
+    gap: 44px;
+    align-items: flex-start;
+  }
+  .phone-col { flex: 0 0 auto; position: sticky; top: 24px; }
+  .spec-col { flex: 1 1 0; min-width: 0; }
+  @media (max-width: 860px) {
+    .cols { flex-direction: column; align-items: center; }
+    .phone-col { position: static; }
+  }
+
+  /* ── 手机模拟框 ─────────────────────────── */
+  .phone {
+    width: 372px;
+    max-width: 92vw;
+    height: 758px;
+    border-radius: 34px;
+    border: 1px solid rgba(159, 189, 207, 0.25);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* 模拟用户自己的背景图：一片夜里的冷水面 */
+    background:
+      radial-gradient(120% 60% at 80% 0%, rgba(159, 189, 207, 0.12), transparent 60%),
+      radial-gradient(90% 50% at 15% 90%, rgba(176, 85, 76, 0.10), transparent 65%),
+      linear-gradient(170deg, #0d1420 0%, #0B0F16 45%, #0a0d13 100%);
+  }
+  .phone .chat {
+    flex: 1;
+    overflow: hidden;
+    padding: 20px 12px 10px;
+    -webkit-mask: linear-gradient(to bottom, transparent 0%, #000 5%, #000 100%);
+    mask: linear-gradient(to bottom, transparent 0%, #000 5%, #000 100%);
+  }
+
+  .show-more {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: rgba(159, 189, 207, 0.72);
+    margin: 2px 0 12px;
+  }
+
+  /* 消息卡片 */
+  .mes {
+    position: relative;
+    background: rgba(11, 15, 22, 0.55);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(159, 189, 207, 0.14);
+    border-top: 1px solid rgba(159, 189, 207, 0.42);
+    border-radius: 2px;
+    padding: 0 16px 34px;
+    margin-bottom: 22px;
+  }
+  .mes.user {
+    background: rgba(24, 13, 13, 0.5);
+    border-top-color: rgba(176, 85, 76, 0.58);
+  }
+
+  /* 卡头带：SVG 冰裂纹上的观测词 */
+  .band {
+    display: flex;
+    align-items: flex-end;
+    height: 44px;
+    margin: 0 -16px 10px;
+    padding: 8px 48px 7px 14px;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: rgba(159, 189, 207, 0.9);
+    border-bottom: 1px solid rgba(159, 189, 207, 0.2);
+    background-image:
+      linear-gradient(to bottom, rgba(11,15,22,0) 35%, rgba(11,15,22,0.55) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='46' viewBox='0 0 340 46'%3E%3Cg stroke='%239FBDCF' stroke-width='0.6' fill='none' opacity='0.33'%3E%3Cpath d='M0 30 L44 25 L60 34 L98 21 L122 30'/%3E%3Cpath d='M98 21 L106 7'/%3E%3Cpath d='M122 30 L170 17 L212 28 L258 13 L340 24'/%3E%3Cpath d='M212 28 L224 43'/%3E%3Cpath d='M170 17 L162 3'/%3E%3Cpath d='M258 13 L268 30 L292 36'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover, auto 100%;
+    background-position: center, left center;
+    background-repeat: no-repeat, repeat-x;
+  }
+  .mes.user .band {
+    justify-content: flex-end;
+    padding: 8px 14px 7px 48px;
+    color: rgba(176, 85, 76, 0.92);
+    border-bottom-color: rgba(176, 85, 76, 0.28);
+  }
+
+  .avatar {
+    position: absolute;
+    top: 8px; right: 12px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(159, 189, 207, 0.55);
+    background: radial-gradient(circle at 35% 30%, #2a3646, #141b26);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--ice);
+    z-index: 2;
+  }
+  .mes.user .avatar {
+    right: auto; left: 12px;
+    border-color: rgba(176, 85, 76, 0.6);
+    background: radial-gradient(circle at 35% 30%, #3a2320, #1c1210);
+    color: var(--cinnabar);
+  }
+
+  .namerow {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .namerow .time {
+    font-size: 9.5px;
+    color: rgba(159, 189, 207, 0.68);
+  }
+  .namerow .meta {
+    margin-left: auto;
+    font-size: 9px;
+    color: rgba(159, 189, 207, 0.6);
+  }
+  .sig {
+    width: 100%;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+    color: rgba(159, 189, 207, 0.74);
+  }
+  .mes.user .sig { color: rgba(176, 85, 76, 0.82); }
+
+  .mtext {
+    text-align: justify;
+    font-size: 13px;
+    padding-top: 10px;
+    letter-spacing: 0.3px;
+  }
+  .mtext q { color: var(--ice); quotes: "“" "”"; }
+  .mtext em { color: rgba(159, 189, 207, 0.78); }
+
+  .reasoning {
+    margin: 12px 0 6px;
+  }
+  .reasoning .rtitle {
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    color: rgba(159, 189, 207, 0.8);
+    padding: 4px 0;
+  }
+  .reasoning .rbody {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 1px solid rgba(159, 189, 207, 0.5);
+    font-style: italic;
+    font-size: 11.5px;
+    color: rgba(159, 189, 207, 0.85);
+    padding: 8px 12px;
+  }
+
+  .swipes {
+    position: absolute;
+    bottom: 6px; left: 12px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  .swipe {
+    height: 24px;
+    padding: 0 10px;
+    display: flex; align-items: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(159, 189, 207, 0.82);
+    border-bottom: 1px solid rgba(159, 189, 207, 0.45);
+  }
+  .swipe.re {
+    color: rgba(176, 85, 76, 0.88);
+    border-bottom-color: rgba(176, 85, 76, 0.55);
+  }
+  .swipes .count {
+    font-size: 9px;
+    color: rgba(159, 189, 207, 0.7);
+    padding-bottom: 5px;
+  }
+  .editbtns {
+    position: absolute;
+    bottom: 9px; right: 12px;
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    color: rgba(159, 189, 207, 0.65);
+    display: flex; gap: 8px;
+  }
+
+  /* 输入区 */
+  .inputbar {
+    background: rgba(9, 12, 18, 0.78);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(159, 189, 207, 0.28);
+    padding: 8px 15px 12px;
+  }
+  .textarea {
+    position: relative;
+    background: rgba(255, 255, 255, 0.055);
+    border-bottom: 1px solid rgba(159, 189, 207, 0.35);
+    border-radius: 2px;
+    height: 41px;
+    margin-bottom: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .type-line {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(159, 189, 207, 0.62);
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    max-width: fit-content;
+    border-right: 1.5px solid rgba(159, 189, 207, 0.62);
+    animation: typing 4.5s steps(6) infinite alternate, blink 1.5s infinite;
+  }
+  @keyframes typing { 0% { width: 0; } 45%, 100% { width: 9em; } }
+  @keyframes blink { 50% { border-color: transparent; } }
+  .btnrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btnrow .left { color: rgba(159, 189, 207, 0.9); font-size: 15px; letter-spacing: 8px; }
+  .du {
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--cinnabar);
+    font-size: 17px;
+    border: 1px solid rgba(176, 85, 76, 0.35);
+  }
+
+  /* ── 右列：规格说明 ─────────────────────── */
+  .spec-col h2 {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--ice);
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 8px;
+    margin: 34px 0 14px;
+  }
+  .spec-col h2:first-child { margin-top: 0; }
+  .spec-col p { font-size: 13px; margin: 0 0 10px; max-width: 62ch; }
+  .spec-col .note { font-size: 11.5px; color: rgba(159, 189, 207, 0.72); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  th, td {
+    text-align: left;
+    padding: 7px 10px 7px 0;
+    border-bottom: 1px solid rgba(159, 189, 207, 0.1);
+    vertical-align: top;
+  }
+  th {
+    font-weight: normal;
+    color: rgba(159, 189, 207, 0.75);
+    white-space: nowrap;
+    width: 9em;
+  }
+  .table-scroll { overflow-x: auto; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    padding: 6px 12px;
+  }
+  .dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); }
+
+  ol.steps { font-size: 13px; padding-left: 1.4em; margin: 0; }
+  ol.steps li { margin-bottom: 8px; }
+  code {
+    font-family: inherit;
+    font-size: 0.95em;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    padding: 1px 6px;
+    color: var(--ice);
+  }
+
+  footer {
+    margin-top: 56px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(159, 189, 207, 0.5);
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <h1>楚　河</h1>
+    <div class="sub">THE CHU RIVER · 隔河的对话 · 为 amber 定制</div>
+    <div class="dialogue">
+      <div class="far"><span class="who">彼岸 · 劝渡</span>「你应是有东流的宿命，就别在此结冰。」</div>
+      <div class="river"></div>
+      <div class="near"><span class="who">此岸 · 成冰</span>「我欲成冰，再也无退路。」</div>
+    </div>
+  </header>
+
+  <div class="cols">
+    <!-- ── 手机模拟 ── -->
+    <div class="phone-col">
+      <div class="phone">
+        <div class="chat">
+          <div class="show-more">↑ 已渡之河 · 唯此可回头</div>
+
+          <!-- char 楼 -->
+          <div class="mes">
+            <div class="band">凌汛</div>
+            <div class="avatar">彼</div>
+            <div class="namerow">
+              <span>沈既明</span>
+              <span class="time">· 渡于 23:47</span>
+              <span class="meta">渡 No.6 · 水深 412 字 · 渡时 21s</span>
+              <span class="sig">「你应是有东流的宿命，就别在此结冰。」</span>
+            </div>
+            <div class="reasoning">
+              <div class="rtitle">『冰层之下』</div>
+              <div class="rbody">他不能让这个人留下来。河面在夜里发出细碎的断裂声，像是替他把话说完了。</div>
+            </div>
+            <div class="mtext">
+              他站在对岸，风把大衣的下摆吹得贴住小腿。<q>回去。</q>他说，声音越过冻住的河面，
+              比想象里平静，<q>水往东流，人也一样。你不该困在这里，更不该为我。</q>
+              <em>可他没有说的是，河心那道清沟整整一夜都没有合拢。</em>
+            </div>
+            <div class="swipes">
+              <div class="swipe">无舟</div>
+              <div class="swipe re">仍渡</div>
+              <div class="count">渡 2/3</div>
+            </div>
+            <div class="editbtns"><span>改道</span><span>支流</span></div>
+          </div>
+
+          <!-- user 楼 -->
+          <div class="mes user">
+            <div class="band">过河卒</div>
+            <div class="avatar">此</div>
+            <div class="namerow">
+              <span>amber</span>
+              <span class="time">· 渡于 23:52</span>
+              <span class="meta">渡 No.7 · 水深 58 字 · 渡时 —</span>
+              <span class="sig">「我欲成冰，再也无退路。」</span>
+            </div>
+            <div class="mtext">
+              我把最后一句劝告踩碎在脚下，像踩碎一层薄冰。
+              <q>你早该知道的，</q>我说，<q>卒子过了河，就没有回头这一步。</q>
+            </div>
+            <div class="editbtns"><span>改道</span><span>支流</span></div>
+          </div>
+        </div>
+
+        <!-- 输入区 -->
+        <div class="inputbar">
+          <div class="textarea"><span class="type-line">仍要渡么——</span></div>
+          <div class="btnrow">
+            <span class="left">≡ ⊕</span>
+            <span class="du">渡</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 规格说明 ── -->
+    <div class="spec-col">
+      <h2>概念</h2>
+      <p>聊天是一场隔河对话。彼岸劝渡，此岸成冰——每一次一来一回，都是题头那两句词在重演，谁也说服不了谁。卒过楚河，落步无回；全界面唯一允许回头的地方，是翻看「已渡之河」（历史记录）。</p>
+      <p class="note">两色纪律：冰蓝（东流的水）与朱砂（殉道的血色；楚方本就是红方）。全主题无金。</p>
+
+      <h2>隐喻映射</h2>
+      <div class="table-scroll">
+        <table>
+          <tr><th>名字签名行</th><td>char 楼挂「东流」句（冰蓝），user 楼挂「成冰」句（朱砂），每楼重演一次对话</td></tr>
+          <tr><th>char 卡头</th><td>冰情观测词七楼一循环：初冰 → 岸冰 → 封冻 → 清沟 → 冰桥 → 凌汛 → 成冰。河不解冻</td></tr>
+          <tr><th>user 卡头</th><td>静态一枚「过河卒」</td></tr>
+          <tr><th>元数据</th><td>渡 No.X · 水深 X 字 · 渡时 Xs；时间戳=「渡于」</td></tr>
+          <tr><th>重roll</th><td>左「无舟」（冰蓝）· 右「仍渡」（朱砂）· 计数「渡 2/3」</td></tr>
+          <tr><th>思维链</th><td>『冰层之下』——水面之下看不见的部分</td></tr>
+          <tr><th>输入区</th><td>占位符打字机「仍要渡么——」，发送按钮答一个字：「渡」</td></tr>
+          <tr><th>加载更多</th><td>「↑ 已渡之河 · 唯此可回头」（反俄耳浦斯的那个例外）</td></tr>
+          <tr><th>编辑 / 更多</th><td>「改道」/「支流」</td></tr>
+          <tr><th>分割线</th><td>碎冰浮排，永远缓缓向东流（40s 循环动画）</td></tr>
+        </table>
+      </div>
+
+      <h2>色板</h2>
+      <div class="chips">
+        <div class="chip"><span class="dot" style="background:#0B0F16"></span>夜 #0B0F16</div>
+        <div class="chip"><span class="dot" style="background:#ECE9E4"></span>暖白 #ECE9E4</div>
+        <div class="chip"><span class="dot" style="background:#9FBDCF"></span>冰蓝 #9FBDCF</div>
+        <div class="chip"><span class="dot" style="background:#B0554C"></span>朱砂 #B0554C</div>
+      </div>
+
+      <h2>安装</h2>
+      <ol class="steps">
+        <li>把 <code>楚河-TheChuRiver.json</code> 存到酒馆的 <code>public/themes/</code>，或在 用户设置 → UI 主题 处导入</li>
+        <li>选择主题《楚河》，字体（文源宋体，zeoseven 415）会自动联网加载</li>
+        <li>背景请放一张你自己的图——卡片是半透明冰面，任何背景都透得出来</li>
+        <li>想微调？打开 custom CSS 顶部的「甲方调整区」：两句签名、卡头词、透明度、全部文案都是中文变量，改引号里的字即可</li>
+        <li>以后找到心仪的图，把 <code>--卡头图</code> 换成图床直链、<code>--卡头高度</code> 调到 120px 以上，卡头即从 SVG 冰纹升级为真图</li>
+      </ol>
+
+      <h2>已知余量</h2>
+      <p class="note">不同酒馆版本 DOM 有差异（尤其翻页按钮坐标、抽屉面板 top 值）。请在手机上实测，有错位发截图来，预留一轮微调。</p>
+    </div>
+  </div>
+
+  <footer>《楚河》 · 卒已过河 · 请勿二传或商用</footer>
+</div>
