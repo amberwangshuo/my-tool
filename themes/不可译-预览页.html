@@ -1,0 +1,473 @@
+<title>《不可译》</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+<style>
+  /* 单主题设计：这是一个夜间主题的验收预览，整页承诺夜色 */
+  :root {
+    --night: #0B0D11;
+    --panel: #10131A;
+    --ink: #ECE9E4;
+    --silver: #AEB8C4;
+    --gold: #C4AD8B;
+    --hairline: rgba(174, 184, 196, 0.18);
+    --wenkai: "LXGW WenKai TC", "LXGW WenKai", serif;
+    --garamond: "Cormorant Garamond", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--ink);
+    font-family: var(--wenkai);
+    line-height: 1.8;
+  }
+
+  .wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  header.masthead {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .masthead .word {
+    font-family: var(--garamond);
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: var(--silver);
+    opacity: 0.8;
+  }
+  .masthead h1 {
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: 10px;
+    margin: 10px 0 6px;
+  }
+  .masthead .sub {
+    font-size: 13px;
+    color: var(--silver);
+    letter-spacing: 2px;
+    opacity: 0.75;
+  }
+  .masthead .rule {
+    height: 6px;
+    margin: 22px auto 0;
+    max-width: 320px;
+    background: radial-gradient(circle, rgba(174,184,196,.85) 0 1px, transparent 1.8px) 0 50% / 11px 6px repeat-x;
+    -webkit-mask: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+    mask: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  }
+
+  .cols {
+    display: flex;
+    gap: 44px;
+    align-items: flex-start;
+  }
+  .phone-col { flex: 0 0 auto; position: sticky; top: 24px; }
+  .spec-col { flex: 1 1 0; min-width: 0; }
+  @media (max-width: 860px) {
+    .cols { flex-direction: column; align-items: center; }
+    .phone-col { position: static; }
+  }
+
+  /* ── 手机模拟框 ─────────────────────────── */
+  .phone {
+    width: 372px;
+    max-width: 92vw;
+    height: 748px;
+    border-radius: 34px;
+    border: 1px solid rgba(174,184,196,0.25);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    overflow: hidden;
+    position: relative;
+    /* 占位背景：一幅纯CSS的夜海月路（实际使用时是你自己的背景图） */
+    background:
+      radial-gradient(circle 44px at 76% 11%, rgba(236,233,228,.92) 0 26px, rgba(236,233,228,.14) 34px, transparent 44px),
+      linear-gradient(180deg, transparent 55%, rgba(174,184,196,.10) 60%, transparent 61%),
+      radial-gradient(ellipse 60px 260px at 76% 78%, rgba(200,210,222,.22), transparent 70%),
+      radial-gradient(ellipse 90px 120px at 76% 96%, rgba(200,210,222,.28), transparent 70%),
+      linear-gradient(180deg, #10141d 0%, #0d1017 46%, #0a0d13 55%, #070a0f 100%);
+  }
+  .phone .screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 12px 0;
+    overflow: hidden;
+  }
+  .bg-note {
+    position: absolute;
+    top: 12px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(174,184,196,.45);
+  }
+
+  .chat {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 6px 2px 12px;
+    -webkit-mask: linear-gradient(to bottom, transparent 0%, #000 5%, #000 100%);
+    mask: linear-gradient(to bottom, transparent 0%, #000 5%, #000 100%);
+  }
+
+  /* 词条卡片 */
+  .mes {
+    position: relative;
+    background: rgba(11, 13, 17, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(174,184,196,0.14);
+    border-top: 1px solid rgba(174,184,196,0.38);
+    border-radius: 2px;
+    padding: 13px 15px 34px;
+    font-size: 13.5px;
+  }
+  .mes.user { background: rgba(22, 18, 14, 0.5); }
+
+  .headword {
+    font-size: 11.5px;
+    letter-spacing: 0.4px;
+    color: rgba(174,184,196,0.88);
+    padding: 0 42px 8px 0;
+    margin-bottom: 9px;
+    border-bottom: 1px solid rgba(174,184,196,0.18);
+  }
+  .headword .lat { font-family: var(--garamond); font-style: italic; font-size: 13px; letter-spacing: 1px; }
+  .mes.user .headword { text-align: right; padding: 0 0 8px 42px; opacity: 0.75; }
+
+  .avatar {
+    position: absolute;
+    top: 9px; right: 11px;
+    width: 29px; height: 29px;
+    border-radius: 50%;
+    border: 1px solid rgba(174,184,196,0.55);
+    background: radial-gradient(circle at 35% 30%, #3a4356, #171b24);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--silver);
+  }
+  .mes.user .avatar { right: auto; left: 11px; background: radial-gradient(circle at 35% 30%, #4a4036, #201a14); }
+
+  .namerow {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .namerow .name { letter-spacing: 1px; color: rgba(236,233,228,.95); font-size: 12.5px; }
+  .namerow .time { font-size: 9px; color: rgba(174,184,196,.7); }
+  .namerow .meta { margin-left: auto; font-size: 8.5px; color: rgba(174,184,196,.62); }
+
+  .reasoning-head {
+    margin-top: 9px;
+    font-size: 10px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    color: rgba(174,184,196,.78);
+  }
+  .reasoning {
+    margin-top: 4px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.03);
+    border-left: 1px solid rgba(174,184,196,0.45);
+    font-style: italic;
+    font-size: 11px;
+    color: rgba(174,184,196,.85);
+  }
+
+  .mtext { margin-top: 9px; text-align: justify; letter-spacing: 0.3px; line-height: 1.9; }
+  .mtext .q { color: var(--gold); }
+  .mtext .em { color: rgba(174,184,196,.88); font-style: italic; }
+
+  .mangata-hr {
+    height: 6px;
+    margin: 14px 0;
+    background: radial-gradient(circle, rgba(174,184,196,.85) 0 1px, transparent 1.8px) 0 50% / 11px 6px repeat-x;
+    -webkit-mask: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+    mask: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  }
+
+  .cardfoot {
+    position: absolute;
+    left: 12px; right: 12px; bottom: 7px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    font-size: 9.5px;
+  }
+  .swipe {
+    letter-spacing: 2px;
+    color: rgba(174,184,196,.8);
+    border-bottom: 1px solid rgba(174,184,196,.45);
+    padding: 0 4px 2px;
+  }
+  .swipe-count { color: rgba(174,184,196,.7); font-size: 8.5px; }
+  .cardfoot .btns { margin-left: auto; letter-spacing: 1px; color: rgba(174,184,196,.6); font-size: 9.5px; }
+
+  /* 输入区 */
+  .inputbar {
+    background: rgba(10, 12, 16, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(174,184,196,0.28);
+    padding: 9px 14px 12px;
+  }
+  .textarea {
+    position: relative;
+    background: rgba(255,255,255,0.055);
+    border-bottom: 1px solid rgba(174,184,196,0.35);
+    border-radius: 2px;
+    height: 40px;
+    margin-bottom: 9px;
+    overflow: hidden;
+  }
+  .textarea .ph {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: rgba(174,184,196,.6);
+    border-right: 1.5px solid rgba(174,184,196,.6);
+    width: 0;
+    max-width: fit-content;
+    animation: typing 6s steps(24) infinite alternate, blink 1.5s infinite;
+  }
+  @keyframes typing { 0% { width: 0; } 40%, 100% { width: 21em; } }
+  @keyframes blink { 50% { border-color: transparent; } }
+  @media (prefers-reduced-motion: reduce) {
+    .textarea .ph { animation: none; width: auto; }
+  }
+  .btnrow { display: flex; justify-content: space-between; align-items: center; }
+  .btnrow .ico { color: rgba(174,184,196,.9); font-size: 15px; }
+  .btnrow .send {
+    color: var(--gold);
+    font-family: var(--garamond);
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  /* ── 右侧规格说明 ─────────────────────────── */
+  .spec-col section { margin-bottom: 40px; }
+  .spec-col h2 {
+    font-size: 15px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    color: var(--silver);
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 8px;
+    margin: 0 0 16px;
+  }
+  .spec-col p { font-size: 13.5px; margin: 0 0 10px; max-width: 62ch; }
+  .spec-col .lat { font-family: var(--garamond); font-style: italic; letter-spacing: 0.5px; }
+
+  table.map {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  table.map td {
+    padding: 7px 10px 7px 0;
+    border-bottom: 1px solid rgba(174,184,196,0.1);
+    vertical-align: top;
+  }
+  table.map td:first-child { color: var(--silver); white-space: nowrap; width: 9em; }
+  table.map td .lat { color: var(--gold); }
+
+  .lexicon {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 10px;
+    font-size: 12px;
+  }
+  .lexicon .entry {
+    border: 1px solid rgba(174,184,196,0.12);
+    border-top: 1px solid rgba(174,184,196,0.32);
+    border-radius: 2px;
+    padding: 9px 12px;
+    background: rgba(255,255,255,0.02);
+  }
+  .lexicon .entry b {
+    font-family: var(--garamond);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 14.5px;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+  }
+  .lexicon .entry .lang { color: rgba(174,184,196,.65); font-size: 10.5px; margin-left: 6px; }
+  .lexicon .entry .gloss { color: rgba(174,184,196,.9); display: block; margin-top: 2px; }
+
+  .palette { display: flex; gap: 12px; flex-wrap: wrap; }
+  .chip { text-align: center; font-size: 10.5px; color: rgba(174,184,196,.85); }
+  .chip .sw {
+    width: 74px; height: 46px;
+    border-radius: 2px;
+    border: 1px solid rgba(174,184,196,0.2);
+    margin-bottom: 6px;
+  }
+
+  ol.steps { font-size: 13px; padding-left: 1.4em; margin: 0; }
+  ol.steps li { margin-bottom: 8px; }
+  code.k {
+    font-family: var(--wenkai);
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    padding: 1px 7px;
+    font-size: 12px;
+    color: var(--silver);
+  }
+  .goldtxt { color: var(--gold); }
+
+  footer.colophon {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(174,184,196,.5);
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="word">a lexicon of untranslatable words</div>
+    <h1>不可译</h1>
+    <div class="sub">为 amber 独家定制的酒馆主题 · 夜 · 透 · 辞典</div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="cols">
+    <!-- 手机预览 -->
+    <div class="phone-col">
+      <div class="phone">
+        <div class="screen">
+          <div class="bg-note">↓ 底图仅为占位 · 实际透出你自己的背景 ↓</div>
+          <div class="chat">
+            <!-- 词条卡片 · char -->
+            <div class="mes">
+              <div class="headword"><span class="lat">Komorebi</span> ｜ 日语 · 叶隙间漏下的光</div>
+              <div class="avatar">C</div>
+              <div class="namerow">
+                <span class="name">Noa</span>
+                <span class="time">· 收录于 22:41</span>
+                <span class="meta">词条 No.4 · 释义 1,204 字 · 检索 12s</span>
+              </div>
+              <div class="reasoning-head">Tacenda ｜ 拉丁语 · 有些思索，无需言说</div>
+              <div class="reasoning">她说"晚安"的时候，声音比平时低了半度。要不要问一句……</div>
+              <div class="mtext">
+                窗外的雨停了。他把伞收在门边，抬头时正好接住你的目光。
+                <span class="q">"路上有月亮，"</span>他说，
+                <span class="q">"铺在河面上，像一条可以走过去的路。"</span>
+                <span class="em">——瑞典语里有个词，专门形容这个。</span>
+              </div>
+              <div class="mangata-hr"></div>
+              <div class="mtext" style="margin-top:0">你忽然明白，有些话不必翻译，也已经抵达。</div>
+              <div class="cardfoot">
+                <span class="swipe">前一种译法</span>
+                <span class="swipe">另一种译法</span>
+                <span class="swipe-count">译 2 / 3</span>
+                <span class="btns">批注 · 校订</span>
+              </div>
+            </div>
+            <!-- 词条卡片 · user -->
+            <div class="mes user">
+              <div class="headword"><span class="lat">Mångata</span> ｜ 瑞典语 · 月光铺在海上的路</div>
+              <div class="avatar">A</div>
+              <div class="namerow">
+                <span class="name">amber</span>
+                <span class="time">· 收录于 22:43</span>
+                <span class="meta">词条 No.5 · 释义 87 字</span>
+              </div>
+              <div class="mtext">那你走过来呀。<span class="em">我在路的这一头等你。</span></div>
+              <div class="cardfoot"><span class="btns">批注 · 校订</span></div>
+            </div>
+          </div>
+          <!-- 输入区 -->
+          <div class="inputbar">
+            <div class="textarea"><span class="ph">Iktsuarpok —— 一次次张望，等一句尚未抵达的话</span></div>
+            <div class="btnrow">
+              <span class="ico">☰</span>
+              <span class="send">Send ⤳</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 设计规格 -->
+    <div class="spec-col">
+      <section>
+        <h2>概念</h2>
+        <p>整个酒馆是一本收录「不可译之词」的辞典。你和角色之间的每一条消息，都是一页词条；
+        聊天越长，辞典越厚。所有功能都被翻译成辞典的行为——</p>
+        <table class="map">
+          <tr><td>每一层楼</td><td>一页词条，卡片顶部轮转展示九个词</td></tr>
+          <tr><td>重 roll 翻页</td><td>「前一种译法 / 另一种译法」——同一句心意的不同翻译</td></tr>
+          <tr><td>思维链</td><td><span class="lat">Tacenda</span>（拉丁语）· 有些思索，无需言说</td></tr>
+          <tr><td>输入框</td><td><span class="lat">Iktsuarpok</span>（因纽特语）· 等一句尚未抵达的话，打字机动画</td></tr>
+          <tr><td>楼层元数据</td><td>「词条 No.4 · 释义 1,204 字 · 检索 12s」</td></tr>
+          <tr><td>时间戳</td><td>「收录于 22:41」</td></tr>
+          <tr><td>分割线</td><td><span class="lat">Mångata</span>（瑞典语）· 一条渐隐的银色光点路</td></tr>
+          <tr><td>加载动画</td><td><span class="lat">Komorebi</span>（日语）· 呼吸明灭的叶隙光斑</td></tr>
+          <tr><td>编辑按钮</td><td>「校订」「批注」——辞典编辑者的动作</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>轮转词条 · 九词</h2>
+        <p>1 楼到 9 楼各展示一个词，第 10 楼重新开始循环。往下翻聊天记录，就像在翻辞典。</p>
+        <div class="lexicon">
+          <div class="entry"><b>Komorebi</b><span class="lang">日语</span><span class="gloss">叶隙间漏下的光</span></div>
+          <div class="entry"><b>Mångata</b><span class="lang">瑞典语</span><span class="gloss">月光铺在海上的路</span></div>
+          <div class="entry"><b>Cafuné</b><span class="lang">葡萄牙语</span><span class="gloss">指尖轻轻穿过爱人的头发</span></div>
+          <div class="entry"><b>Fernweh</b><span class="lang">德语</span><span class="gloss">对未曾抵达的远方害了乡愁</span></div>
+          <div class="entry"><b>Forelsket</b><span class="lang">挪威语</span><span class="gloss">坠入爱河最初的眩晕</span></div>
+          <div class="entry"><b>Hiraeth</b><span class="lang">威尔士语</span><span class="gloss">思念一个再也回不去的地方</span></div>
+          <div class="entry"><b>Kilig</b><span class="lang">他加禄语</span><span class="gloss">心动时浑身微微的颤栗</span></div>
+          <div class="entry"><b>Aparima</b><span class="lang">大溪地语</span><span class="gloss">以双手起舞，诉说不可说的故事</span></div>
+          <div class="entry"><b>Iktsuarpok</b><span class="lang">因纽特语</span><span class="gloss">一次次出门张望，盼一个人来</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>色彩与字体</h2>
+        <div class="palette">
+          <div class="chip"><div class="sw" style="background:#0B0D11"></div>夜 · 底色</div>
+          <div class="chip"><div class="sw" style="background:rgba(11,13,17,.55); backdrop-filter:blur(4px)"></div>词条卡 · 半透</div>
+          <div class="chip"><div class="sw" style="background:#ECE9E4"></div>暖白 · 正文</div>
+          <div class="chip"><div class="sw" style="background:#AEB8C4"></div>月光银 · Mångata</div>
+          <div class="chip"><div class="sw" style="background:#C4AD8B"></div>叶隙金 · Komorebi</div>
+        </div>
+        <p style="margin-top:14px">正文使用<b>霞鹜文楷</b>（zeoseven 接口 292 号，稳定托管）。
+        引号内对白显示为叶隙金，斜体心声显示为月光银——一暖一冷，夜里不闷。</p>
+      </section>
+
+      <section>
+        <h2>安装与调整</h2>
+        <ol class="steps">
+          <li>酒馆 → 用户设置 → UI 主题 → <span class="goldtxt">导入</span>，选择 <code class="k">不可译-Untranslatable.json</code></li>
+          <li>在背景页设置<b>你自己的背景图</b>——卡片是半透明的，深色/夜景/胶片类底图效果最好</li>
+          <li>所有可调项都集中在 CSS 最顶部的<code class="k">甲方调整区</code>：卡片透明度、毛玻璃强度、两支点缀色、行高、全部文案，改中文变量即可，不用懂 CSS</li>
+          <li>想换词？九条 <code class="k">nth-of-type</code> 规则里的 content 文字直接改成任何你喜欢的词</li>
+        </ol>
+      </section>
+
+      <footer class="colophon">
+        《不可译》 · 装饰全部为纯 CSS / 内嵌 SVG，不依赖图床，永不裂图<br>
+        技术致谢：@NAKARI · @lazyalie · @墨千尾 · @Serein
+      </footer>
+    </div>
+  </div>
+</div>
