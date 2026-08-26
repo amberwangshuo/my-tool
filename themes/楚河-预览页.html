@@ -10,6 +10,7 @@
     --cinnabar: #B0554C;
     --hairline: rgba(159, 189, 207, 0.18);
     --serif: "Noto Serif SC", "WenYuan Serif SC VF", "文源宋体", serif;
+    --cracks: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='140' viewBox='0 0 360 140'%3E%3Cg stroke='%239FBDCF' stroke-width='0.7' fill='none' opacity='0.3'%3E%3Cpath d='M0 92 L52 80 L74 100 L118 66 L150 88'/%3E%3Cpath d='M118 66 L130 34'/%3E%3Cpath d='M150 88 L204 58 L252 84 L300 46 L360 68'/%3E%3Cpath d='M252 84 L268 126'/%3E%3Cpath d='M204 58 L192 20'/%3E%3Cpath d='M300 46 L314 90 L344 108'/%3E%3Cpath d='M52 80 L38 120'/%3E%3C/g%3E%3C/svg%3E");
   }
   * { box-sizing: border-box; }
   body {
@@ -20,54 +21,21 @@
     line-height: 1.8;
   }
 
-  .wrap {
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: 48px 20px 80px;
-  }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 48px 20px 80px; }
 
   /* ── 题头：隔河的对话 ─────────────────────── */
-  header.masthead {
-    text-align: center;
-    margin-bottom: 46px;
-  }
+  header.masthead { text-align: center; margin-bottom: 46px; }
   .masthead h1 {
-    font-size: 42px;
-    font-weight: 500;
-    letter-spacing: 12px;
-    margin: 0 0 4px;
-    text-wrap: balance;
+    font-size: 42px; font-weight: 500; letter-spacing: 12px;
+    margin: 0 0 4px; text-wrap: balance;
   }
-  .masthead .sub {
-    font-size: 12px;
-    color: var(--ice);
-    letter-spacing: 3px;
-    opacity: 0.7;
-  }
-  .dialogue {
-    max-width: 520px;
-    margin: 28px auto 0;
-    font-size: 13.5px;
-    letter-spacing: 1px;
-  }
-  .dialogue .far {
-    text-align: left;
-    color: var(--ice);
-  }
-  .dialogue .near {
-    text-align: right;
-    color: var(--cinnabar);
-  }
-  .dialogue .who {
-    font-size: 10px;
-    opacity: 0.55;
-    letter-spacing: 2px;
-    display: block;
-  }
-  /* 两句之间：一条缓缓东流的碎冰线 */
+  .masthead .sub { font-size: 12px; color: var(--ice); letter-spacing: 3px; opacity: 0.7; }
+  .dialogue { max-width: 520px; margin: 28px auto 0; font-size: 13.5px; letter-spacing: 1px; }
+  .dialogue .far { text-align: left; color: var(--ice); }
+  .dialogue .near { text-align: right; color: var(--cinnabar); }
+  .dialogue .who { font-size: 10px; opacity: 0.55; letter-spacing: 2px; display: block; }
   .river {
-    height: 3px;
-    margin: 16px 0;
+    height: 3px; margin: 16px 0;
     background: repeating-linear-gradient(90deg,
         rgba(159, 189, 207, 0.6) 0 7px, transparent 7px 16px) 0 50% / 200% 1px repeat-x;
     -webkit-mask: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
@@ -76,14 +44,10 @@
   }
   @keyframes eastflow { to { background-position: 320px 50%; } }
   @media (prefers-reduced-motion: reduce) {
-    .river, .type-line::after, .breath { animation: none !important; }
+    .river, .type-line { animation: none !important; }
   }
 
-  .cols {
-    display: flex;
-    gap: 44px;
-    align-items: flex-start;
-  }
+  .cols { display: flex; gap: 44px; align-items: flex-start; }
   .phone-col { flex: 0 0 auto; position: sticky; top: 24px; }
   .spec-col { flex: 1 1 0; min-width: 0; }
   @media (max-width: 860px) {
@@ -93,258 +57,250 @@
 
   /* ── 手机模拟框 ─────────────────────────── */
   .phone {
-    width: 372px;
-    max-width: 92vw;
-    height: 758px;
+    width: 372px; max-width: 92vw; height: 790px;
     border-radius: 34px;
     border: 1px solid rgba(159, 189, 207, 0.25);
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    /* 模拟用户自己的背景图：一片夜里的冷水面 */
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
     background:
       radial-gradient(120% 60% at 80% 0%, rgba(159, 189, 207, 0.12), transparent 60%),
       radial-gradient(90% 50% at 15% 90%, rgba(176, 85, 76, 0.10), transparent 65%),
       linear-gradient(170deg, #0d1420 0%, #0B0F16 45%, #0a0d13 100%);
   }
+
+  /* 顶栏：实底磨砂（甲方要求，不再透明） */
+  .topbar {
+    height: 41px;
+    background: rgba(9, 12, 18, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(159, 189, 207, 0.26);
+    display: flex; align-items: center; justify-content: space-around;
+    color: rgba(159, 189, 207, 0.6);
+    font-size: 13px;
+    flex: 0 0 auto;
+  }
+
   .phone .chat {
-    flex: 1;
-    overflow: hidden;
-    padding: 20px 12px 10px;
-    -webkit-mask: linear-gradient(to bottom, transparent 0%, #000 5%, #000 100%);
-    mask: linear-gradient(to bottom, transparent 0%, #000 5%, #000 100%);
+    flex: 1; overflow: hidden;
+    padding: 14px 12px 10px;
   }
 
   .show-more {
-    text-align: center;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    color: rgba(159, 189, 207, 0.72);
-    margin: 2px 0 12px;
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    font-size: 10px; letter-spacing: 2px;
+    color: rgba(159, 189, 207, 0.75);
+    margin: 0 0 12px;
   }
+  .show-more::before, .show-more::after {
+    content: ""; width: 48px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(159,189,207,0.55));
+  }
+  .show-more::after { background: linear-gradient(to left, transparent, rgba(159,189,207,0.55)); }
 
-  /* 消息卡片 */
+  /* ── 图片框架卡 ── */
   .mes {
     position: relative;
-    background: rgba(11, 15, 22, 0.55);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(159, 189, 207, 0.14);
-    border-top: 1px solid rgba(159, 189, 207, 0.42);
-    border-radius: 2px;
-    padding: 0 16px 34px;
-    margin-bottom: 22px;
+    background: rgba(11, 15, 22, 0.6);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(159, 189, 207, 0.16);
+    border-radius: 3px;
+    box-shadow: 0 22px 44px -24px rgba(0, 0, 0, 0.65);
+    padding: 0 0 44px;
+    margin-bottom: 28px;
   }
-  .mes.user {
-    background: rgba(24, 13, 13, 0.5);
-    border-top-color: rgba(176, 85, 76, 0.58);
-  }
+  .mes.user { background: rgba(22, 14, 14, 0.55); }
 
-  /* 卡头带：SVG 冰裂纹上的观测词 */
-  .band {
-    display: flex;
-    align-items: flex-end;
-    height: 44px;
-    margin: 0 -16px 10px;
-    padding: 8px 48px 7px 14px;
-    font-size: 12px;
-    letter-spacing: 6px;
-    color: rgba(159, 189, 207, 0.9);
-    border-bottom: 1px solid rgba(159, 189, 207, 0.2);
+  /* 卡头图：CSS 自绘夜河占位画（以后换真图） */
+  .head {
+    height: 140px;
     background-image:
-      linear-gradient(to bottom, rgba(11,15,22,0) 35%, rgba(11,15,22,0.55) 100%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='46' viewBox='0 0 340 46'%3E%3Cg stroke='%239FBDCF' stroke-width='0.6' fill='none' opacity='0.33'%3E%3Cpath d='M0 30 L44 25 L60 34 L98 21 L122 30'/%3E%3Cpath d='M98 21 L106 7'/%3E%3Cpath d='M122 30 L170 17 L212 28 L258 13 L340 24'/%3E%3Cpath d='M212 28 L224 43'/%3E%3Cpath d='M170 17 L162 3'/%3E%3Cpath d='M258 13 L268 30 L292 36'/%3E%3C/g%3E%3C/svg%3E");
-    background-size: cover, auto 100%;
-    background-position: center, left center;
-    background-repeat: no-repeat, repeat-x;
+      linear-gradient(to bottom, rgba(11,15,22,0.05) 40%, rgba(11,15,22,0.8) 96%),
+      radial-gradient(95% 130% at 76% -12%, rgba(222, 234, 243, 0.26), transparent 55%),
+      repeating-linear-gradient(178deg, rgba(159,189,207,0.10) 0 1px, transparent 1px 9px),
+      var(--cracks),
+      linear-gradient(162deg, #15202E 0%, #0C1119 58%, #0A0D13 100%);
+    background-size: cover, cover, cover, auto 100%, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat-x, no-repeat;
+    -webkit-mask: linear-gradient(to bottom, black 62%, rgba(0,0,0,0.25) 90%, transparent 100%);
+    mask: linear-gradient(to bottom, black 62%, rgba(0,0,0,0.25) 90%, transparent 100%);
   }
-  .mes.user .band {
-    justify-content: flex-end;
-    padding: 8px 14px 7px 48px;
-    color: rgba(176, 85, 76, 0.92);
-    border-bottom-color: rgba(176, 85, 76, 0.28);
+  .mes.user .head {
+    background-image:
+      linear-gradient(to bottom, rgba(18,13,14,0.05) 40%, rgba(18,13,14,0.82) 96%),
+      radial-gradient(75% 110% at 16% 112%, rgba(176, 85, 76, 0.30), transparent 58%),
+      repeating-linear-gradient(178deg, rgba(159,189,207,0.10) 0 1px, transparent 1px 9px),
+      var(--cracks),
+      linear-gradient(162deg, #1E1416 0%, #120D0F 58%, #0D0A0B 100%);
   }
 
-  .avatar {
+  /* 图上的大字：渐变观测词 */
+  .bigword {
     position: absolute;
-    top: 8px; right: 12px;
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    border: 1px solid rgba(159, 189, 207, 0.55);
+    top: 84px; left: 20px; z-index: 2;
+    font-size: 30px; letter-spacing: 12px; line-height: 1;
+    background: linear-gradient(115deg, #E4EEF5 8%, #9FBDCF 55%, rgba(159,189,207,0.55) 95%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .mes.user .bigword {
+    background: linear-gradient(115deg, #EFE3DF 5%, #B0554C 60%, rgba(176,85,76,0.6) 95%);
+    -webkit-background-clip: text; background-clip: text;
+  }
+
+  /* 反色时间戳章：贴在图右上角 */
+  .stamp {
+    position: absolute; top: 12px; right: 12px; z-index: 3;
+    font-size: 9.5px; font-weight: bold; letter-spacing: 1px;
+    padding: 2px 8px; border-radius: 1px;
+    background: var(--ice); color: #0B0F16;
+  }
+  .mes.user .stamp { background: var(--cinnabar); color: #ECE9E4; }
+
+  /* 相框方头像：半嵌在图片下缘 */
+  .frame {
+    position: absolute; top: 116px; left: 16px; z-index: 3;
+    width: 46px; height: 46px; border-radius: 2px;
+    border: 3px solid #E7E4DE;
+    box-shadow: 0 8px 18px -8px rgba(0, 0, 0, 0.75);
     background: radial-gradient(circle at 35% 30%, #2a3646, #141b26);
     display: flex; align-items: center; justify-content: center;
-    font-size: 12px; color: var(--ice);
-    z-index: 2;
+    font-size: 15px; color: var(--ice);
   }
-  .mes.user .avatar {
-    right: auto; left: 12px;
-    border-color: rgba(176, 85, 76, 0.6);
+  .mes.user .frame {
+    border-color: #D0A49B;
     background: radial-gradient(circle at 35% 30%, #3a2320, #1c1210);
     color: var(--cinnabar);
   }
 
-  .namerow {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-  .namerow .time {
-    font-size: 9.5px;
-    color: rgba(159, 189, 207, 0.68);
-  }
-  .namerow .meta {
-    margin-left: auto;
-    font-size: 9px;
-    color: rgba(159, 189, 207, 0.6);
-  }
+  .namezone { padding: 8px 16px 0 74px; }
+  .namezone .n { font-size: 15px; font-weight: 500; letter-spacing: 2.5px; }
   .sig {
-    width: 100%;
-    font-size: 10px;
-    letter-spacing: 0.5px;
-    margin-top: 3px;
-    color: rgba(159, 189, 207, 0.74);
+    font-size: 10.5px; letter-spacing: 0.5px;
+    color: rgba(159, 189, 207, 0.78);
   }
-  .mes.user .sig { color: rgba(176, 85, 76, 0.82); }
+  .mes.user .sig { color: rgba(176, 85, 76, 0.88); }
+  .metaline {
+    text-align: right;
+    font-size: 9px;
+    color: rgba(159, 189, 207, 0.62);
+    margin-top: 2px;
+  }
+
+  /* 思维链：图签式，标题骑在框线上 */
+  .think {
+    position: relative;
+    margin: 16px 18px 0;
+    border: 1px solid rgba(159, 189, 207, 0.28);
+    border-radius: 2px;
+    padding: 14px 14px 10px;
+  }
+  .think .label {
+    position: absolute; top: -8px; left: 12px;
+    padding: 0 8px; line-height: 1;
+    background: #0D1119;
+    font-size: 10px; letter-spacing: 3px;
+    color: rgba(159, 189, 207, 0.85);
+  }
+  .think .body {
+    font-style: italic; font-size: 11.5px;
+    color: rgba(159, 189, 207, 0.85);
+  }
 
   .mtext {
-    text-align: justify;
-    font-size: 13px;
-    padding-top: 10px;
-    letter-spacing: 0.3px;
+    text-align: justify; font-size: 13px;
+    padding: 12px 18px 0; letter-spacing: 0.3px;
   }
   .mtext q { color: var(--ice); quotes: "“" "”"; }
   .mtext em { color: rgba(159, 189, 207, 0.78); }
 
-  .reasoning {
-    margin: 12px 0 6px;
-  }
-  .reasoning .rtitle {
-    font-size: 10.5px;
-    letter-spacing: 1px;
-    color: rgba(159, 189, 207, 0.8);
-    padding: 4px 0;
-  }
-  .reasoning .rbody {
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 1px solid rgba(159, 189, 207, 0.5);
-    font-style: italic;
-    font-size: 11.5px;
-    color: rgba(159, 189, 207, 0.85);
-    padding: 8px 12px;
-  }
-
+  /* 翻页：居中一行 */
   .swipes {
-    position: absolute;
-    bottom: 6px; left: 12px;
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
+    position: absolute; bottom: 10px; left: 0; right: 0;
+    display: flex; align-items: flex-end; justify-content: center; gap: 18px;
   }
   .swipe {
-    height: 24px;
-    padding: 0 10px;
+    height: 24px; padding: 0 12px;
     display: flex; align-items: center;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: rgba(159, 189, 207, 0.82);
+    font-size: 10px; letter-spacing: 3px;
+    color: rgba(159, 189, 207, 0.85);
     border-bottom: 1px solid rgba(159, 189, 207, 0.45);
   }
-  .swipe.re {
-    color: rgba(176, 85, 76, 0.88);
-    border-bottom-color: rgba(176, 85, 76, 0.55);
-  }
-  .swipes .count {
-    font-size: 9px;
-    color: rgba(159, 189, 207, 0.7);
-    padding-bottom: 5px;
-  }
+  .swipe.re { color: rgba(176, 85, 76, 0.92); border-bottom-color: rgba(176, 85, 76, 0.6); }
+  .swipes .count { font-size: 9px; color: rgba(159, 189, 207, 0.72); padding-bottom: 5px; }
+
   .editbtns {
-    position: absolute;
-    bottom: 9px; right: 12px;
-    font-size: 10.5px;
-    letter-spacing: 1px;
-    color: rgba(159, 189, 207, 0.65);
-    display: flex; gap: 8px;
+    position: absolute; bottom: 11px; right: 14px; z-index: 5;
+    font-size: 10px; letter-spacing: 1px;
+    color: rgba(159, 189, 207, 0.8);
+    display: flex; gap: 6px;
+  }
+  .editbtns span {
+    border: 1px solid rgba(159, 189, 207, 0.32);
+    border-radius: 1px; padding: 1px 6px;
   }
 
   /* 输入区 */
   .inputbar {
-    background: rgba(9, 12, 18, 0.78);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(159, 189, 207, 0.28);
-    padding: 8px 15px 12px;
+    background: rgba(9, 12, 18, 0.88);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(159, 189, 207, 0.3);
+    padding: 10px 15px 12px;
+    flex: 0 0 auto;
   }
+  /* 文本域：四角冰棱角标框 */
   .textarea {
-    position: relative;
-    background: rgba(255, 255, 255, 0.055);
-    border-bottom: 1px solid rgba(159, 189, 207, 0.35);
-    border-radius: 2px;
-    height: 41px;
-    margin-bottom: 10px;
+    position: relative; height: 41px; margin-bottom: 10px;
     display: flex; align-items: center; justify-content: center;
+    background:
+      linear-gradient(#9FBDCF, #9FBDCF) 0 0 / 12px 1px,
+      linear-gradient(#9FBDCF, #9FBDCF) 0 0 / 1px 12px,
+      linear-gradient(#9FBDCF, #9FBDCF) 100% 0 / 12px 1px,
+      linear-gradient(#9FBDCF, #9FBDCF) 100% 0 / 1px 12px,
+      linear-gradient(#9FBDCF, #9FBDCF) 0 100% / 12px 1px,
+      linear-gradient(#9FBDCF, #9FBDCF) 0 100% / 1px 12px,
+      linear-gradient(#9FBDCF, #9FBDCF) 100% 100% / 12px 1px,
+      linear-gradient(#9FBDCF, #9FBDCF) 100% 100% / 1px 12px,
+      rgba(255, 255, 255, 0.045);
+    background-repeat: no-repeat;
   }
   .type-line {
-    font-size: 11px;
-    letter-spacing: 2px;
+    font-size: 11px; letter-spacing: 2px;
     color: rgba(159, 189, 207, 0.62);
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    max-width: fit-content;
+    white-space: nowrap; overflow: hidden;
+    width: 0; max-width: fit-content;
     border-right: 1.5px solid rgba(159, 189, 207, 0.62);
     animation: typing 4.5s steps(6) infinite alternate, blink 1.5s infinite;
   }
   @keyframes typing { 0% { width: 0; } 45%, 100% { width: 9em; } }
   @keyframes blink { 50% { border-color: transparent; } }
-  .btnrow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  .btnrow { display: flex; justify-content: space-between; align-items: center; }
   .btnrow .left { color: rgba(159, 189, 207, 0.9); font-size: 15px; letter-spacing: 8px; }
+  /* 发送：朱砂方章 */
   .du {
-    width: 35px; height: 35px;
-    border-radius: 50%;
+    width: 34px; height: 34px; border-radius: 2px;
     display: flex; align-items: center; justify-content: center;
-    color: var(--cinnabar);
-    font-size: 17px;
-    border: 1px solid rgba(176, 85, 76, 0.35);
+    background: var(--cinnabar); color: #ECE9E4;
+    font-size: 16px;
+    box-shadow: 0 6px 16px -6px rgba(176, 85, 76, 0.7);
   }
 
   /* ── 右列：规格说明 ─────────────────────── */
   .spec-col h2 {
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 3px;
+    font-size: 15px; font-weight: 500; letter-spacing: 3px;
     color: var(--ice);
     border-bottom: 1px solid var(--hairline);
-    padding-bottom: 8px;
-    margin: 34px 0 14px;
+    padding-bottom: 8px; margin: 34px 0 14px;
   }
   .spec-col h2:first-child { margin-top: 0; }
   .spec-col p { font-size: 13px; margin: 0 0 10px; max-width: 62ch; }
   .spec-col .note { font-size: 11.5px; color: rgba(159, 189, 207, 0.72); }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
   th, td {
-    text-align: left;
-    padding: 7px 10px 7px 0;
+    text-align: left; padding: 7px 10px 7px 0;
     border-bottom: 1px solid rgba(159, 189, 207, 0.1);
     vertical-align: top;
   }
-  th {
-    font-weight: normal;
-    color: rgba(159, 189, 207, 0.75);
-    white-space: nowrap;
-    width: 9em;
-  }
+  th { font-weight: normal; color: rgba(159, 189, 207, 0.75); white-space: nowrap; width: 9em; }
   .table-scroll { overflow-x: auto; }
 
   .chips { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -352,27 +308,22 @@
     display: flex; align-items: center; gap: 8px;
     font-size: 11px;
     border: 1px solid var(--hairline);
-    border-radius: 2px;
-    padding: 6px 12px;
+    border-radius: 2px; padding: 6px 12px;
   }
   .dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); }
 
   ol.steps { font-size: 13px; padding-left: 1.4em; margin: 0; }
   ol.steps li { margin-bottom: 8px; }
   code {
-    font-family: inherit;
-    font-size: 0.95em;
+    font-family: inherit; font-size: 0.95em;
     background: rgba(255, 255, 255, 0.06);
-    border-radius: 2px;
-    padding: 1px 6px;
+    border-radius: 2px; padding: 1px 6px;
     color: var(--ice);
   }
 
   footer {
-    margin-top: 56px;
-    text-align: center;
-    font-size: 11px;
-    letter-spacing: 2px;
+    margin-top: 56px; text-align: center;
+    font-size: 11px; letter-spacing: 2px;
     color: rgba(159, 189, 207, 0.5);
   }
 </style>
@@ -380,7 +331,7 @@
 <div class="wrap">
   <header class="masthead">
     <h1>楚　河</h1>
-    <div class="sub">THE CHU RIVER · 隔河的对话 · 为 amber 定制</div>
+    <div class="sub">THE CHU RIVER · 隔河的对话 · 为 amber 定制 · v2</div>
     <div class="dialogue">
       <div class="far"><span class="who">彼岸 · 劝渡</span>「你应是有东流的宿命，就别在此结冰。」</div>
       <div class="river"></div>
@@ -392,49 +343,50 @@
     <!-- ── 手机模拟 ── -->
     <div class="phone-col">
       <div class="phone">
+        <div class="topbar"><span>☰</span><span>◫</span><span>❖</span><span>♟</span><span>⚙</span></div>
         <div class="chat">
-          <div class="show-more">↑ 已渡之河 · 唯此可回头</div>
+          <div class="show-more">已渡之河 · 唯此可回头</div>
 
           <!-- char 楼 -->
           <div class="mes">
-            <div class="band">凌汛</div>
-            <div class="avatar">彼</div>
-            <div class="namerow">
-              <span>沈既明</span>
-              <span class="time">· 渡于 23:47</span>
-              <span class="meta">渡 No.6 · 水深 412 字 · 渡时 21s</span>
-              <span class="sig">「你应是有东流的宿命，就别在此结冰。」</span>
+            <div class="head"></div>
+            <div class="bigword">凌　汛</div>
+            <div class="stamp">渡于 23:47</div>
+            <div class="frame">彼</div>
+            <div class="namezone">
+              <div class="n">沈既明</div>
+              <div class="sig">「你应是有东流的宿命，就别在此结冰。」</div>
+              <div class="metaline">渡 No.6 · 水深 412 字 · 渡时 21s</div>
             </div>
-            <div class="reasoning">
-              <div class="rtitle">『冰层之下』</div>
-              <div class="rbody">他不能让这个人留下来。河面在夜里发出细碎的断裂声，像是替他把话说完了。</div>
+            <div class="think">
+              <div class="label">冰层之下</div>
+              <div class="body">他不能让这个人留下来。河面在夜里发出细碎的断裂声，像是替他把话说完了。</div>
             </div>
             <div class="mtext">
-              他站在对岸，风把大衣的下摆吹得贴住小腿。<q>回去。</q>他说，声音越过冻住的河面，
-              比想象里平静，<q>水往东流，人也一样。你不该困在这里，更不该为我。</q>
+              他站在对岸，风把大衣的下摆吹得贴住小腿。<q>回去。</q>他说，
+              <q>水往东流，人也一样。你不该困在这里，更不该为我。</q>
               <em>可他没有说的是，河心那道清沟整整一夜都没有合拢。</em>
             </div>
             <div class="swipes">
               <div class="swipe">无舟</div>
-              <div class="swipe re">仍渡</div>
               <div class="count">渡 2/3</div>
+              <div class="swipe re">仍渡</div>
             </div>
-            <div class="editbtns"><span>改道</span><span>支流</span></div>
           </div>
 
           <!-- user 楼 -->
           <div class="mes user">
-            <div class="band">过河卒</div>
-            <div class="avatar">此</div>
-            <div class="namerow">
-              <span>amber</span>
-              <span class="time">· 渡于 23:52</span>
-              <span class="meta">渡 No.7 · 水深 58 字 · 渡时 —</span>
-              <span class="sig">「我欲成冰，再也无退路。」</span>
+            <div class="head"></div>
+            <div class="bigword">过河卒</div>
+            <div class="stamp">渡于 23:52</div>
+            <div class="frame">此</div>
+            <div class="namezone">
+              <div class="n">amber</div>
+              <div class="sig">「我欲成冰，再也无退路。」</div>
+              <div class="metaline">渡 No.7 · 水深 58 字</div>
             </div>
             <div class="mtext">
-              我把最后一句劝告踩碎在脚下，像踩碎一层薄冰。
-              <q>你早该知道的，</q>我说，<q>卒子过了河，就没有回头这一步。</q>
+              我把最后一句劝告踩碎在脚下。<q>你早该知道的，卒子过了河，就没有回头这一步。</q>
             </div>
             <div class="editbtns"><span>改道</span><span>支流</span></div>
           </div>
@@ -453,25 +405,32 @@
 
     <!-- ── 规格说明 ── -->
     <div class="spec-col">
-      <h2>概念</h2>
-      <p>聊天是一场隔河对话。彼岸劝渡，此岸成冰——每一次一来一回，都是题头那两句词在重演，谁也说服不了谁。卒过楚河，落步无回；全界面唯一允许回头的地方，是翻看「已渡之河」（历史记录）。</p>
-      <p class="note">两色纪律：冰蓝（东流的水）与朱砂（殉道的血色；楚方本就是红方）。全主题无金。</p>
+      <h2>v2 修订说明</h2>
+      <p>按甲方意见全面返工：① 顶栏改为实底磨砂黑，一条冰线收边，不再透明；② 真正落地图片框架流——每楼一张 140px 大卡头图位，当前为 CSS 自绘的「夜河冷光」占位画，图床直链一填即换真图；③ 卡片解剖学整体重做（Grid 区域布局），与《不可译》无一处同位。</p>
 
-      <h2>隐喻映射</h2>
+      <h2>卡片解剖（全新）</h2>
       <div class="table-scroll">
         <table>
-          <tr><th>名字签名行</th><td>char 楼挂「东流」句（冰蓝），user 楼挂「成冰」句（朱砂），每楼重演一次对话</td></tr>
-          <tr><th>char 卡头</th><td>冰情观测词七楼一循环：初冰 → 岸冰 → 封冻 → 清沟 → 冰桥 → 凌汛 → 成冰。河不解冻</td></tr>
-          <tr><th>user 卡头</th><td>静态一枚「过河卒」</td></tr>
-          <tr><th>元数据</th><td>渡 No.X · 水深 X 字 · 渡时 Xs；时间戳=「渡于」</td></tr>
-          <tr><th>重roll</th><td>左「无舟」（冰蓝）· 右「仍渡」（朱砂）· 计数「渡 2/3」</td></tr>
-          <tr><th>思维链</th><td>『冰层之下』——水面之下看不见的部分</td></tr>
-          <tr><th>输入区</th><td>占位符打字机「仍要渡么——」，发送按钮答一个字：「渡」</td></tr>
-          <tr><th>加载更多</th><td>「↑ 已渡之河 · 唯此可回头」（反俄耳浦斯的那个例外）</td></tr>
-          <tr><th>编辑 / 更多</th><td>「改道」/「支流」</td></tr>
-          <tr><th>分割线</th><td>碎冰浮排，永远缓缓向东流（40s 循环动画）</td></tr>
+          <tr><th>大卡头图</th><td>140px 全宽图位，下缘羽化融进卡身；char 冷月光调，user 压一点朱砂暗火</td></tr>
+          <tr><th>图上大字</th><td>冰情观测词渐变字压图（初冰→岸冰→封冻→清沟→冰桥→凌汛→成冰，七楼一循环）；user 楼恒为「过河卒」，暖白到朱砂渐变</td></tr>
+          <tr><th>反色时间戳章</th><td>图右上角一枚色章：「渡于 23:47」——char 冰蓝章黑字，user 朱砂章白字</td></tr>
+          <tr><th>相框方头像</th><td>46px 方形，暖白照片框，半嵌在图片下缘（电影剧照式）</td></tr>
+          <tr><th>名字区</th><td>名字 15px 大字距 → 签名句 → 元数据右对齐一行「渡No.X · 水深X字 · 渡时Xs」</td></tr>
+          <tr><th>思维链</th><td>图签式外框，「冰层之下」标题骑在框线上</td></tr>
+          <tr><th>翻页</th><td>底部居中一行：无舟 · 渡 2/3 · 仍渡</td></tr>
+          <tr><th>编辑/更多</th><td>右下角两枚描边小签「改道」「支流」</td></tr>
+          <tr><th>输入区</th><td>四角冰棱角标框文本域 + 打字机「仍要渡么——」 + 朱砂方章「渡」</td></tr>
         </table>
       </div>
+
+      <h2>换图方法（甲方最关心的）</h2>
+      <ol class="steps">
+        <li>把图传到 catbox.moe 或 iili.io 拿到直链</li>
+        <li>打开 custom CSS 顶部「甲方调整区」，把
+          <code>--char卡头图</code> / <code>--user卡头图</code> 改成 <code>url("直链")</code></li>
+        <li>喜欢更满的图可把 <code>--卡头高度</code> 调到 180px</li>
+        <li>两岸可以用不同的图；不填时自动显示内置夜河占位画，永不裂图</li>
+      </ol>
 
       <h2>色板</h2>
       <div class="chips">
@@ -483,17 +442,15 @@
 
       <h2>安装</h2>
       <ol class="steps">
-        <li>把 <code>楚河-TheChuRiver.json</code> 存到酒馆的 <code>public/themes/</code>，或在 用户设置 → UI 主题 处导入</li>
-        <li>选择主题《楚河》，字体（文源宋体，zeoseven 415）会自动联网加载</li>
-        <li>背景请放一张你自己的图——卡片是半透明冰面，任何背景都透得出来</li>
-        <li>想微调？打开 custom CSS 顶部的「甲方调整区」：两句签名、卡头词、透明度、全部文案都是中文变量，改引号里的字即可</li>
-        <li>以后找到心仪的图，把 <code>--卡头图</code> 换成图床直链、<code>--卡头高度</code> 调到 120px 以上，卡头即从 SVG 冰纹升级为真图</li>
+        <li>把 <code>楚河-TheChuRiver.json</code> 在酒馆 用户设置 → UI 主题 处导入并选择</li>
+        <li>背景请放一张你自己的图——卡片是半透明冰面，透得出来</li>
+        <li>文案、签名、透明度全部是「甲方调整区」中文变量，改引号里的字即可</li>
       </ol>
 
       <h2>已知余量</h2>
-      <p class="note">不同酒馆版本 DOM 有差异（尤其翻页按钮坐标、抽屉面板 top 值）。请在手机上实测，有错位发截图来，预留一轮微调。</p>
+      <p class="note">Grid 区域布局依赖酒馆 DOM 结构，不同版本可能有元素错位（头像列、元数据顺序最常见）。请手机实测后发截图来微调。</p>
     </div>
   </div>
 
-  <footer>《楚河》 · 卒已过河 · 请勿二传或商用</footer>
+  <footer>《楚河》 v2 · 卒已过河 · 请勿二传或商用</footer>
 </div>
