@@ -1,18 +1,26 @@
-<title>冥王星卷末附录</title>
+<title>冥王星星海附录</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
   :root {
-    --bg: #1C1A18;
-    --bg-2: #232019;
-    --ink: #ECE9E4;
-    --dim: #97918A;
-    --accent: #E5B685;
-    --line: rgba(236, 233, 228, 0.12);
-    --phone-night: #1A1917;
-    --phone-day: #FAF8F5;
+    --bg: #15181E;
+    --bg-2: #1B1F27;
+    --ink: #E4E9F2;
+    --dim: #8B93A3;
+    --accent: #A5BEE4;
+    --line: rgba(228, 233, 242, 0.12);
+    --phone-night: #17191D;
+    --phone-day: #F6F7F9;
   }
   body {
-    background: var(--bg);
+    background:
+      radial-gradient(1.2px 1.2px at 12% 20%, rgba(211,227,248,.5), transparent 50%),
+      radial-gradient(1px 1px at 65% 8%, rgba(211,227,248,.4), transparent 50%),
+      radial-gradient(1.4px 1.4px at 88% 35%, rgba(211,227,248,.45), transparent 50%),
+      radial-gradient(1px 1px at 35% 55%, rgba(211,227,248,.3), transparent 50%),
+      radial-gradient(1.2px 1.2px at 78% 75%, rgba(211,227,248,.35), transparent 50%),
+      radial-gradient(1px 1px at 8% 88%, rgba(211,227,248,.3), transparent 50%),
+      var(--bg);
+    background-attachment: fixed;
     color: var(--ink);
     font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
     margin: 0;
@@ -43,15 +51,14 @@
     display: flex; align-items: center; gap: 16px;
   }
   h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-  h2 .dot { color: var(--accent); }
-
+  
   /* ── 手机框 ── */
   .phones { display: flex; flex-wrap: wrap; gap: 36px; justify-content: center; }
   .phone-col { display: flex; flex-direction: column; align-items: center; gap: 14px; }
   .phone {
     width: min(360px, 86vw);
     border-radius: 34px;
-    border: 1px solid rgba(236, 233, 228, 0.18);
+    border: 1px solid rgba(228, 233, 242, 0.18);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), inset 0 0 0 6px #000;
     overflow: hidden;
     position: relative;
@@ -70,8 +77,8 @@
     width: 84px; height: 8px; border-radius: 8px;
     background: rgba(128, 128, 128, 0.35);
   }
-  .phone.night .screen { background: var(--phone-night); color: #E8E6E3; }
-  .phone.day .screen { background: var(--phone-day); color: #2C2C2C; }
+  .phone.night .screen { background: var(--phone-night); color: #E4E9F2; }
+  .phone.day .screen { background: var(--phone-day); color: #2A3140; }
   .phone .mes { line-height: 1.85; opacity: 0.92; }
   .phone .mes .who {
     font-size: 11px; letter-spacing: 0.2em;
@@ -111,7 +118,7 @@
   .card code {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
-    background: rgba(229, 182, 133, 0.12);
+    background: rgba(165, 190, 228, 0.12);
     color: var(--accent);
     padding: 1px 6px; border-radius: 4px;
   }
@@ -142,11 +149,11 @@
 <div class="page">
   <header>
     <div class="eyebrow">SP · Pluto Preset · Regex D①</div>
-    <h1>底部打包 · <b>冥王星美化版</b></h1>
-    <p class="lede">把每层楼末尾的 Snapshot / Abstract / Todo / Seeds / Events 五个数据标签,收进一条极简的「✦ PLUTO SUMMARY」标签线里。透明底、暖白字、焦糖点缀,与冥王星预设同色系;默认折叠、默认夜间,点末端的 ☀/☾ 切换日夜。</p>
+    <h1>底部打包 · <b>冥王星星海版</b></h1>
+    <p class="lede">把每层楼末尾的 Snapshot / Abstract / Todo / Seeds / Events 五个数据标签,收进一条极简的「PLUTO SUMMARY」标签线里。透明底、星光白字、月光星蓝点缀;展开后铺一层缓慢明灭的纯 CSS 星野。默认折叠、默认夜间;全部图标为自绘 SVG 线条,无 emoji。</p>
   </header>
 
-  <h2><span class="dot">✦</span>实机预览(可点击操作)</h2>
+  <h2>实机预览(可点击操作)</h2>
   <div class="phones">
     <div class="phone-col">
       <div class="phone night">
@@ -160,16 +167,19 @@
 <div id="demo-night" class="plt-pack-wrapper" onclick="event.stopPropagation();">
     <style>
         /* ============================================
-           SP-D① 底部打包 · 冥王星美化版
-           透明底 / 暖白字 / 焦糖点缀 · 默认夜间
+           SP-D① 底部打包 · 冥王星星海版
+           透明底 / 冷色星蓝 / 纯CSS星野 · 默认夜间
+           图标全部为内联 SVG,无 emoji
            ============================================ */
         .plt-pack-wrapper {
-            /* ── 夜间(默认):暖白 + 蜜糖焦糖 ── */
-            --plt-ink: #ECE9E4;
-            --plt-accent: #E5B685;
-            --plt-dim: rgba(236, 233, 228, 0.45);
-            --plt-line: rgba(236, 233, 228, 0.16);
-            --plt-thumb: rgba(229, 182, 133, 0.35);
+            /* ── 夜间(默认):星光白 + 月光星蓝 ── */
+            --plt-ink: #E4E9F2;
+            --plt-accent: #A5BEE4;
+            --plt-dim: rgba(228, 233, 242, 0.42);
+            --plt-line: rgba(228, 233, 242, 0.15);
+            --plt-thumb: rgba(165, 190, 228, 0.32);
+            --plt-star: rgba(211, 227, 248, 0.95);
+            --plt-nebula: rgba(142, 168, 224, 0.13);
 
             position: relative;
             margin: 2.4em 0 0.6em;
@@ -178,13 +188,15 @@
             font-family: inherit;
             transition: color 0.4s ease;
         }
-        /* ── 日间:深墨字 + 烤糖色 ── */
+        /* ── 日间:墨蓝字 + 钢青点缀 ── */
         .plt-pack-wrapper.day-mode {
-            --plt-ink: #2C2C2C;
-            --plt-accent: #B08050;
-            --plt-dim: rgba(44, 44, 44, 0.5);
-            --plt-line: rgba(44, 44, 44, 0.14);
-            --plt-thumb: rgba(176, 128, 80, 0.35);
+            --plt-ink: #2A3140;
+            --plt-accent: #52709E;
+            --plt-dim: rgba(42, 49, 64, 0.52);
+            --plt-line: rgba(42, 49, 64, 0.14);
+            --plt-thumb: rgba(82, 112, 158, 0.3);
+            --plt-star: rgba(42, 49, 64, 0.5);
+            --plt-nebula: rgba(82, 112, 158, 0.07);
         }
 
         /* ── 折叠标签行(默认唯一可见) ── */
@@ -211,47 +223,102 @@
             background: linear-gradient(90deg, var(--plt-line), transparent);
         }
         .plt-icon {
+            width: 0.75em;
+            height: 0.75em;
+            flex: none;
             color: var(--plt-accent);
-            font-size: 0.85em;
-            line-height: 1;
-            transition: transform 0.35s ease;
+            transition: transform 0.45s ease;
         }
+        .plt-pack-wrapper.open .plt-icon { transform: rotate(135deg); }
         .plt-title {
             font-size: 0.72em;
-            font-weight: 600;
-            letter-spacing: 0.32em;
-            margin-right: -0.32em;
+            font-weight: 500;
+            letter-spacing: 0.34em;
+            margin-right: -0.34em;
             text-transform: uppercase;
             color: var(--plt-dim);
             transition: color 0.3s;
             white-space: nowrap;
         }
         .plt-pack-toggle:hover .plt-title { color: var(--plt-accent); }
-        .plt-pack-toggle:hover .plt-icon { transform: rotate(90deg); }
+        .plt-pack-toggle:hover .plt-icon { transform: rotate(45deg); }
+        .plt-pack-wrapper.open .plt-pack-toggle:hover .plt-icon { transform: rotate(135deg); }
 
-        /* ── 日/夜切换(标签行末尾的小太阳/小月亮) ── */
+        /* ── 日/夜切换(自绘 SVG 日月) ── */
         .plt-theme-switch {
-            font-size: 0.8em;
-            line-height: 1;
+            flex: none;
+            width: 1em;
+            height: 1em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             user-select: none;
             color: var(--plt-dim);
-            transition: color 0.25s, transform 0.25s;
-            padding: 2px;
+            transition: color 0.25s, transform 0.35s;
         }
         .plt-theme-switch:hover {
             color: var(--plt-accent);
-            transform: rotate(30deg);
+            transform: rotate(40deg);
         }
+        .plt-theme-switch svg { width: 100%; height: 100%; }
+        .plt-moon { display: none; }
+        .day-mode .plt-sun { display: none; }
+        .day-mode .plt-moon { display: block; }
 
-        /* ── 展开后的界面 ── */
+        /* ── 展开后的界面:铺一层纯 CSS 星野 ── */
         .plt-pack-interface {
+            position: relative;
             margin-top: 1.3em;
             animation: plt-drop 0.4s ease;
         }
         @keyframes plt-drop {
             from { opacity: 0; transform: translateY(-4px); }
             to   { opacity: 1; transform: translateY(0); }
+        }
+        /* 星野·底层碎星(平铺) + 星云微光(不平铺) */
+        .plt-pack-interface::before {
+            content: "";
+            position: absolute;
+            inset: -0.6em -0.2em 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(ellipse 45% 75% at 85% -10%, var(--plt-nebula), transparent 62%),
+                radial-gradient(1.2px 1.2px at 23px 37px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 131px 9px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 74px 96px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 187px 64px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 44px 129px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 160px 118px, var(--plt-star), transparent 50%);
+            background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+            background-size: auto, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px;
+            opacity: 0.8;
+        }
+        /* 星野·上层亮星(错位平铺,缓慢明灭) */
+        .plt-pack-interface::after {
+            content: "";
+            position: absolute;
+            inset: -0.6em -0.2em 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(2px 2px at 57px 22px, var(--plt-star), transparent 55%),
+                radial-gradient(1.6px 1.6px at 233px 107px, var(--plt-star), transparent 55%),
+                radial-gradient(2px 2px at 152px 163px, var(--plt-star), transparent 55%);
+            background-repeat: repeat;
+            background-size: 301px 197px;
+            animation: plt-twinkle 5s ease-in-out infinite alternate;
+        }
+        @keyframes plt-twinkle {
+            from { opacity: 0.35; }
+            to   { opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .plt-pack-interface::after { animation: none; opacity: 0.5; }
+        }
+        /* 内容浮在星野之上 */
+        .plt-pack-tabs, .plt-pack-viewport, .plt-pack-foot {
+            position: relative;
+            z-index: 1;
         }
 
         /* Tab 栏 */
@@ -264,7 +331,7 @@
         .plt-pack-btn {
             position: relative;
             font-size: 0.7em;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--plt-dim);
@@ -277,10 +344,9 @@
             position: absolute;
             left: 0; bottom: -2px;
             width: 100%; height: 1px;
-            background: var(--plt-accent);
+            background: linear-gradient(90deg, transparent, var(--plt-accent), transparent);
             transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            transition: transform 0.35s ease;
         }
         .plt-pack-btn:hover { color: var(--plt-ink); }
         .plt-pack-btn.active { color: var(--plt-accent); }
@@ -337,15 +403,18 @@
 [2287.04.12] Pluto 首次主动分享私人记忆
 [2287.04.13] 收到一条未署名的窄带信号(未解码)</Events></div>
 
-    <!-- 折叠标签行:───── ✦ PLUTO SUMMARY ───── ☀ -->
+    <!-- 折叠标签行:───── ✧(SVG星) PLUTO SUMMARY ───── (SVG日/月) -->
     <div class="plt-pack-bar">
         <div class="plt-pack-toggle" onclick="pltPackToggle(this)">
             <span class="plt-line"></span>
-            <span class="plt-icon">✦</span>
+            <svg class="plt-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.2 9.8 L22 12 L14.2 14.2 L12 22 L9.8 14.2 L2 12 L9.8 9.8 Z" fill="currentColor"/></svg>
             <span class="plt-title">Pluto Summary</span>
             <span class="plt-line"></span>
         </div>
-        <div class="plt-theme-switch" onclick="pltPackTheme(event, this)">☀</div>
+        <span class="plt-theme-switch" onclick="pltPackTheme(event, this)">
+            <svg class="plt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.8 5.8l1.4 1.4M16.8 16.8l1.4 1.4M18.2 5.8l-1.4 1.4M7.2 16.8l-1.4 1.4"/></svg>
+            <svg class="plt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5Z"/></svg>
+        </span>
     </div>
 
     <!-- UI 渲染区(默认折叠) -->
@@ -356,26 +425,23 @@
     </div>
 
     <script>
-        // ── 日/夜切换 ──
+        // ── 日/夜切换(只切类名,日月图标由 CSS 控制显隐) ──
         window.pltPackTheme = function(event, btn) {
             event.stopPropagation();
-            var wrap = btn.closest('.plt-pack-wrapper');
-            wrap.classList.toggle('day-mode');
-            btn.innerHTML = wrap.classList.contains('day-mode') ? '☾' : '☀';
+            btn.closest('.plt-pack-wrapper').classList.toggle('day-mode');
         };
 
         // ── 展开 / 折叠 + 首次解析 ──
         window.pltPackToggle = function(btn) {
             var wrap = btn.closest('.plt-pack-wrapper');
             var ui = wrap.querySelector('.plt-pack-interface');
-            var icon = btn.querySelector('.plt-icon');
 
             if (ui.style.display === 'none') {
                 ui.style.display = 'block';
-                icon.innerText = '✧';
+                wrap.classList.add('open');
             } else {
                 ui.style.display = 'none';
-                icon.innerText = '✦';
+                wrap.classList.remove('open');
                 return;
             }
 
@@ -435,7 +501,7 @@
 
         </div>
       </div>
-      <div class="phone-cap"><b>NIGHT</b> · 夜间(默认) · 已展开</div>
+      <div class="phone-cap"><b>NIGHT</b> · 夜间(默认) · 已展开 · 星野明灭中</div>
     </div>
     <div class="phone-col">
       <div class="phone day">
@@ -449,16 +515,19 @@
 <div class="plt-pack-wrapper day-mode" onclick="event.stopPropagation();">
     <style>
         /* ============================================
-           SP-D① 底部打包 · 冥王星美化版
-           透明底 / 暖白字 / 焦糖点缀 · 默认夜间
+           SP-D① 底部打包 · 冥王星星海版
+           透明底 / 冷色星蓝 / 纯CSS星野 · 默认夜间
+           图标全部为内联 SVG,无 emoji
            ============================================ */
         .plt-pack-wrapper {
-            /* ── 夜间(默认):暖白 + 蜜糖焦糖 ── */
-            --plt-ink: #ECE9E4;
-            --plt-accent: #E5B685;
-            --plt-dim: rgba(236, 233, 228, 0.45);
-            --plt-line: rgba(236, 233, 228, 0.16);
-            --plt-thumb: rgba(229, 182, 133, 0.35);
+            /* ── 夜间(默认):星光白 + 月光星蓝 ── */
+            --plt-ink: #E4E9F2;
+            --plt-accent: #A5BEE4;
+            --plt-dim: rgba(228, 233, 242, 0.42);
+            --plt-line: rgba(228, 233, 242, 0.15);
+            --plt-thumb: rgba(165, 190, 228, 0.32);
+            --plt-star: rgba(211, 227, 248, 0.95);
+            --plt-nebula: rgba(142, 168, 224, 0.13);
 
             position: relative;
             margin: 2.4em 0 0.6em;
@@ -467,13 +536,15 @@
             font-family: inherit;
             transition: color 0.4s ease;
         }
-        /* ── 日间:深墨字 + 烤糖色 ── */
+        /* ── 日间:墨蓝字 + 钢青点缀 ── */
         .plt-pack-wrapper.day-mode {
-            --plt-ink: #2C2C2C;
-            --plt-accent: #B08050;
-            --plt-dim: rgba(44, 44, 44, 0.5);
-            --plt-line: rgba(44, 44, 44, 0.14);
-            --plt-thumb: rgba(176, 128, 80, 0.35);
+            --plt-ink: #2A3140;
+            --plt-accent: #52709E;
+            --plt-dim: rgba(42, 49, 64, 0.52);
+            --plt-line: rgba(42, 49, 64, 0.14);
+            --plt-thumb: rgba(82, 112, 158, 0.3);
+            --plt-star: rgba(42, 49, 64, 0.5);
+            --plt-nebula: rgba(82, 112, 158, 0.07);
         }
 
         /* ── 折叠标签行(默认唯一可见) ── */
@@ -500,47 +571,102 @@
             background: linear-gradient(90deg, var(--plt-line), transparent);
         }
         .plt-icon {
+            width: 0.75em;
+            height: 0.75em;
+            flex: none;
             color: var(--plt-accent);
-            font-size: 0.85em;
-            line-height: 1;
-            transition: transform 0.35s ease;
+            transition: transform 0.45s ease;
         }
+        .plt-pack-wrapper.open .plt-icon { transform: rotate(135deg); }
         .plt-title {
             font-size: 0.72em;
-            font-weight: 600;
-            letter-spacing: 0.32em;
-            margin-right: -0.32em;
+            font-weight: 500;
+            letter-spacing: 0.34em;
+            margin-right: -0.34em;
             text-transform: uppercase;
             color: var(--plt-dim);
             transition: color 0.3s;
             white-space: nowrap;
         }
         .plt-pack-toggle:hover .plt-title { color: var(--plt-accent); }
-        .plt-pack-toggle:hover .plt-icon { transform: rotate(90deg); }
+        .plt-pack-toggle:hover .plt-icon { transform: rotate(45deg); }
+        .plt-pack-wrapper.open .plt-pack-toggle:hover .plt-icon { transform: rotate(135deg); }
 
-        /* ── 日/夜切换(标签行末尾的小太阳/小月亮) ── */
+        /* ── 日/夜切换(自绘 SVG 日月) ── */
         .plt-theme-switch {
-            font-size: 0.8em;
-            line-height: 1;
+            flex: none;
+            width: 1em;
+            height: 1em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             user-select: none;
             color: var(--plt-dim);
-            transition: color 0.25s, transform 0.25s;
-            padding: 2px;
+            transition: color 0.25s, transform 0.35s;
         }
         .plt-theme-switch:hover {
             color: var(--plt-accent);
-            transform: rotate(30deg);
+            transform: rotate(40deg);
         }
+        .plt-theme-switch svg { width: 100%; height: 100%; }
+        .plt-moon { display: none; }
+        .day-mode .plt-sun { display: none; }
+        .day-mode .plt-moon { display: block; }
 
-        /* ── 展开后的界面 ── */
+        /* ── 展开后的界面:铺一层纯 CSS 星野 ── */
         .plt-pack-interface {
+            position: relative;
             margin-top: 1.3em;
             animation: plt-drop 0.4s ease;
         }
         @keyframes plt-drop {
             from { opacity: 0; transform: translateY(-4px); }
             to   { opacity: 1; transform: translateY(0); }
+        }
+        /* 星野·底层碎星(平铺) + 星云微光(不平铺) */
+        .plt-pack-interface::before {
+            content: "";
+            position: absolute;
+            inset: -0.6em -0.2em 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(ellipse 45% 75% at 85% -10%, var(--plt-nebula), transparent 62%),
+                radial-gradient(1.2px 1.2px at 23px 37px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 131px 9px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 74px 96px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 187px 64px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 44px 129px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 160px 118px, var(--plt-star), transparent 50%);
+            background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+            background-size: auto, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px;
+            opacity: 0.8;
+        }
+        /* 星野·上层亮星(错位平铺,缓慢明灭) */
+        .plt-pack-interface::after {
+            content: "";
+            position: absolute;
+            inset: -0.6em -0.2em 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(2px 2px at 57px 22px, var(--plt-star), transparent 55%),
+                radial-gradient(1.6px 1.6px at 233px 107px, var(--plt-star), transparent 55%),
+                radial-gradient(2px 2px at 152px 163px, var(--plt-star), transparent 55%);
+            background-repeat: repeat;
+            background-size: 301px 197px;
+            animation: plt-twinkle 5s ease-in-out infinite alternate;
+        }
+        @keyframes plt-twinkle {
+            from { opacity: 0.35; }
+            to   { opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .plt-pack-interface::after { animation: none; opacity: 0.5; }
+        }
+        /* 内容浮在星野之上 */
+        .plt-pack-tabs, .plt-pack-viewport, .plt-pack-foot {
+            position: relative;
+            z-index: 1;
         }
 
         /* Tab 栏 */
@@ -553,7 +679,7 @@
         .plt-pack-btn {
             position: relative;
             font-size: 0.7em;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: var(--plt-dim);
@@ -566,10 +692,9 @@
             position: absolute;
             left: 0; bottom: -2px;
             width: 100%; height: 1px;
-            background: var(--plt-accent);
+            background: linear-gradient(90deg, transparent, var(--plt-accent), transparent);
             transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            transition: transform 0.35s ease;
         }
         .plt-pack-btn:hover { color: var(--plt-ink); }
         .plt-pack-btn.active { color: var(--plt-accent); }
@@ -626,15 +751,18 @@
 [2287.04.12] Pluto 首次主动分享私人记忆
 [2287.04.13] 收到一条未署名的窄带信号(未解码)</Events></div>
 
-    <!-- 折叠标签行:───── ✦ PLUTO SUMMARY ───── ☀ -->
+    <!-- 折叠标签行:───── ✧(SVG星) PLUTO SUMMARY ───── (SVG日/月) -->
     <div class="plt-pack-bar">
         <div class="plt-pack-toggle" onclick="pltPackToggle(this)">
             <span class="plt-line"></span>
-            <span class="plt-icon">✦</span>
+            <svg class="plt-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.2 9.8 L22 12 L14.2 14.2 L12 22 L9.8 14.2 L2 12 L9.8 9.8 Z" fill="currentColor"/></svg>
             <span class="plt-title">Pluto Summary</span>
             <span class="plt-line"></span>
         </div>
-        <div class="plt-theme-switch" onclick="pltPackTheme(event, this)">☾</div>
+        <span class="plt-theme-switch" onclick="pltPackTheme(event, this)">
+            <svg class="plt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.8 5.8l1.4 1.4M16.8 16.8l1.4 1.4M18.2 5.8l-1.4 1.4M7.2 16.8l-1.4 1.4"/></svg>
+            <svg class="plt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5Z"/></svg>
+        </span>
     </div>
 
     <!-- UI 渲染区(默认折叠) -->
@@ -645,26 +773,23 @@
     </div>
 
     <script>
-        // ── 日/夜切换 ──
+        // ── 日/夜切换(只切类名,日月图标由 CSS 控制显隐) ──
         window.pltPackTheme = function(event, btn) {
             event.stopPropagation();
-            var wrap = btn.closest('.plt-pack-wrapper');
-            wrap.classList.toggle('day-mode');
-            btn.innerHTML = wrap.classList.contains('day-mode') ? '☾' : '☀';
+            btn.closest('.plt-pack-wrapper').classList.toggle('day-mode');
         };
 
         // ── 展开 / 折叠 + 首次解析 ──
         window.pltPackToggle = function(btn) {
             var wrap = btn.closest('.plt-pack-wrapper');
             var ui = wrap.querySelector('.plt-pack-interface');
-            var icon = btn.querySelector('.plt-icon');
 
             if (ui.style.display === 'none') {
                 ui.style.display = 'block';
-                icon.innerText = '✧';
+                wrap.classList.add('open');
             } else {
                 ui.style.display = 'none';
-                icon.innerText = '✦';
+                wrap.classList.remove('open');
                 return;
             }
 
@@ -727,34 +852,35 @@
       <div class="phone-cap"><b>DAY</b> · 日间 · 默认折叠态</div>
     </div>
   </div>
-  <p class="hint">点 <span class="k">✦ PLUTO SUMMARY</span> 展开/折叠 · 点 Tab 切换五个面板 · 点末端 <span class="k">☀ / ☾</span> 切换日夜</p>
+  <p class="hint">点 <span class="k">PLUTO SUMMARY</span> 标签线展开/折叠 · 点 Tab 切换五个面板 · 点末端的日/月线条图标切换日夜</p>
 
-  <h2><span class="dot">✦</span>相对原版的变化</h2>
+  <h2>相对原版的变化</h2>
   <div class="table-wrap">
   <table>
-    <tr><th>位置</th><th>原版</th><th>美化版</th></tr>
-    <tr><td>折叠态</td><td class="muted">「+ SCENE APPENDICES」左对齐灰字</td><td>居中标签线 ───&nbsp;✦&nbsp;PLUTO SUMMARY&nbsp;─── ,悬停时点亮焦糖色</td></tr>
-    <tr><td>配色</td><td class="muted">夜间粉白 #FDF3F5 / 日间藏蓝 #1E2B3C,默认日间</td><td>透明底;夜间暖白 #ECE9E4 + 焦糖 #E5B685(冥王星同款),默认夜间</td></tr>
-    <tr><td>Tab</td><td class="muted">加粗大写 + 底边框</td><td>细字距大写,激活时焦糖色 + 下划线从左滑入</td></tr>
-    <tr><td>正文区</td><td class="muted">固定 230px 高、左侧粗竖线</td><td>max-height 240px(内容短则不留空洞),3px 焦糖细滚动条</td></tr>
-    <tr><td>日夜切换</td><td class="muted">右上角 🌙/☀️ emoji</td><td>标签线末端文字符号 ☀/☾,随主题变色</td></tr>
+    <tr><th>位置</th><th>原版</th><th>星海版</th></tr>
+    <tr><td>折叠态</td><td class="muted">「+ SCENE APPENDICES」左对齐灰字</td><td>居中标签线 ─── PLUTO SUMMARY ───,四芒星 SVG 随展开旋转</td></tr>
+    <tr><td>配色</td><td class="muted">夜间粉白 #FDF3F5 / 日间藏蓝 #1E2B3C,默认日间</td><td>透明底;夜间星光白 #E4E9F2 + 月光星蓝 #A5BEE4,日间墨蓝 + 钢青,默认夜间</td></tr>
+    <tr><td>星野</td><td class="muted">—</td><td>展开区铺双层纯 CSS 星点(radial-gradient 平铺)+ 星云微光,亮星层 5s 缓慢明灭</td></tr>
+    <tr><td>图标</td><td class="muted">🌙/☀️ emoji + 文本「+/−」</td><td>全部替换为自绘 SVG 细线图形(四芒星、太阳、月牙),零 emoji</td></tr>
+    <tr><td>Tab</td><td class="muted">加粗大写 + 底边框</td><td>细字距大写,激活时星蓝色 + 两端渐隐的下划线滑入</td></tr>
+    <tr><td>正文区</td><td class="muted">固定 230px 高、左侧粗竖线</td><td>max-height 240px(内容短不留空洞),3px 星蓝细滚动条</td></tr>
     <tr><td>逻辑</td><td class="muted">—</td><td>解析逻辑(DOM 抓取 + 正则容错、懒加载、五标签顺序)完全保留</td></tr>
   </table>
   </div>
 
-  <h2><span class="dot">✦</span>安装与自定义</h2>
+  <h2>安装与自定义</h2>
   <div class="cards">
     <div class="card">
       <h3>导入</h3>
       <ol>
-        <li>酒馆 → 扩展 → <code>正则</code> → 导入脚本,选 <code>底部打包-冥王星美化版.json</code></li>
+        <li>酒馆 → 扩展 → <code>正则</code> → 导入脚本,选 <code>底部打包-冥王星星海版.json</code></li>
         <li>关掉原来的 <code>SP-D①底部打包日夜版</code>(两个同开会重复渲染)</li>
         <li>触发条件、作用楼层与原版完全一致,无需改预设</li>
       </ol>
     </div>
     <div class="card">
       <h3>改标签文字</h3>
-      <p>想把「PLUTO SUMMARY」换成别的(比如 ABSTRACT),在脚本里搜 <code>plt-title</code>,改下一行的文字即可。</p>
+      <p>想把「PLUTO SUMMARY」换成别的(比如 ABSTRACT),在脚本里搜 <code>plt-title</code>,改下一行的文字即可。星野密度在 <code>plt-pack-interface::before/::after</code> 的 opacity 里调。</p>
     </div>
     <div class="card">
       <h3>改颜色</h3>
@@ -763,7 +889,7 @@
   </div>
 
   <footer>
-    <span>SP-D① 底部打包 · 冥王星美化版</span>
+    <span>SP-D① 底部打包 · 冥王星星海版</span>
     <span>2026.08 · for amber</span>
     <span>骨架逻辑源自原版《底部打包日夜版》,致谢原作者</span>
   </footer>

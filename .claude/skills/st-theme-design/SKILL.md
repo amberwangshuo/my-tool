@@ -112,3 +112,12 @@ description: 酒馆(SillyTavern)UI主题美化设计手册。当用户想设计�
 - 概念：酒馆=收录不可译之词的辞典；九词轮转楼层（Komorebi/Mångata/Cafuné/Fernweh/Forelsket/Hiraeth/Kilig/Aparima/Iktsuarpok），思维链=Tacenda，输入框=Iktsuarpok 打字机，重roll="前一种译法/另一种译法"，元数据="词条No.X·释义X字·检索Xs"
 - 视觉：夜+半透明卡片(透用户背景)，霞鹜文楷(292)，月光银#AEB8C4+叶隙金#C4AD8B，暖白#ECE9E4，直角2px细线辞典排版
 - 甲方偏好画像：喜欢文学性/意象感的世界观隐喻、夜间半透明、手机竖屏、混合流(零图床)、词头+一行释义的克制装饰密度、霞鹜文楷
+
+**⚠ 甲方 amber 硬性禁忌与偏好（2026-08 明确声明，所有交付必须遵守）**
+- **非常不喜欢金色/焦糖/暖金系**——永远不作为首要选择；点缀色优先冷色系（月光银蓝/星蓝）
+- **不要 emoji**——图标一律用自绘内联 SVG 细线图形或颜文字替代（☀️🌙✦ 这类可能渲染成 emoji 的字符也避免）
+- 喜欢"简洁但高级"：透明底、细线、克制排版；喜欢宇宙星空/浩瀚意象（纯 CSS 星野 radial-gradient 星点+微闪烁动画很受用）
+
+**《底部打包·冥王星星海版》**（2026-08，甲方 amber，本仓库 `themes/底部打包-冥王星美化版.json`，预览页同目录）
+- 性质：SillyTavern 正则脚本美化（replaceString HTML 组件），非主题 JSON；把 Snapshot/abstract/Todo/seeds/Events 五标签收进楼底折叠 Tab 面板
+- 视觉：透明底、默认折叠成一条「─── ✧ PLUTO SUMMARY ───」标签线、默认夜间；冷色星蓝点缀、纯 CSS 星野背景、SVG 日月切换图标；解析逻辑沿用原版（DOM 抓取+正则容错+懒加载）
