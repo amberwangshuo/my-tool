@@ -121,3 +121,4 @@ description: 酒馆(SillyTavern)UI主题美化设计手册。当用户想设计�
 **《冥王星星海版》正则套件**（2026-08，甲方 amber，本仓库 `themes/底部打包-冥王星星海版.json` + `themes/选项复制-冥王星星海版.json`，预览页同目录）
 - 性质：SillyTavern 正则脚本美化（replaceString HTML 组件），非主题 JSON；底部打包=Snapshot/abstract/Todo/seeds/Events 五标签收进楼底折叠 Tab 面板；选项复制=「CHOIR·行动建议」四选项卡，圆环字母 A-D，点选填入 #send_textarea（剪贴板回退），raw span 查找已改为 wrapper 内 class 作用域（修复原版多楼层 id 串号）
 - 视觉：透明底、默认折叠成一条「─── ✧ PLUTO SUMMARY ───」标签线、默认夜间；冷色星蓝点缀、纯 CSS 星野背景、SVG 日月切换图标；解析逻辑沿用原版（DOM 抓取+正则容错+懒加载）
+- **正则美化两大坑（2026-08 实战教训，做 replaceString HTML 组件必查）**：①代码围栏 ``` 在 `<details>`/`<Episode>` 等 HTML 包裹层内不被 markdown 解析→渲染失败：findRegex 必须把 AI 输出模板的外壳（`<Episode>`、`<details[^>]*>`、`<summary>…</summary>`）用可选非捕获组一并吞掉；②findRegex 尾部 `\s*` 会吃掉与下一个块（如世界书状态栏 `<ValmontStatus>`）之间的空行→两个代码块粘连：replaceString 必须以 `\n\n` 开头和结尾,保证围栏顶格独立
