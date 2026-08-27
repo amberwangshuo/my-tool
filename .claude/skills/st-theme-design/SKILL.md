@@ -117,6 +117,7 @@ description: 酒馆(SillyTavern)UI主题美化设计手册。当用户想设计�
 - **非常不喜欢金色/焦糖/暖金系**——永远不作为首要选择；点缀色优先冷色系（月光银蓝/星蓝）
 - **不要 emoji**——图标一律用自绘内联 SVG 细线图形或颜文字替代（☀️🌙✦ 这类可能渲染成 emoji 的字符也避免）
 - 喜欢"简洁但高级"：透明底、细线、克制排版；喜欢宇宙星空/浩瀚意象（纯 CSS 星野 radial-gradient 星点+微闪烁动画很受用）
+- **折叠标签/装饰性英文用真实手写体**——选定 La Belle Aurore（纤细钢笔字）；技巧：Google Fonts css2 加 `&text=所需字符` 拿子集 woff2（仅3KB），base64 内嵌 data URI 进组件，零外链不怕墙；配 `transform: rotate(-1.5deg)` 更像手写；注意子集缺字回退，改标签文字要重新生成子集
 
 **《冥王星星海版》正则套件**（2026-08，甲方 amber，本仓库 `themes/底部打包-冥王星星海版.json` + `themes/选项复制-冥王星星海版.json`，预览页同目录）
 - 性质：SillyTavern 正则脚本美化（replaceString HTML 组件），非主题 JSON；底部打包=Snapshot/abstract/Todo/seeds/Events 五标签收进楼底折叠 Tab 面板；选项复制=「CHOIR·行动建议」四选项卡，圆环字母 A-D，点选填入 #send_textarea（剪贴板回退），raw span 查找已改为 wrapper 内 class 作用域（修复原版多楼层 id 串号）

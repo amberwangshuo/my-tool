@@ -150,7 +150,7 @@
   <header>
     <div class="eyebrow">SP · Pluto Preset · Regex D①</div>
     <h1>底部打包 · <b>冥王星星海版</b></h1>
-    <p class="lede">把每层楼末尾的 Snapshot / Abstract / Todo / Seeds / Events 五个数据标签,收进一条极简的「PLUTO SUMMARY」标签线里;配套的「CHOIR · 行动建议」选项卡(SP-A①)也做了同语言美化:圆环字母选项,点选填入输入框。透明底、星光白字、月光星蓝点缀;展开后铺一层缓慢明灭的纯 CSS 星野。默认折叠、默认夜间;全部图标为自绘 SVG 线条,无 emoji。</p>
+    <p class="lede">把每层楼末尾的 Snapshot / Abstract / Todo / Seeds / Events 五个数据标签,收进一条极简的「PLUTO SUMMARY」标签线里;配套的「Choir Directives」选项卡(SP-A①)同语言美化且同样默认折叠:圆环字母选项,点选填入输入框。两条折叠标签均为手写体 La Belle Aurore(内嵌子集,零外链)。透明底、星光白字、月光星蓝点缀;展开后铺一层缓慢明灭的纯 CSS 星野。默认折叠、默认夜间;全部图标为自绘 SVG 线条,无 emoji。</p>
   </header>
 
   <h2>实机预览(可点击操作)</h2>
@@ -164,13 +164,21 @@
             ……Pluto 把最后一颗螺栓拧紧,舱内重新恢复了安静。"今天就到这里吧,"它说,"剩下的,明天再说。"
           </div>
           
-<div class="plt-opt-wrapper" onclick="event.stopPropagation();">
+
+<div id="demo-opt" class="plt-opt-wrapper" onclick="event.stopPropagation();">
     <style>
         /* ============================================
            SP-A① 选项复制 · 冥王星星海版
-           CHOIR 行动建议 · 透明底 / 冷色星蓝 / 纯CSS星野
-           图标全部为内联 SVG,无 emoji · 默认夜间
+           Choir Directives · 透明底 / 冷色星蓝 / 纯CSS星野
+           默认折叠 · 折叠标签手写体 · 全英文界面 · 无 emoji
+           手写体 La Belle Aurore 内嵌子集,仅含
+           PlutoSummaryChoirDirectives 所需字母
            ============================================ */
+        @font-face {
+            font-family: 'PltHand';
+            src: url(data:font/woff2;base64,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) format('woff2');
+            unicode-range: U+20, U+43-44, U+50, U+53, U+61, U+63, U+65, U+68-69, U+6C-6D, U+6F, U+72-76, U+79;
+        }
         .plt-opt-wrapper {
             /* ── 夜间(默认):星光白 + 月光星蓝 ── */
             --plt-ink: #E4E9F2;
@@ -183,7 +191,7 @@
             --plt-wash: rgba(165, 190, 228, 0.07);
 
             position: relative;
-            margin: 1.6em 0;
+            margin: 1.8em 0 1.2em;
             color: var(--plt-ink);
             background: transparent;
             font-family: inherit;
@@ -201,61 +209,19 @@
             --plt-wash: rgba(82, 112, 158, 0.07);
         }
 
-        /* ── 星野背景(双层纯 CSS 星点 + 星云微光) ── */
-        .plt-opt-wrapper::before {
-            content: "";
-            position: absolute;
-            inset: 0 -0.2em;
-            pointer-events: none;
-            background-image:
-                radial-gradient(ellipse 45% 75% at 85% -10%, var(--plt-nebula), transparent 62%),
-                radial-gradient(1.2px 1.2px at 23px 37px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 131px 9px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 74px 96px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 187px 64px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 44px 129px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 160px 118px, var(--plt-star), transparent 50%);
-            background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat;
-            background-size: auto, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px;
-            opacity: 0.8;
-        }
-        .plt-opt-wrapper::after {
-            content: "";
-            position: absolute;
-            inset: 0 -0.2em;
-            pointer-events: none;
-            background-image:
-                radial-gradient(2px 2px at 57px 22px, var(--plt-star), transparent 55%),
-                radial-gradient(1.6px 1.6px at 233px 107px, var(--plt-star), transparent 55%),
-                radial-gradient(2px 2px at 152px 163px, var(--plt-star), transparent 55%);
-            background-repeat: repeat;
-            background-size: 301px 197px;
-            animation: plt-opt-twinkle 5s ease-in-out infinite alternate;
-        }
-        @keyframes plt-opt-twinkle {
-            from { opacity: 0.35; }
-            to   { opacity: 1; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .plt-opt-wrapper::after { animation: none; opacity: 0.5; }
-        }
-        .plt-opt-bar, .plt-opt-list, .plt-opt-note, .plt-opt-status {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ── 标题行:───── ✧ CHOIR · 行动建议 ───── (日/月) ── */
+        /* ── 折叠标签行(默认唯一可见) ── */
         .plt-opt-bar {
             display: flex;
             align-items: center;
             gap: 0.9em;
-            margin-bottom: 0.9em;
         }
         .plt-opt-head {
             flex: 1;
             display: flex;
             align-items: center;
             gap: 0.9em;
+            cursor: pointer;
+            user-select: none;
         }
         .plt-opt-line {
             flex: 1;
@@ -271,16 +237,23 @@
             height: 0.75em;
             flex: none;
             color: var(--plt-accent);
+            transition: transform 0.45s ease;
         }
+        .plt-opt-wrapper.open .plt-opt-star { transform: rotate(135deg); }
+        .plt-opt-head:hover .plt-opt-star { transform: rotate(45deg); }
+        .plt-opt-wrapper.open .plt-opt-head:hover .plt-opt-star { transform: rotate(135deg); }
         .plt-opt-title {
-            font-size: 0.72em;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            margin-right: -0.3em;
-            text-transform: uppercase;
+            font-family: 'PltHand', 'Segoe Script', 'Bradley Hand', cursive;
+            font-size: 1.15em;
+            letter-spacing: 0.05em;
             color: var(--plt-dim);
+            transition: color 0.3s;
             white-space: nowrap;
+            transform: rotate(-1.5deg);
         }
+        .plt-opt-head:hover .plt-opt-title { color: var(--plt-accent); }
+
+        /* ── 日/夜切换(自绘 SVG 日月) ── */
         .plt-opt-theme {
             flex: none;
             width: 1em;
@@ -301,6 +274,58 @@
         .plt-opt-moon { display: none; }
         .day-mode .plt-opt-sun { display: none; }
         .day-mode .plt-opt-moon { display: block; }
+
+        /* ── 展开后的界面:铺一层纯 CSS 星野 ── */
+        .plt-opt-interface {
+            position: relative;
+            margin-top: 1.1em;
+            animation: plt-opt-drop 0.4s ease;
+        }
+        @keyframes plt-opt-drop {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .plt-opt-interface::before {
+            content: "";
+            position: absolute;
+            inset: -0.6em -0.2em 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(ellipse 45% 75% at 85% -10%, var(--plt-nebula), transparent 62%),
+                radial-gradient(1.2px 1.2px at 23px 37px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 131px 9px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 74px 96px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 187px 64px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 44px 129px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 160px 118px, var(--plt-star), transparent 50%);
+            background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+            background-size: auto, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px;
+            opacity: 0.8;
+        }
+        .plt-opt-interface::after {
+            content: "";
+            position: absolute;
+            inset: -0.6em -0.2em 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(2px 2px at 57px 22px, var(--plt-star), transparent 55%),
+                radial-gradient(1.6px 1.6px at 233px 107px, var(--plt-star), transparent 55%),
+                radial-gradient(2px 2px at 152px 163px, var(--plt-star), transparent 55%);
+            background-repeat: repeat;
+            background-size: 301px 197px;
+            animation: plt-opt-twinkle 5s ease-in-out infinite alternate;
+        }
+        @keyframes plt-opt-twinkle {
+            from { opacity: 0.35; }
+            to   { opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .plt-opt-interface::after { animation: none; opacity: 0.5; }
+        }
+        .plt-opt-list, .plt-opt-note, .plt-opt-status {
+            position: relative;
+            z-index: 1;
+        }
 
         /* ── 选项行 ── */
         .plt-opt {
@@ -327,7 +352,6 @@
             border-radius: 50%;
             font-size: 0.72em;
             font-weight: 500;
-            letter-spacing: 0;
             color: var(--plt-accent);
             transition: all 0.25s ease;
         }
@@ -341,7 +365,6 @@
         .plt-opt:hover { background: var(--plt-wash); }
         .plt-opt:hover .plt-opt-key { border-color: var(--plt-accent); }
         .plt-opt:hover .plt-opt-txt { opacity: 1; }
-        /* 选中:字母圆环填实,行首点亮 */
         .plt-opt.picked {
             background: linear-gradient(90deg, var(--plt-wash), transparent 70%);
         }
@@ -370,6 +393,7 @@
             font-weight: 500;
             letter-spacing: 0.3em;
             margin-right: -0.3em;
+            text-transform: uppercase;
             color: var(--plt-accent);
             opacity: 0;
             transition: opacity 0.3s;
@@ -383,11 +407,12 @@
     <span class="plt-raw-c" style="display:none;white-space:pre-wrap">把季度报告拖到明天,现在先去检查三号天线阵列的相位漂移。</span>
     <span class="plt-raw-d" style="display:none;white-space:pre-wrap">直接问它:"你深夜查旧轨道数据,是在找回家的路吗?"</span>
 
+    <!-- 折叠标签行:───── ✧ Choir Directives ───── (日/月) -->
     <div class="plt-opt-bar">
-        <div class="plt-opt-head">
+        <div class="plt-opt-head" onclick="pltOptToggle(this)">
             <span class="plt-opt-line"></span>
             <svg class="plt-opt-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.2 9.8 L22 12 L14.2 14.2 L12 22 L9.8 14.2 L2 12 L9.8 9.8 Z" fill="currentColor"/></svg>
-            <span class="plt-opt-title">Choir · 行动建议</span>
+            <span class="plt-opt-title">Choir Directives</span>
             <span class="plt-opt-line"></span>
         </div>
         <span class="plt-opt-theme" onclick="pltOptTheme(event, this)">
@@ -396,29 +421,44 @@
         </span>
     </div>
 
-    <div class="plt-opt-list">
-        <div class="plt-opt" onclick="pltOptPick(this, 'a')">
-            <span class="plt-opt-key">A</span>
-            <div class="plt-opt-txt">走到舷窗边,和 Pluto 一起看柯伊伯带的尘埃,什么都不问,只是陪它站一会儿。</div>
+    <!-- 选项界面(默认折叠) -->
+    <div class="plt-opt-interface" style="display:none;">
+        <div class="plt-opt-list">
+            <div class="plt-opt" onclick="pltOptPick(this, 'a')">
+                <span class="plt-opt-key">A</span>
+                <div class="plt-opt-txt">走到舷窗边,和 Pluto 一起看柯伊伯带的尘埃,什么都不问,只是陪它站一会儿。</div>
+            </div>
+            <div class="plt-opt" onclick="pltOptPick(this, 'b')">
+                <span class="plt-opt-key">B</span>
+                <div class="plt-opt-txt">假装随口问起储物柜里那枚旧式徽章的来历,观察它的反应。</div>
+            </div>
+            <div class="plt-opt" onclick="pltOptPick(this, 'c')">
+                <span class="plt-opt-key">C</span>
+                <div class="plt-opt-txt">把季度报告拖到明天,现在先去检查三号天线阵列的相位漂移。</div>
+            </div>
+            <div class="plt-opt" onclick="pltOptPick(this, 'd')">
+                <span class="plt-opt-key">D</span>
+                <div class="plt-opt-txt">直接问它:"你深夜查旧轨道数据,是在找回家的路吗?"</div>
+            </div>
         </div>
-        <div class="plt-opt" onclick="pltOptPick(this, 'b')">
-            <span class="plt-opt-key">B</span>
-            <div class="plt-opt-txt">假装随口问起储物柜里那枚旧式徽章的来历,观察它的反应。</div>
-        </div>
-        <div class="plt-opt" onclick="pltOptPick(this, 'c')">
-            <span class="plt-opt-key">C</span>
-            <div class="plt-opt-txt">把季度报告拖到明天,现在先去检查三号天线阵列的相位漂移。</div>
-        </div>
-        <div class="plt-opt" onclick="pltOptPick(this, 'd')">
-            <span class="plt-opt-key">D</span>
-            <div class="plt-opt-txt">直接问它:"你深夜查旧轨道数据,是在找回家的路吗?"</div>
-        </div>
+        <div class="plt-opt-note">「 窄带信号仍未解码,今晚的每个选择都可能改变它抵达的时机。 」</div>
+        <div class="plt-opt-status"></div>
     </div>
 
-    <div class="plt-opt-note">「 窄带信号仍未解码,今晚的每个选择都可能改变它抵达的时机。 」</div>
-    <div class="plt-opt-status"></div>
-
     <script>
+        // ── 展开 / 折叠 ──
+        window.pltOptToggle = function(el) {
+            var wrap = el.closest('.plt-opt-wrapper');
+            var ui = wrap.querySelector('.plt-opt-interface');
+            if (ui.style.display === 'none') {
+                ui.style.display = 'block';
+                wrap.classList.add('open');
+            } else {
+                ui.style.display = 'none';
+                wrap.classList.remove('open');
+            }
+        };
+
         // ── 日/夜切换(只切类名,日月图标由 CSS 控制显隐) ──
         window.pltOptTheme = function(event, btn) {
             event.stopPropagation();
@@ -442,11 +482,11 @@
             var copyFallback = function() {
                 try {
                     navigator.clipboard.writeText(txt).then(
-                        function() { st.innerText = '已复制到剪贴板'; },
-                        function() { st.innerText = '请手动复制'; }
+                        function() { st.innerText = 'Copied to clipboard'; },
+                        function() { st.innerText = 'Please copy manually'; }
                     );
                 } catch (e) {
-                    st.innerText = '请手动复制';
+                    st.innerText = 'Please copy manually';
                 }
             };
 
@@ -456,7 +496,7 @@
                     ta.value = txt;
                     ta.dispatchEvent(new Event('input', { bubbles: true }));
                     ta.focus();
-                    st.innerText = '已填入输入框';
+                    st.innerText = 'Filled into input';
                 } else {
                     copyFallback();
                 }
@@ -474,7 +514,15 @@
            SP-D① 底部打包 · 冥王星星海版
            透明底 / 冷色星蓝 / 纯CSS星野 · 默认夜间
            图标全部为内联 SVG,无 emoji
+           折叠标签用手写体 La Belle Aurore(内嵌子集,
+           仅含 PlutoSummaryChoirDirectives 所需字母;
+           改标签文字时缺字会退回普通字体)
            ============================================ */
+        @font-face {
+            font-family: 'PltHand';
+            src: url(data:font/woff2;base64,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) format('woff2');
+            unicode-range: U+20, U+43-44, U+50, U+53, U+61, U+63, U+65, U+68-69, U+6C-6D, U+6F, U+72-76, U+79;
+        }
         .plt-pack-wrapper {
             /* ── 夜间(默认):星光白 + 月光星蓝 ── */
             --plt-ink: #E4E9F2;
@@ -535,14 +583,13 @@
         }
         .plt-pack-wrapper.open .plt-icon { transform: rotate(135deg); }
         .plt-title {
-            font-size: 0.72em;
-            font-weight: 500;
-            letter-spacing: 0.34em;
-            margin-right: -0.34em;
-            text-transform: uppercase;
+            font-family: 'PltHand', 'Segoe Script', 'Bradley Hand', cursive;
+            font-size: 1.15em;
+            letter-spacing: 0.05em;
             color: var(--plt-dim);
             transition: color 0.3s;
             white-space: nowrap;
+            transform: rotate(-1.5deg);
         }
         .plt-pack-toggle:hover .plt-title { color: var(--plt-accent); }
         .plt-pack-toggle:hover .plt-icon { transform: rotate(45deg); }
@@ -696,15 +743,12 @@
 
     <div class="plt-pack-raw" style="display:none;"><Snapshot>地点:冥王星观测站·休息舱 | 时间:标准历 2287.04.12 夜 | 在场:Pluto、指挥官
 氛围:低重力舱室内只有仪表的微光,两人隔着舷窗看柯伊伯带的尘埃。</Snapshot>
-<abstract>指挥官在例行检修后留在了休息舱。Pluto 第一次主动谈起了自己被除名的那一年,谈话在一杯合成热可可的雾气里结束,谁都没有提"返航"两个字。</abstract>
+<abstract>指挥官在例行检修后留在了休息舱。Pluto 第一次主动谈起了自己被除名的那一年。</abstract>
 <Todo>1. 修复三号天线阵列的相位漂移
-2. 回复地球总部的季度报告(已拖延17天)
-3. 弄清 Pluto 最近总在深夜查看旧轨道数据的原因</Todo>
+2. 回复地球总部的季度报告(已拖延17天)</Todo>
 <seeds>· Pluto 提到"第九个位置"时指尖停顿了两秒
-· 储物柜深处有一枚未登记的旧式徽章
-· 地球方向的通讯延迟比理论值多了 0.3 秒</seeds>
+· 储物柜深处有一枚未登记的旧式徽章</seeds>
 <Events>[2287.04.12] 完成外壳巡检,发现微陨石撞击痕 ×3
-[2287.04.12] Pluto 首次主动分享私人记忆
 [2287.04.13] 收到一条未署名的窄带信号(未解码)</Events></div>
 
     <!-- 折叠标签行:───── ✧(SVG星) PLUTO SUMMARY ───── (SVG日/月) -->
@@ -816,13 +860,21 @@
             ……Pluto 把最后一颗螺栓拧紧,舱内重新恢复了安静。"今天就到这里吧,"它说,"剩下的,明天再说。"
           </div>
           
+
 <div class="plt-opt-wrapper day-mode" onclick="event.stopPropagation();">
     <style>
         /* ============================================
            SP-A① 选项复制 · 冥王星星海版
-           CHOIR 行动建议 · 透明底 / 冷色星蓝 / 纯CSS星野
-           图标全部为内联 SVG,无 emoji · 默认夜间
+           Choir Directives · 透明底 / 冷色星蓝 / 纯CSS星野
+           默认折叠 · 折叠标签手写体 · 全英文界面 · 无 emoji
+           手写体 La Belle Aurore 内嵌子集,仅含
+           PlutoSummaryChoirDirectives 所需字母
            ============================================ */
+        @font-face {
+            font-family: 'PltHand';
+            src: url(data:font/woff2;base64,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) format('woff2');
+            unicode-range: U+20, U+43-44, U+50, U+53, U+61, U+63, U+65, U+68-69, U+6C-6D, U+6F, U+72-76, U+79;
+        }
         .plt-opt-wrapper {
             /* ── 夜间(默认):星光白 + 月光星蓝 ── */
             --plt-ink: #E4E9F2;
@@ -835,7 +887,7 @@
             --plt-wash: rgba(165, 190, 228, 0.07);
 
             position: relative;
-            margin: 1.6em 0;
+            margin: 1.8em 0 1.2em;
             color: var(--plt-ink);
             background: transparent;
             font-family: inherit;
@@ -853,61 +905,19 @@
             --plt-wash: rgba(82, 112, 158, 0.07);
         }
 
-        /* ── 星野背景(双层纯 CSS 星点 + 星云微光) ── */
-        .plt-opt-wrapper::before {
-            content: "";
-            position: absolute;
-            inset: 0 -0.2em;
-            pointer-events: none;
-            background-image:
-                radial-gradient(ellipse 45% 75% at 85% -10%, var(--plt-nebula), transparent 62%),
-                radial-gradient(1.2px 1.2px at 23px 37px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 131px 9px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 74px 96px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 187px 64px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 44px 129px, var(--plt-star), transparent 50%),
-                radial-gradient(1.2px 1.2px at 160px 118px, var(--plt-star), transparent 50%);
-            background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat;
-            background-size: auto, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px;
-            opacity: 0.8;
-        }
-        .plt-opt-wrapper::after {
-            content: "";
-            position: absolute;
-            inset: 0 -0.2em;
-            pointer-events: none;
-            background-image:
-                radial-gradient(2px 2px at 57px 22px, var(--plt-star), transparent 55%),
-                radial-gradient(1.6px 1.6px at 233px 107px, var(--plt-star), transparent 55%),
-                radial-gradient(2px 2px at 152px 163px, var(--plt-star), transparent 55%);
-            background-repeat: repeat;
-            background-size: 301px 197px;
-            animation: plt-opt-twinkle 5s ease-in-out infinite alternate;
-        }
-        @keyframes plt-opt-twinkle {
-            from { opacity: 0.35; }
-            to   { opacity: 1; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .plt-opt-wrapper::after { animation: none; opacity: 0.5; }
-        }
-        .plt-opt-bar, .plt-opt-list, .plt-opt-note, .plt-opt-status {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ── 标题行:───── ✧ CHOIR · 行动建议 ───── (日/月) ── */
+        /* ── 折叠标签行(默认唯一可见) ── */
         .plt-opt-bar {
             display: flex;
             align-items: center;
             gap: 0.9em;
-            margin-bottom: 0.9em;
         }
         .plt-opt-head {
             flex: 1;
             display: flex;
             align-items: center;
             gap: 0.9em;
+            cursor: pointer;
+            user-select: none;
         }
         .plt-opt-line {
             flex: 1;
@@ -923,16 +933,23 @@
             height: 0.75em;
             flex: none;
             color: var(--plt-accent);
+            transition: transform 0.45s ease;
         }
+        .plt-opt-wrapper.open .plt-opt-star { transform: rotate(135deg); }
+        .plt-opt-head:hover .plt-opt-star { transform: rotate(45deg); }
+        .plt-opt-wrapper.open .plt-opt-head:hover .plt-opt-star { transform: rotate(135deg); }
         .plt-opt-title {
-            font-size: 0.72em;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            margin-right: -0.3em;
-            text-transform: uppercase;
+            font-family: 'PltHand', 'Segoe Script', 'Bradley Hand', cursive;
+            font-size: 1.15em;
+            letter-spacing: 0.05em;
             color: var(--plt-dim);
+            transition: color 0.3s;
             white-space: nowrap;
+            transform: rotate(-1.5deg);
         }
+        .plt-opt-head:hover .plt-opt-title { color: var(--plt-accent); }
+
+        /* ── 日/夜切换(自绘 SVG 日月) ── */
         .plt-opt-theme {
             flex: none;
             width: 1em;
@@ -953,6 +970,58 @@
         .plt-opt-moon { display: none; }
         .day-mode .plt-opt-sun { display: none; }
         .day-mode .plt-opt-moon { display: block; }
+
+        /* ── 展开后的界面:铺一层纯 CSS 星野 ── */
+        .plt-opt-interface {
+            position: relative;
+            margin-top: 1.1em;
+            animation: plt-opt-drop 0.4s ease;
+        }
+        @keyframes plt-opt-drop {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .plt-opt-interface::before {
+            content: "";
+            position: absolute;
+            inset: -0.6em -0.2em 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(ellipse 45% 75% at 85% -10%, var(--plt-nebula), transparent 62%),
+                radial-gradient(1.2px 1.2px at 23px 37px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 131px 9px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 74px 96px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 187px 64px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 44px 129px, var(--plt-star), transparent 50%),
+                radial-gradient(1.2px 1.2px at 160px 118px, var(--plt-star), transparent 50%);
+            background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+            background-size: auto, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px, 219px 143px;
+            opacity: 0.8;
+        }
+        .plt-opt-interface::after {
+            content: "";
+            position: absolute;
+            inset: -0.6em -0.2em 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(2px 2px at 57px 22px, var(--plt-star), transparent 55%),
+                radial-gradient(1.6px 1.6px at 233px 107px, var(--plt-star), transparent 55%),
+                radial-gradient(2px 2px at 152px 163px, var(--plt-star), transparent 55%);
+            background-repeat: repeat;
+            background-size: 301px 197px;
+            animation: plt-opt-twinkle 5s ease-in-out infinite alternate;
+        }
+        @keyframes plt-opt-twinkle {
+            from { opacity: 0.35; }
+            to   { opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .plt-opt-interface::after { animation: none; opacity: 0.5; }
+        }
+        .plt-opt-list, .plt-opt-note, .plt-opt-status {
+            position: relative;
+            z-index: 1;
+        }
 
         /* ── 选项行 ── */
         .plt-opt {
@@ -979,7 +1048,6 @@
             border-radius: 50%;
             font-size: 0.72em;
             font-weight: 500;
-            letter-spacing: 0;
             color: var(--plt-accent);
             transition: all 0.25s ease;
         }
@@ -993,7 +1061,6 @@
         .plt-opt:hover { background: var(--plt-wash); }
         .plt-opt:hover .plt-opt-key { border-color: var(--plt-accent); }
         .plt-opt:hover .plt-opt-txt { opacity: 1; }
-        /* 选中:字母圆环填实,行首点亮 */
         .plt-opt.picked {
             background: linear-gradient(90deg, var(--plt-wash), transparent 70%);
         }
@@ -1022,6 +1089,7 @@
             font-weight: 500;
             letter-spacing: 0.3em;
             margin-right: -0.3em;
+            text-transform: uppercase;
             color: var(--plt-accent);
             opacity: 0;
             transition: opacity 0.3s;
@@ -1035,11 +1103,12 @@
     <span class="plt-raw-c" style="display:none;white-space:pre-wrap">把季度报告拖到明天,现在先去检查三号天线阵列的相位漂移。</span>
     <span class="plt-raw-d" style="display:none;white-space:pre-wrap">直接问它:"你深夜查旧轨道数据,是在找回家的路吗?"</span>
 
+    <!-- 折叠标签行:───── ✧ Choir Directives ───── (日/月) -->
     <div class="plt-opt-bar">
-        <div class="plt-opt-head">
+        <div class="plt-opt-head" onclick="pltOptToggle(this)">
             <span class="plt-opt-line"></span>
             <svg class="plt-opt-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.2 9.8 L22 12 L14.2 14.2 L12 22 L9.8 14.2 L2 12 L9.8 9.8 Z" fill="currentColor"/></svg>
-            <span class="plt-opt-title">Choir · 行动建议</span>
+            <span class="plt-opt-title">Choir Directives</span>
             <span class="plt-opt-line"></span>
         </div>
         <span class="plt-opt-theme" onclick="pltOptTheme(event, this)">
@@ -1048,29 +1117,44 @@
         </span>
     </div>
 
-    <div class="plt-opt-list">
-        <div class="plt-opt" onclick="pltOptPick(this, 'a')">
-            <span class="plt-opt-key">A</span>
-            <div class="plt-opt-txt">走到舷窗边,和 Pluto 一起看柯伊伯带的尘埃,什么都不问,只是陪它站一会儿。</div>
+    <!-- 选项界面(默认折叠) -->
+    <div class="plt-opt-interface" style="display:none;">
+        <div class="plt-opt-list">
+            <div class="plt-opt" onclick="pltOptPick(this, 'a')">
+                <span class="plt-opt-key">A</span>
+                <div class="plt-opt-txt">走到舷窗边,和 Pluto 一起看柯伊伯带的尘埃,什么都不问,只是陪它站一会儿。</div>
+            </div>
+            <div class="plt-opt" onclick="pltOptPick(this, 'b')">
+                <span class="plt-opt-key">B</span>
+                <div class="plt-opt-txt">假装随口问起储物柜里那枚旧式徽章的来历,观察它的反应。</div>
+            </div>
+            <div class="plt-opt" onclick="pltOptPick(this, 'c')">
+                <span class="plt-opt-key">C</span>
+                <div class="plt-opt-txt">把季度报告拖到明天,现在先去检查三号天线阵列的相位漂移。</div>
+            </div>
+            <div class="plt-opt" onclick="pltOptPick(this, 'd')">
+                <span class="plt-opt-key">D</span>
+                <div class="plt-opt-txt">直接问它:"你深夜查旧轨道数据,是在找回家的路吗?"</div>
+            </div>
         </div>
-        <div class="plt-opt" onclick="pltOptPick(this, 'b')">
-            <span class="plt-opt-key">B</span>
-            <div class="plt-opt-txt">假装随口问起储物柜里那枚旧式徽章的来历,观察它的反应。</div>
-        </div>
-        <div class="plt-opt" onclick="pltOptPick(this, 'c')">
-            <span class="plt-opt-key">C</span>
-            <div class="plt-opt-txt">把季度报告拖到明天,现在先去检查三号天线阵列的相位漂移。</div>
-        </div>
-        <div class="plt-opt" onclick="pltOptPick(this, 'd')">
-            <span class="plt-opt-key">D</span>
-            <div class="plt-opt-txt">直接问它:"你深夜查旧轨道数据,是在找回家的路吗?"</div>
-        </div>
+        <div class="plt-opt-note">「 窄带信号仍未解码,今晚的每个选择都可能改变它抵达的时机。 」</div>
+        <div class="plt-opt-status"></div>
     </div>
 
-    <div class="plt-opt-note">「 窄带信号仍未解码,今晚的每个选择都可能改变它抵达的时机。 」</div>
-    <div class="plt-opt-status"></div>
-
     <script>
+        // ── 展开 / 折叠 ──
+        window.pltOptToggle = function(el) {
+            var wrap = el.closest('.plt-opt-wrapper');
+            var ui = wrap.querySelector('.plt-opt-interface');
+            if (ui.style.display === 'none') {
+                ui.style.display = 'block';
+                wrap.classList.add('open');
+            } else {
+                ui.style.display = 'none';
+                wrap.classList.remove('open');
+            }
+        };
+
         // ── 日/夜切换(只切类名,日月图标由 CSS 控制显隐) ──
         window.pltOptTheme = function(event, btn) {
             event.stopPropagation();
@@ -1094,11 +1178,11 @@
             var copyFallback = function() {
                 try {
                     navigator.clipboard.writeText(txt).then(
-                        function() { st.innerText = '已复制到剪贴板'; },
-                        function() { st.innerText = '请手动复制'; }
+                        function() { st.innerText = 'Copied to clipboard'; },
+                        function() { st.innerText = 'Please copy manually'; }
                     );
                 } catch (e) {
-                    st.innerText = '请手动复制';
+                    st.innerText = 'Please copy manually';
                 }
             };
 
@@ -1108,7 +1192,7 @@
                     ta.value = txt;
                     ta.dispatchEvent(new Event('input', { bubbles: true }));
                     ta.focus();
-                    st.innerText = '已填入输入框';
+                    st.innerText = 'Filled into input';
                 } else {
                     copyFallback();
                 }
@@ -1126,7 +1210,15 @@
            SP-D① 底部打包 · 冥王星星海版
            透明底 / 冷色星蓝 / 纯CSS星野 · 默认夜间
            图标全部为内联 SVG,无 emoji
+           折叠标签用手写体 La Belle Aurore(内嵌子集,
+           仅含 PlutoSummaryChoirDirectives 所需字母;
+           改标签文字时缺字会退回普通字体)
            ============================================ */
+        @font-face {
+            font-family: 'PltHand';
+            src: url(data:font/woff2;base64,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) format('woff2');
+            unicode-range: U+20, U+43-44, U+50, U+53, U+61, U+63, U+65, U+68-69, U+6C-6D, U+6F, U+72-76, U+79;
+        }
         .plt-pack-wrapper {
             /* ── 夜间(默认):星光白 + 月光星蓝 ── */
             --plt-ink: #E4E9F2;
@@ -1187,14 +1279,13 @@
         }
         .plt-pack-wrapper.open .plt-icon { transform: rotate(135deg); }
         .plt-title {
-            font-size: 0.72em;
-            font-weight: 500;
-            letter-spacing: 0.34em;
-            margin-right: -0.34em;
-            text-transform: uppercase;
+            font-family: 'PltHand', 'Segoe Script', 'Bradley Hand', cursive;
+            font-size: 1.15em;
+            letter-spacing: 0.05em;
             color: var(--plt-dim);
             transition: color 0.3s;
             white-space: nowrap;
+            transform: rotate(-1.5deg);
         }
         .plt-pack-toggle:hover .plt-title { color: var(--plt-accent); }
         .plt-pack-toggle:hover .plt-icon { transform: rotate(45deg); }
@@ -1348,15 +1439,12 @@
 
     <div class="plt-pack-raw" style="display:none;"><Snapshot>地点:冥王星观测站·休息舱 | 时间:标准历 2287.04.12 夜 | 在场:Pluto、指挥官
 氛围:低重力舱室内只有仪表的微光,两人隔着舷窗看柯伊伯带的尘埃。</Snapshot>
-<abstract>指挥官在例行检修后留在了休息舱。Pluto 第一次主动谈起了自己被除名的那一年,谈话在一杯合成热可可的雾气里结束,谁都没有提"返航"两个字。</abstract>
+<abstract>指挥官在例行检修后留在了休息舱。Pluto 第一次主动谈起了自己被除名的那一年。</abstract>
 <Todo>1. 修复三号天线阵列的相位漂移
-2. 回复地球总部的季度报告(已拖延17天)
-3. 弄清 Pluto 最近总在深夜查看旧轨道数据的原因</Todo>
+2. 回复地球总部的季度报告(已拖延17天)</Todo>
 <seeds>· Pluto 提到"第九个位置"时指尖停顿了两秒
-· 储物柜深处有一枚未登记的旧式徽章
-· 地球方向的通讯延迟比理论值多了 0.3 秒</seeds>
+· 储物柜深处有一枚未登记的旧式徽章</seeds>
 <Events>[2287.04.12] 完成外壳巡检,发现微陨石撞击痕 ×3
-[2287.04.12] Pluto 首次主动分享私人记忆
 [2287.04.13] 收到一条未署名的窄带信号(未解码)</Events></div>
 
     <!-- 折叠标签行:───── ✧(SVG星) PLUTO SUMMARY ───── (SVG日/月) -->
@@ -1509,6 +1597,11 @@
     if (demo) {
       var t = demo.querySelector('.plt-pack-toggle');
       if (t && window.pltPackToggle) window.pltPackToggle(t);
+    }
+    var demoOpt = document.getElementById('demo-opt');
+    if (demoOpt) {
+      var h = demoOpt.querySelector('.plt-opt-head');
+      if (h && window.pltOptToggle) window.pltOptToggle(h);
     }
   });
 </script>
