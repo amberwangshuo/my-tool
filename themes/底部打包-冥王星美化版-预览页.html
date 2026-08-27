@@ -1,0 +1,780 @@
+<title>冥王星卷末附录</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --bg: #1C1A18;
+    --bg-2: #232019;
+    --ink: #ECE9E4;
+    --dim: #97918A;
+    --accent: #E5B685;
+    --line: rgba(236, 233, 228, 0.12);
+    --phone-night: #1A1917;
+    --phone-day: #FAF8F5;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+    margin: 0;
+    padding: 0 20px 80px;
+    line-height: 1.75;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  header { padding: 64px 0 40px; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.3em;
+    color: var(--accent); text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 300; letter-spacing: 0.12em;
+    margin: 0 0 12px; text-wrap: balance;
+  }
+  h1 b { font-weight: 600; color: var(--accent); }
+  .lede { color: var(--dim); max-width: 40em; margin: 0; font-size: 15px; }
+
+  h2 {
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--dim); margin: 56px 0 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  h2 .dot { color: var(--accent); }
+
+  /* ── 手机框 ── */
+  .phones { display: flex; flex-wrap: wrap; gap: 36px; justify-content: center; }
+  .phone-col { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .phone {
+    width: min(360px, 86vw);
+    border-radius: 34px;
+    border: 1px solid rgba(236, 233, 228, 0.18);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), inset 0 0 0 6px #000;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone .screen {
+    height: 640px; overflow-y: auto;
+    padding: 44px 20px 30px;
+    box-sizing: border-box;
+    font-size: 14px;
+    scrollbar-width: none;
+  }
+  .phone .screen::-webkit-scrollbar { display: none; }
+  .phone .notch {
+    position: absolute; top: 12px; left: 50%;
+    transform: translateX(-50%);
+    width: 84px; height: 8px; border-radius: 8px;
+    background: rgba(128, 128, 128, 0.35);
+  }
+  .phone.night .screen { background: var(--phone-night); color: #E8E6E3; }
+  .phone.day .screen { background: var(--phone-day); color: #2C2C2C; }
+  .phone .mes { line-height: 1.85; opacity: 0.92; }
+  .phone .mes .who {
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; opacity: 0.5;
+    margin-bottom: 6px;
+  }
+  .phone-cap {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.18em;
+    color: var(--dim);
+  }
+  .phone-cap b { color: var(--accent); font-weight: 600; }
+
+  .hint {
+    text-align: center; color: var(--dim);
+    font-size: 13px; margin-top: 26px;
+  }
+  .hint .k { color: var(--accent); }
+
+  /* ── 说明区 ── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 24px;
+    font-size: 14px;
+  }
+  .card h3 {
+    margin: 0 0 10px; font-size: 13px; font-weight: 600;
+    letter-spacing: 0.14em; color: var(--accent);
+  }
+  .card p, .card ol { margin: 0; color: var(--dim); }
+  .card ol { padding-left: 1.3em; }
+  .card li { margin-bottom: 6px; }
+  .card li:last-child { margin-bottom: 0; }
+  .card code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: rgba(229, 182, 133, 0.12);
+    color: var(--accent);
+    padding: 1px 6px; border-radius: 4px;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th {
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--dim); font-weight: 600;
+  }
+  td:first-child { color: var(--accent); white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; }
+  td { color: var(--ink); }
+  td .muted { color: var(--dim); }
+  .table-wrap { overflow-x: auto; }
+
+  footer {
+    margin-top: 72px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12px; color: var(--dim);
+    letter-spacing: 0.08em;
+    display: flex; flex-wrap: wrap; gap: 8px 24px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="page">
+  <header>
+    <div class="eyebrow">SP · Pluto Preset · Regex D①</div>
+    <h1>底部打包 · <b>冥王星美化版</b></h1>
+    <p class="lede">把每层楼末尾的 Snapshot / Abstract / Todo / Seeds / Events 五个数据标签,收进一条极简的「✦ PLUTO SUMMARY」标签线里。透明底、暖白字、焦糖点缀,与冥王星预设同色系;默认折叠、默认夜间,点末端的 ☀/☾ 切换日夜。</p>
+  </header>
+
+  <h2><span class="dot">✦</span>实机预览(可点击操作)</h2>
+  <div class="phones">
+    <div class="phone-col">
+      <div class="phone night">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="mes">
+            <div class="who">Pluto · #42</div>
+            ……Pluto 把最后一颗螺栓拧紧,舱内重新恢复了安静。"今天就到这里吧,"它说,"剩下的,明天再说。"
+          </div>
+          
+<div id="demo-night" class="plt-pack-wrapper" onclick="event.stopPropagation();">
+    <style>
+        /* ============================================
+           SP-D① 底部打包 · 冥王星美化版
+           透明底 / 暖白字 / 焦糖点缀 · 默认夜间
+           ============================================ */
+        .plt-pack-wrapper {
+            /* ── 夜间(默认):暖白 + 蜜糖焦糖 ── */
+            --plt-ink: #ECE9E4;
+            --plt-accent: #E5B685;
+            --plt-dim: rgba(236, 233, 228, 0.45);
+            --plt-line: rgba(236, 233, 228, 0.16);
+            --plt-thumb: rgba(229, 182, 133, 0.35);
+
+            position: relative;
+            margin: 2.4em 0 0.6em;
+            color: var(--plt-ink);
+            background: transparent;
+            font-family: inherit;
+            transition: color 0.4s ease;
+        }
+        /* ── 日间:深墨字 + 烤糖色 ── */
+        .plt-pack-wrapper.day-mode {
+            --plt-ink: #2C2C2C;
+            --plt-accent: #B08050;
+            --plt-dim: rgba(44, 44, 44, 0.5);
+            --plt-line: rgba(44, 44, 44, 0.14);
+            --plt-thumb: rgba(176, 128, 80, 0.35);
+        }
+
+        /* ── 折叠标签行(默认唯一可见) ── */
+        .plt-pack-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.9em;
+        }
+        .plt-pack-toggle {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.9em;
+            cursor: pointer;
+            user-select: none;
+        }
+        .plt-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--plt-line));
+            transition: background 0.4s;
+        }
+        .plt-line:last-child {
+            background: linear-gradient(90deg, var(--plt-line), transparent);
+        }
+        .plt-icon {
+            color: var(--plt-accent);
+            font-size: 0.85em;
+            line-height: 1;
+            transition: transform 0.35s ease;
+        }
+        .plt-title {
+            font-size: 0.72em;
+            font-weight: 600;
+            letter-spacing: 0.32em;
+            margin-right: -0.32em;
+            text-transform: uppercase;
+            color: var(--plt-dim);
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        .plt-pack-toggle:hover .plt-title { color: var(--plt-accent); }
+        .plt-pack-toggle:hover .plt-icon { transform: rotate(90deg); }
+
+        /* ── 日/夜切换(标签行末尾的小太阳/小月亮) ── */
+        .plt-theme-switch {
+            font-size: 0.8em;
+            line-height: 1;
+            cursor: pointer;
+            user-select: none;
+            color: var(--plt-dim);
+            transition: color 0.25s, transform 0.25s;
+            padding: 2px;
+        }
+        .plt-theme-switch:hover {
+            color: var(--plt-accent);
+            transform: rotate(30deg);
+        }
+
+        /* ── 展开后的界面 ── */
+        .plt-pack-interface {
+            margin-top: 1.3em;
+            animation: plt-drop 0.4s ease;
+        }
+        @keyframes plt-drop {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tab 栏 */
+        .plt-pack-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4em 1.6em;
+            margin-bottom: 1.1em;
+        }
+        .plt-pack-btn {
+            position: relative;
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--plt-dim);
+            cursor: pointer;
+            padding: 0.2em 0;
+            transition: color 0.25s;
+        }
+        .plt-pack-btn::after {
+            content: "";
+            position: absolute;
+            left: 0; bottom: -2px;
+            width: 100%; height: 1px;
+            background: var(--plt-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .plt-pack-btn:hover { color: var(--plt-ink); }
+        .plt-pack-btn.active { color: var(--plt-accent); }
+        .plt-pack-btn.active::after { transform: scaleX(1); }
+
+        /* 正文区 */
+        .plt-pack-viewport {
+            max-height: 240px;
+            overflow-y: auto;
+            font-size: 0.85em;
+            line-height: 1.9;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: var(--plt-ink);
+            padding-right: 0.6em;
+            scrollbar-width: thin;
+            scrollbar-color: var(--plt-thumb) transparent;
+        }
+        .plt-pack-viewport::-webkit-scrollbar { width: 3px; }
+        .plt-pack-viewport::-webkit-scrollbar-track { background: transparent; }
+        .plt-pack-viewport::-webkit-scrollbar-thumb {
+            background: var(--plt-thumb);
+            border-radius: 2px;
+        }
+
+        .plt-pack-panel { display: none; }
+        .plt-pack-panel.active {
+            display: block;
+            animation: plt-fade 0.35s ease;
+        }
+        @keyframes plt-fade {
+            from { opacity: 0; transform: translateY(4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 展开后的收尾细线 */
+        .plt-pack-foot {
+            margin-top: 1.2em;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--plt-line), transparent);
+        }
+    </style>
+
+    <div class="plt-pack-raw" style="display:none;"><Snapshot>地点:冥王星观测站·休息舱 | 时间:标准历 2287.04.12 夜 | 在场:Pluto、指挥官
+氛围:低重力舱室内只有仪表的微光,两人隔着舷窗看柯伊伯带的尘埃。</Snapshot>
+<abstract>指挥官在例行检修后留在了休息舱。Pluto 第一次主动谈起了自己被除名的那一年,谈话在一杯合成热可可的雾气里结束,谁都没有提"返航"两个字。</abstract>
+<Todo>1. 修复三号天线阵列的相位漂移
+2. 回复地球总部的季度报告(已拖延17天)
+3. 弄清 Pluto 最近总在深夜查看旧轨道数据的原因</Todo>
+<seeds>· Pluto 提到"第九个位置"时指尖停顿了两秒
+· 储物柜深处有一枚未登记的旧式徽章
+· 地球方向的通讯延迟比理论值多了 0.3 秒</seeds>
+<Events>[2287.04.12] 完成外壳巡检,发现微陨石撞击痕 ×3
+[2287.04.12] Pluto 首次主动分享私人记忆
+[2287.04.13] 收到一条未署名的窄带信号(未解码)</Events></div>
+
+    <!-- 折叠标签行:───── ✦ PLUTO SUMMARY ───── ☀ -->
+    <div class="plt-pack-bar">
+        <div class="plt-pack-toggle" onclick="pltPackToggle(this)">
+            <span class="plt-line"></span>
+            <span class="plt-icon">✦</span>
+            <span class="plt-title">Pluto Summary</span>
+            <span class="plt-line"></span>
+        </div>
+        <div class="plt-theme-switch" onclick="pltPackTheme(event, this)">☀</div>
+    </div>
+
+    <!-- UI 渲染区(默认折叠) -->
+    <div class="plt-pack-interface" style="display:none;">
+        <div class="plt-pack-tabs"></div>
+        <div class="plt-pack-viewport"></div>
+        <div class="plt-pack-foot"></div>
+    </div>
+
+    <script>
+        // ── 日/夜切换 ──
+        window.pltPackTheme = function(event, btn) {
+            event.stopPropagation();
+            var wrap = btn.closest('.plt-pack-wrapper');
+            wrap.classList.toggle('day-mode');
+            btn.innerHTML = wrap.classList.contains('day-mode') ? '☾' : '☀';
+        };
+
+        // ── 展开 / 折叠 + 首次解析 ──
+        window.pltPackToggle = function(btn) {
+            var wrap = btn.closest('.plt-pack-wrapper');
+            var ui = wrap.querySelector('.plt-pack-interface');
+            var icon = btn.querySelector('.plt-icon');
+
+            if (ui.style.display === 'none') {
+                ui.style.display = 'block';
+                icon.innerText = '✧';
+            } else {
+                ui.style.display = 'none';
+                icon.innerText = '✦';
+                return;
+            }
+
+            // 已解析过则直接返回,避免重复渲染
+            if (wrap.dataset.parsed === 'true') return;
+
+            var rawHtml = wrap.querySelector('.plt-pack-raw').innerHTML;
+            var temp = document.createElement('div');
+            temp.innerHTML = rawHtml;
+
+            var tabsBox = wrap.querySelector('.plt-pack-tabs');
+            var viewBox = wrap.querySelector('.plt-pack-viewport');
+            var isFirst = true;
+
+            var targets = ['Snapshot', 'abstract', 'Todo', 'seeds', 'Events'];
+
+            targets.forEach(function(tag) {
+                var content = '';
+                // 方法A:DOM 直接取
+                var el = temp.querySelector(tag);
+                if (el) {
+                    content = el.innerHTML;
+                } else {
+                    // 方法B:DOM 被转义破坏时走正则容错
+                    var regex = new RegExp('<' + tag + '>([\\s\\S]*?)<\\/' + tag + '>', 'i');
+                    var match = rawHtml.match(regex);
+                    if (match) content = match[1];
+                }
+
+                if (content && content.trim() !== '') {
+                    var tBtn = document.createElement('div');
+                    tBtn.className = 'plt-pack-btn' + (isFirst ? ' active' : '');
+                    tBtn.innerText = tag.toUpperCase();
+
+                    var pnl = document.createElement('div');
+                    pnl.className = 'plt-pack-panel' + (isFirst ? ' active' : '');
+                    pnl.innerHTML = content.trim();
+
+                    tBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        tabsBox.querySelectorAll('.plt-pack-btn').forEach(function(b) { b.classList.remove('active'); });
+                        viewBox.querySelectorAll('.plt-pack-panel').forEach(function(p) { p.classList.remove('active'); });
+                        tBtn.classList.add('active');
+                        pnl.classList.add('active');
+                    };
+
+                    tabsBox.appendChild(tBtn);
+                    viewBox.appendChild(pnl);
+                    isFirst = false;
+                }
+            });
+
+            wrap.dataset.parsed = 'true';
+        };
+    </script>
+</div>
+
+        </div>
+      </div>
+      <div class="phone-cap"><b>NIGHT</b> · 夜间(默认) · 已展开</div>
+    </div>
+    <div class="phone-col">
+      <div class="phone day">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="mes">
+            <div class="who">Pluto · #42</div>
+            ……Pluto 把最后一颗螺栓拧紧,舱内重新恢复了安静。"今天就到这里吧,"它说,"剩下的,明天再说。"
+          </div>
+          
+<div class="plt-pack-wrapper day-mode" onclick="event.stopPropagation();">
+    <style>
+        /* ============================================
+           SP-D① 底部打包 · 冥王星美化版
+           透明底 / 暖白字 / 焦糖点缀 · 默认夜间
+           ============================================ */
+        .plt-pack-wrapper {
+            /* ── 夜间(默认):暖白 + 蜜糖焦糖 ── */
+            --plt-ink: #ECE9E4;
+            --plt-accent: #E5B685;
+            --plt-dim: rgba(236, 233, 228, 0.45);
+            --plt-line: rgba(236, 233, 228, 0.16);
+            --plt-thumb: rgba(229, 182, 133, 0.35);
+
+            position: relative;
+            margin: 2.4em 0 0.6em;
+            color: var(--plt-ink);
+            background: transparent;
+            font-family: inherit;
+            transition: color 0.4s ease;
+        }
+        /* ── 日间:深墨字 + 烤糖色 ── */
+        .plt-pack-wrapper.day-mode {
+            --plt-ink: #2C2C2C;
+            --plt-accent: #B08050;
+            --plt-dim: rgba(44, 44, 44, 0.5);
+            --plt-line: rgba(44, 44, 44, 0.14);
+            --plt-thumb: rgba(176, 128, 80, 0.35);
+        }
+
+        /* ── 折叠标签行(默认唯一可见) ── */
+        .plt-pack-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.9em;
+        }
+        .plt-pack-toggle {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.9em;
+            cursor: pointer;
+            user-select: none;
+        }
+        .plt-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--plt-line));
+            transition: background 0.4s;
+        }
+        .plt-line:last-child {
+            background: linear-gradient(90deg, var(--plt-line), transparent);
+        }
+        .plt-icon {
+            color: var(--plt-accent);
+            font-size: 0.85em;
+            line-height: 1;
+            transition: transform 0.35s ease;
+        }
+        .plt-title {
+            font-size: 0.72em;
+            font-weight: 600;
+            letter-spacing: 0.32em;
+            margin-right: -0.32em;
+            text-transform: uppercase;
+            color: var(--plt-dim);
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        .plt-pack-toggle:hover .plt-title { color: var(--plt-accent); }
+        .plt-pack-toggle:hover .plt-icon { transform: rotate(90deg); }
+
+        /* ── 日/夜切换(标签行末尾的小太阳/小月亮) ── */
+        .plt-theme-switch {
+            font-size: 0.8em;
+            line-height: 1;
+            cursor: pointer;
+            user-select: none;
+            color: var(--plt-dim);
+            transition: color 0.25s, transform 0.25s;
+            padding: 2px;
+        }
+        .plt-theme-switch:hover {
+            color: var(--plt-accent);
+            transform: rotate(30deg);
+        }
+
+        /* ── 展开后的界面 ── */
+        .plt-pack-interface {
+            margin-top: 1.3em;
+            animation: plt-drop 0.4s ease;
+        }
+        @keyframes plt-drop {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tab 栏 */
+        .plt-pack-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4em 1.6em;
+            margin-bottom: 1.1em;
+        }
+        .plt-pack-btn {
+            position: relative;
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--plt-dim);
+            cursor: pointer;
+            padding: 0.2em 0;
+            transition: color 0.25s;
+        }
+        .plt-pack-btn::after {
+            content: "";
+            position: absolute;
+            left: 0; bottom: -2px;
+            width: 100%; height: 1px;
+            background: var(--plt-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .plt-pack-btn:hover { color: var(--plt-ink); }
+        .plt-pack-btn.active { color: var(--plt-accent); }
+        .plt-pack-btn.active::after { transform: scaleX(1); }
+
+        /* 正文区 */
+        .plt-pack-viewport {
+            max-height: 240px;
+            overflow-y: auto;
+            font-size: 0.85em;
+            line-height: 1.9;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: var(--plt-ink);
+            padding-right: 0.6em;
+            scrollbar-width: thin;
+            scrollbar-color: var(--plt-thumb) transparent;
+        }
+        .plt-pack-viewport::-webkit-scrollbar { width: 3px; }
+        .plt-pack-viewport::-webkit-scrollbar-track { background: transparent; }
+        .plt-pack-viewport::-webkit-scrollbar-thumb {
+            background: var(--plt-thumb);
+            border-radius: 2px;
+        }
+
+        .plt-pack-panel { display: none; }
+        .plt-pack-panel.active {
+            display: block;
+            animation: plt-fade 0.35s ease;
+        }
+        @keyframes plt-fade {
+            from { opacity: 0; transform: translateY(4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 展开后的收尾细线 */
+        .plt-pack-foot {
+            margin-top: 1.2em;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--plt-line), transparent);
+        }
+    </style>
+
+    <div class="plt-pack-raw" style="display:none;"><Snapshot>地点:冥王星观测站·休息舱 | 时间:标准历 2287.04.12 夜 | 在场:Pluto、指挥官
+氛围:低重力舱室内只有仪表的微光,两人隔着舷窗看柯伊伯带的尘埃。</Snapshot>
+<abstract>指挥官在例行检修后留在了休息舱。Pluto 第一次主动谈起了自己被除名的那一年,谈话在一杯合成热可可的雾气里结束,谁都没有提"返航"两个字。</abstract>
+<Todo>1. 修复三号天线阵列的相位漂移
+2. 回复地球总部的季度报告(已拖延17天)
+3. 弄清 Pluto 最近总在深夜查看旧轨道数据的原因</Todo>
+<seeds>· Pluto 提到"第九个位置"时指尖停顿了两秒
+· 储物柜深处有一枚未登记的旧式徽章
+· 地球方向的通讯延迟比理论值多了 0.3 秒</seeds>
+<Events>[2287.04.12] 完成外壳巡检,发现微陨石撞击痕 ×3
+[2287.04.12] Pluto 首次主动分享私人记忆
+[2287.04.13] 收到一条未署名的窄带信号(未解码)</Events></div>
+
+    <!-- 折叠标签行:───── ✦ PLUTO SUMMARY ───── ☀ -->
+    <div class="plt-pack-bar">
+        <div class="plt-pack-toggle" onclick="pltPackToggle(this)">
+            <span class="plt-line"></span>
+            <span class="plt-icon">✦</span>
+            <span class="plt-title">Pluto Summary</span>
+            <span class="plt-line"></span>
+        </div>
+        <div class="plt-theme-switch" onclick="pltPackTheme(event, this)">☾</div>
+    </div>
+
+    <!-- UI 渲染区(默认折叠) -->
+    <div class="plt-pack-interface" style="display:none;">
+        <div class="plt-pack-tabs"></div>
+        <div class="plt-pack-viewport"></div>
+        <div class="plt-pack-foot"></div>
+    </div>
+
+    <script>
+        // ── 日/夜切换 ──
+        window.pltPackTheme = function(event, btn) {
+            event.stopPropagation();
+            var wrap = btn.closest('.plt-pack-wrapper');
+            wrap.classList.toggle('day-mode');
+            btn.innerHTML = wrap.classList.contains('day-mode') ? '☾' : '☀';
+        };
+
+        // ── 展开 / 折叠 + 首次解析 ──
+        window.pltPackToggle = function(btn) {
+            var wrap = btn.closest('.plt-pack-wrapper');
+            var ui = wrap.querySelector('.plt-pack-interface');
+            var icon = btn.querySelector('.plt-icon');
+
+            if (ui.style.display === 'none') {
+                ui.style.display = 'block';
+                icon.innerText = '✧';
+            } else {
+                ui.style.display = 'none';
+                icon.innerText = '✦';
+                return;
+            }
+
+            // 已解析过则直接返回,避免重复渲染
+            if (wrap.dataset.parsed === 'true') return;
+
+            var rawHtml = wrap.querySelector('.plt-pack-raw').innerHTML;
+            var temp = document.createElement('div');
+            temp.innerHTML = rawHtml;
+
+            var tabsBox = wrap.querySelector('.plt-pack-tabs');
+            var viewBox = wrap.querySelector('.plt-pack-viewport');
+            var isFirst = true;
+
+            var targets = ['Snapshot', 'abstract', 'Todo', 'seeds', 'Events'];
+
+            targets.forEach(function(tag) {
+                var content = '';
+                // 方法A:DOM 直接取
+                var el = temp.querySelector(tag);
+                if (el) {
+                    content = el.innerHTML;
+                } else {
+                    // 方法B:DOM 被转义破坏时走正则容错
+                    var regex = new RegExp('<' + tag + '>([\\s\\S]*?)<\\/' + tag + '>', 'i');
+                    var match = rawHtml.match(regex);
+                    if (match) content = match[1];
+                }
+
+                if (content && content.trim() !== '') {
+                    var tBtn = document.createElement('div');
+                    tBtn.className = 'plt-pack-btn' + (isFirst ? ' active' : '');
+                    tBtn.innerText = tag.toUpperCase();
+
+                    var pnl = document.createElement('div');
+                    pnl.className = 'plt-pack-panel' + (isFirst ? ' active' : '');
+                    pnl.innerHTML = content.trim();
+
+                    tBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        tabsBox.querySelectorAll('.plt-pack-btn').forEach(function(b) { b.classList.remove('active'); });
+                        viewBox.querySelectorAll('.plt-pack-panel').forEach(function(p) { p.classList.remove('active'); });
+                        tBtn.classList.add('active');
+                        pnl.classList.add('active');
+                    };
+
+                    tabsBox.appendChild(tBtn);
+                    viewBox.appendChild(pnl);
+                    isFirst = false;
+                }
+            });
+
+            wrap.dataset.parsed = 'true';
+        };
+    </script>
+</div>
+
+        </div>
+      </div>
+      <div class="phone-cap"><b>DAY</b> · 日间 · 默认折叠态</div>
+    </div>
+  </div>
+  <p class="hint">点 <span class="k">✦ PLUTO SUMMARY</span> 展开/折叠 · 点 Tab 切换五个面板 · 点末端 <span class="k">☀ / ☾</span> 切换日夜</p>
+
+  <h2><span class="dot">✦</span>相对原版的变化</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>位置</th><th>原版</th><th>美化版</th></tr>
+    <tr><td>折叠态</td><td class="muted">「+ SCENE APPENDICES」左对齐灰字</td><td>居中标签线 ───&nbsp;✦&nbsp;PLUTO SUMMARY&nbsp;─── ,悬停时点亮焦糖色</td></tr>
+    <tr><td>配色</td><td class="muted">夜间粉白 #FDF3F5 / 日间藏蓝 #1E2B3C,默认日间</td><td>透明底;夜间暖白 #ECE9E4 + 焦糖 #E5B685(冥王星同款),默认夜间</td></tr>
+    <tr><td>Tab</td><td class="muted">加粗大写 + 底边框</td><td>细字距大写,激活时焦糖色 + 下划线从左滑入</td></tr>
+    <tr><td>正文区</td><td class="muted">固定 230px 高、左侧粗竖线</td><td>max-height 240px(内容短则不留空洞),3px 焦糖细滚动条</td></tr>
+    <tr><td>日夜切换</td><td class="muted">右上角 🌙/☀️ emoji</td><td>标签线末端文字符号 ☀/☾,随主题变色</td></tr>
+    <tr><td>逻辑</td><td class="muted">—</td><td>解析逻辑(DOM 抓取 + 正则容错、懒加载、五标签顺序)完全保留</td></tr>
+  </table>
+  </div>
+
+  <h2><span class="dot">✦</span>安装与自定义</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>导入</h3>
+      <ol>
+        <li>酒馆 → 扩展 → <code>正则</code> → 导入脚本,选 <code>底部打包-冥王星美化版.json</code></li>
+        <li>关掉原来的 <code>SP-D①底部打包日夜版</code>(两个同开会重复渲染)</li>
+        <li>触发条件、作用楼层与原版完全一致,无需改预设</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>改标签文字</h3>
+      <p>想把「PLUTO SUMMARY」换成别的(比如 ABSTRACT),在脚本里搜 <code>plt-title</code>,改下一行的文字即可。</p>
+    </div>
+    <div class="card">
+      <h3>改颜色</h3>
+      <p>所有颜色集中在 CSS 开头的 <code>--plt-*</code> 变量区:<code>--plt-ink</code> 正文、<code>--plt-accent</code> 点缀、<code>--plt-dim</code> 次级灰。夜间在 <code>.plt-pack-wrapper</code>,日间在 <code>.day-mode</code>。</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>SP-D① 底部打包 · 冥王星美化版</span>
+    <span>2026.08 · for amber</span>
+    <span>骨架逻辑源自原版《底部打包日夜版》,致谢原作者</span>
+  </footer>
+</div>
+
+<script>
+  window.addEventListener('load', function () {
+    var demo = document.getElementById('demo-night');
+    if (demo) {
+      var t = demo.querySelector('.plt-pack-toggle');
+      if (t && window.pltPackToggle) window.pltPackToggle(t);
+    }
+  });
+</script>
